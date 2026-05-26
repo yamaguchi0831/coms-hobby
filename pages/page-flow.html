@@ -309,6 +309,19 @@
                 border: 0;
             }
 
+            .hb-flow__p-cases .hb__c-cases__foot {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hb-flow__p-cases .hb__c-cases__button {
+                width: 100%;
+                min-height: 42px;
+                justify-content: center;
+                border: 0;
+                font-size: var(--hb-font-size-body--sm);
+            }
+
             @media (max-width: 980px) {
                 .hb-flow__p-lead__inner,
                 .hb-flow__p-methods__grid {
@@ -327,6 +340,37 @@
             @media (max-width: 640px) {
                 .hb-flow__p-section-head {
                     text-align: left;
+                }
+
+                .hb-flow__p-cases {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: var(--hb-space-sm);
+                }
+
+                .hb-flow__p-cases .hb__c-cases__body {
+                    padding: var(--hb-space-sm);
+                }
+
+                .hb-flow__p-cases .hb__c-cases__cat,
+                .hb-flow__p-cases .hb__c-cases__text {
+                    font-size: var(--hb-font-size-caption);
+                }
+
+                .hb-flow__p-cases .hb__c-cases__title,
+                .hb-flow__p-cases .hb__c-cases__price {
+                    font-size: var(--hb-font-size-body--sm);
+                }
+
+                .hb-flow__p-cases .hb__c-cases__foot {
+                    gap: var(--hb-space-xs);
+                    padding-top: var(--hb-space-sm);
+                }
+
+                .hb-flow__p-cases .hb__c-cases__button {
+                    min-height: 36px;
+                    padding: var(--hb-space-xs);
+                    font-size: var(--hb-font-size-caption);
+                    white-space: normal;
                 }
 
                 .hb-flow__p-steps {
@@ -762,7 +806,7 @@
                         </p>
                     </header>
 
-                    <div class="hb__c-cases">
+                    <div class="hb__c-cases hb-flow__p-cases">
                         <article class="hb__c-cases__item">
                             <img
                                 class="hb__c-cases__img"
@@ -783,11 +827,13 @@
                                     押し入れ整理。未組立中心、外箱コンディション良好。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >宅配買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 380,000 〜 482,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
@@ -813,11 +859,13 @@
                                     コレクション引退。グッスマ・アルター・コトブキヤなど。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >出張買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 215,000 〜 268,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
@@ -842,11 +890,13 @@
                                     神奈川県・遺品整理。箱・説明書付き多数、レア作品含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >出張買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 142,000 〜 188,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
@@ -871,11 +921,13 @@
                                     大阪府・20代 / 趣味じまい。PSA鑑定品含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >宅配買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 96,000 〜 124,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
@@ -900,11 +952,13 @@
                                     埼玉県・引っ越し前整理。DX歴代ベルト＋関連グッズ。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >宅配買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 58,000 〜 76,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
@@ -930,11 +984,13 @@
                                     生前整理。年代物・限定品を含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method"
-                                        >出張買取</span
-                                    >
                                     <span class="hb__c-cases__price"
                                         >¥ 168,000 〜 210,000</span
+                                    >
+                                    <a
+                                        class="hb__c-btn hb__c-btn--primary hb__c-cases__button"
+                                        href="kaitori-form.html"
+                                        >査定を申し込む</a
                                     >
                                 </div>
                             </div>
