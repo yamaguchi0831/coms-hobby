@@ -1,0 +1,1775 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ジャンル別買取 | バイバイコムズ ホビー買取</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../asset/css/tokens.css" />
+        <link rel="stylesheet" href="../asset/css/reset.css" />
+        <link rel="stylesheet" href="../asset/css/base.css" />
+        <link rel="stylesheet" href="../asset/css/utility.css" />
+        <link rel="stylesheet" href="../asset/css/component.css" />
+        <style>
+            .hb-item-genre__p-section-head {
+                display: grid;
+                gap: var(--hb-space-sm);
+                max-width: var(--hb-layout-container-sm);
+                margin: 0 auto var(--hb-space-2xl);
+                text-align: center;
+            }
+
+            .hb-item-genre__p-section-title {
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: clamp(
+                    var(--hb-font-size-h2),
+                    3vw,
+                    var(--hb-font-size-h1)
+                );
+                font-weight: 900;
+                line-height: 1.45;
+            }
+
+            .hb-item-genre__p-lead {
+                margin: 0;
+                color: var(--hb-color-text-muted);
+                font-size: var(--hb-font-size-body);
+                line-height: 1.9;
+            }
+
+            .hb-item-genre__p-main-visual {
+                background: var(--hb-gradient-primary);
+                color: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-main-visual__inner {
+                display: grid;
+                grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+                gap: var(--hb-space-2xl);
+                align-items: center;
+                min-height: 460px;
+            }
+
+            .hb-item-genre__p-main-visual__body {
+                display: grid;
+                gap: var(--hb-space-lg);
+                min-width: 0;
+            }
+
+            .hb-item-genre__p-main-visual__badge {
+                width: fit-content;
+                padding: var(--hb-space-xs) var(--hb-space-md);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-white-alpha-10);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 900;
+                line-height: 1.5;
+            }
+
+            .hb-item-genre__p-main-visual__title {
+                margin: 0;
+                color: var(--hb-color-white);
+                font-size: clamp(
+                    var(--hb-font-size-h1),
+                    5vw,
+                    var(--hb-font-size-display)
+                );
+                font-weight: 900;
+                line-height: 1.3;
+            }
+
+            .hb-item-genre__p-main-visual__text {
+                max-width: var(--hb-layout-container-sm);
+                margin: 0;
+                color: var(--hb-color-white-alpha-94);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 700;
+                line-height: 1.9;
+            }
+
+            .hb-item-genre__p-main-visual__actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--hb-space-md);
+                align-items: center;
+            }
+
+            .hb-item-genre__p-main-visual__image {
+                margin: 0;
+                overflow: hidden;
+                border: 1px solid var(--hb-color-white-alpha-10);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white-alpha-10);
+                box-shadow: var(--hb-shadow-lg);
+            }
+
+            .hb-item-genre__p-main-visual__image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-recommend {
+                background: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-recommend-inner {
+                display: grid;
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                gap: var(--hb-space-2xl);
+                align-items: center;
+            }
+
+            .hb-item-genre__p-recommend-image {
+                margin: 0;
+                overflow: hidden;
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-surface-green-light);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-recommend-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-recommend-body {
+                min-width: 0;
+            }
+
+            .hb-item-genre__p-recommend-body .hb-item-genre__p-section-head {
+                margin-inline: 0;
+                text-align: left;
+            }
+
+            .hb-item-genre__p-recommend-list {
+                margin: 0;
+                padding: 0;
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+                list-style: none;
+            }
+
+            .hb-item-genre__p-recommend-item {
+                display: flex;
+                gap: var(--hb-space-md);
+                align-items: center;
+                padding: var(--hb-space-lg);
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 900;
+                line-height: 1.6;
+            }
+
+            .hb-item-genre__p-recommend-item
+                + .hb-item-genre__p-recommend-item {
+                border-top: 1px dashed var(--hb-color-primary-300);
+            }
+
+            .hb-item-genre__p-check-icon {
+                display: inline-grid;
+                flex: 0 0 auto;
+                width: var(--hb-space-xl);
+                height: var(--hb-space-xl);
+                place-items: center;
+                border-radius: var(--hb-radius-sm);
+                background: var(--hb-color-primary-500);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .hb-item-genre__p-method {
+                background: var(--hb-color-surface-soft);
+            }
+
+            .hb-item-genre__p-method-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: var(--hb-space-lg);
+            }
+
+            .hb-item-genre__p-method-card {
+                display: grid;
+                grid-template-rows: auto auto 1fr auto auto;
+                min-width: 0;
+                overflow: hidden;
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-method-image {
+                margin: 0;
+                background: var(--hb-color-surface-green-light);
+            }
+
+            .hb-item-genre__p-method-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 16 / 10;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-method-title {
+                margin: 0;
+                padding: var(--hb-space-lg) var(--hb-space-lg) 0;
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h3);
+                font-weight: 900;
+                line-height: 1.5;
+            }
+
+            .hb-item-genre__p-method-text {
+                margin: 0;
+                padding: var(--hb-space-sm) var(--hb-space-lg) 0;
+                color: var(--hb-color-text-muted);
+                font-size: var(--hb-font-size-body--sm);
+                line-height: 1.85;
+            }
+
+            .hb-item-genre__p-method-list {
+                display: grid;
+                gap: var(--hb-space-xs);
+                margin: var(--hb-space-md) var(--hb-space-lg) 0;
+                padding: var(--hb-space-md) 0 0;
+                border-top: 1px dashed var(--hb-color-border-muted);
+                list-style: none;
+            }
+
+            .hb-item-genre__p-method-list li {
+                position: relative;
+                padding-left: var(--hb-space-lg);
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 700;
+                line-height: 1.7;
+            }
+
+            .hb-item-genre__p-method-list li::before {
+                position: absolute;
+                top: 0.45em;
+                left: 0;
+                width: var(--hb-space-xs);
+                height: var(--hb-space-xs);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-primary-500);
+                content: "";
+            }
+
+            .hb-item-genre__p-method-action {
+                display: flex;
+                padding: var(--hb-space-lg);
+                margin-top: auto;
+            }
+
+            .hb-item-genre__p-method-action .hb__c-btn {
+                width: 100%;
+            }
+
+            .hb-item-genre__p-featured {
+                background: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-featured-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: var(--hb-space-md);
+            }
+
+            .hb-item-genre__p-featured-card {
+                overflow: hidden;
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-featured-image {
+                position: relative;
+                margin: 0;
+                background: var(--hb-color-surface-green-light);
+            }
+
+            .hb-item-genre__p-featured-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-featured-badge {
+                position: absolute;
+                top: var(--hb-space-sm);
+                left: var(--hb-space-sm);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-tertiary-500);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-caption);
+                font-weight: 900;
+                line-height: 1.4;
+                padding: var(--hb-space-2xs) var(--hb-space-sm);
+            }
+
+            .hb-item-genre__p-featured-body {
+                display: flex;
+                gap: var(--hb-space-sm);
+                align-items: center;
+                justify-content: space-between;
+                padding: var(--hb-space-md);
+            }
+
+            .hb-item-genre__p-featured-title {
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-body);
+                font-weight: 900;
+                line-height: 1.5;
+            }
+
+            .hb-item-genre__p-featured-link {
+                display: inline-grid;
+                flex: 0 0 auto;
+                width: var(--hb-space-xl);
+                height: var(--hb-space-xl);
+                place-items: center;
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-surface-pill);
+                color: var(--hb-color-primary-700);
+                font-weight: 900;
+                line-height: 1;
+                text-decoration: none;
+            }
+
+            .hb-item-genre__p-solution {
+                background: var(--hb-color-surface-soft);
+            }
+
+            .hb-item-genre__p-solution-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: var(--hb-space-lg);
+            }
+
+            .hb-item-genre__p-solution-card {
+                position: relative;
+                display: grid;
+                grid-template-rows: auto auto 1fr;
+                gap: var(--hb-space-md);
+                min-width: 0;
+                padding: var(--hb-space-lg);
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-solution-number {
+                position: absolute;
+                top: calc(var(--hb-space-md) * -1);
+                left: var(--hb-space-md);
+                display: grid;
+                width: var(--hb-space-2xl);
+                height: var(--hb-space-2xl);
+                place-items: center;
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-gradient-primary);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-h3);
+                font-weight: 900;
+                line-height: 1;
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-solution-image {
+                margin: 0;
+                overflow: hidden;
+                border-radius: var(--hb-radius-sm);
+                background: var(--hb-color-surface-green-light);
+            }
+
+            .hb-item-genre__p-solution-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-card-title {
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 900;
+                line-height: 1.55;
+            }
+
+            .hb-item-genre__p-card-text {
+                margin: 0;
+                color: var(--hb-color-text-muted);
+                font-size: var(--hb-font-size-body--sm);
+                line-height: 1.85;
+            }
+
+            .hb-item-genre__p-condition {
+                background: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-split {
+                display: grid;
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                gap: var(--hb-space-2xl);
+                align-items: center;
+            }
+
+            .hb-item-genre__p-split--reverse {
+                grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            }
+
+            .hb-item-genre__p-split-image {
+                margin: 0;
+                overflow: hidden;
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-surface-green-light);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-split-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-split-body {
+                display: grid;
+                gap: var(--hb-space-lg);
+            }
+
+            .hb-item-genre__p-split-title {
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: clamp(
+                    var(--hb-font-size-h2),
+                    3vw,
+                    var(--hb-font-size-h1)
+                );
+                font-weight: 900;
+                line-height: 1.45;
+            }
+
+            .hb-item-genre__p-ok-list {
+                display: grid;
+                gap: var(--hb-space-sm);
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .hb-item-genre__p-ok-item {
+                display: flex;
+                gap: var(--hb-space-sm);
+                align-items: center;
+                color: var(--hb-color-text-deep);
+                font-weight: 700;
+                line-height: 1.7;
+            }
+
+            .hb-item-genre__p-ok-badge {
+                display: inline-grid;
+                flex: 0 0 auto;
+                width: var(--hb-space-xl);
+                height: var(--hb-space-xl);
+                place-items: center;
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-tertiary-500);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-caption);
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .hb-item-genre__p-tips {
+                background: var(--hb-color-surface-soft);
+            }
+
+            .hb-item-genre__p-tip-list {
+                display: grid;
+                gap: var(--hb-space-md);
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .hb-item-genre__p-tip-item {
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr);
+                gap: var(--hb-space-md);
+                padding: var(--hb-space-lg);
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-tip-number {
+                color: var(--hb-color-tertiary-600);
+                font-size: var(--hb-font-size-h1);
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .hb-item-genre__p-tip-title {
+                margin: 0 0 var(--hb-space-xs);
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 900;
+                line-height: 1.5;
+            }
+
+            .hb-item-genre__p-price {
+                background: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-maker {
+                background: var(--hb-color-surface-soft);
+            }
+
+            .hb-item-genre__p-maker-list {
+                display: grid;
+                gap: var(--hb-space-xl);
+                margin: 0;
+                padding: var(--hb-space-xl);
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-maker-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--hb-space-md);
+                align-items: flex-start;
+                justify-content: center;
+                padding: 0;
+                text-align: center;
+            }
+
+            .hb-item-genre__p-maker-row + .hb-item-genre__p-maker-row {
+                padding-top: var(--hb-space-xl);
+                border-top: 1px dashed var(--hb-color-border-muted);
+            }
+
+            .hb-item-genre__p-maker-term {
+                width: 100%;
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 900;
+            }
+
+            .hb-item-genre__p-maker-rule {
+                width: 100%;
+                border-top: 1px dotted var(--hb-color-primary-400);
+            }
+
+            .hb-item-genre__p-maker-tags {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: var(--hb-space-xs);
+                margin: 0;
+            }
+
+            .hb-item-genre__p-maker-tag {
+                margin: 0;
+                padding: var(--hb-space-xs) var(--hb-space-sm);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-surface-pill);
+                color: var(--hb-color-primary-700);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 700;
+                line-height: 1.4;
+            }
+
+            .hb-item-genre__p-faq {
+                background: var(--hb-color-white);
+            }
+
+            .hb-item-genre__p-faq-list {
+                display: grid;
+                gap: var(--hb-space-md);
+                max-width: var(--hb-layout-container-sm);
+                margin: 0 auto;
+            }
+
+            .hb-item-genre__p-faq-item {
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
+
+            .hb-item-genre__p-faq-question {
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                gap: var(--hb-space-md);
+                align-items: center;
+                width: 100%;
+                padding: var(--hb-space-lg);
+                border: 0;
+                background: transparent;
+                color: var(--hb-color-text-deep);
+                font: inherit;
+                font-weight: 900;
+                line-height: 1.7;
+                text-align: left;
+                cursor: pointer;
+            }
+
+            .hb-item-genre__p-faq-icon {
+                display: inline-grid;
+                width: var(--hb-space-xl);
+                height: var(--hb-space-xl);
+                place-items: center;
+                border-radius: var(--hb-radius-full);
+                color: var(--hb-color-white);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .hb-item-genre__p-faq-icon--q {
+                background: var(--hb-color-primary-500);
+            }
+
+            .hb-item-genre__p-faq-icon--a {
+                background: var(--hb-color-tertiary-500);
+            }
+
+            .hb-item-genre__p-faq-toggle {
+                color: var(--hb-color-primary-600);
+                font-size: var(--hb-font-size-h3);
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .hb-item-genre__p-faq-answer {
+                display: none;
+                grid-template-columns: auto minmax(0, 1fr);
+                gap: var(--hb-space-md);
+                padding: 0 var(--hb-space-lg) var(--hb-space-lg);
+                color: var(--hb-color-text-muted);
+                line-height: 1.9;
+            }
+
+            .hb-item-genre__p-faq-item.hb-item-genre__is-open
+                .hb-item-genre__p-faq-answer {
+                display: grid;
+            }
+
+            .hb-item-genre__p-faq-more {
+                display: flex;
+                justify-content: center;
+                margin-top: var(--hb-space-2xl);
+            }
+
+            @media (max-width: 980px) {
+                .hb-item-genre__p-main-visual__inner,
+                .hb-item-genre__p-recommend-inner,
+                .hb-item-genre__p-method-grid,
+                .hb-item-genre__p-solution-grid,
+                .hb-item-genre__p-split,
+                .hb-item-genre__p-split--reverse {
+                    grid-template-columns: 1fr;
+                }
+
+                .hb-item-genre__p-featured-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .hb-item-genre__p-split--reverse .hb-item-genre__p-split-image {
+                    order: -1;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .hb-item-genre__p-section-head {
+                    text-align: left;
+                }
+
+                .hb-item-genre__p-main-visual__inner {
+                    min-height: auto;
+                }
+
+                .hb-item-genre__p-recommend-item,
+                .hb-item-genre__p-method-title,
+                .hb-item-genre__p-method-action,
+                .hb-item-genre__p-solution-card,
+                .hb-item-genre__p-tip-item,
+                .hb-item-genre__p-faq-question {
+                    padding: var(--hb-space-md);
+                }
+
+                .hb-item-genre__p-method-text {
+                    padding-inline: var(--hb-space-md);
+                }
+
+                .hb-item-genre__p-method-list {
+                    margin-inline: var(--hb-space-md);
+                }
+
+                .hb-item-genre__p-featured-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .hb-item-genre__p-recommend-item {
+                    align-items: flex-start;
+                    font-size: var(--hb-font-size-body);
+                }
+
+                .hb-item-genre__p-tip-item {
+                    grid-template-columns: 1fr;
+                }
+
+                .hb-item-genre__p-maker-list {
+                    padding: var(--hb-space-md);
+                }
+
+                .hb-item-genre__p-faq-answer {
+                    padding: 0 var(--hb-space-md) var(--hb-space-md);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="hb__l-header" data-screen-label="Header">
+            <div class="hb__l-container hb__p-header">
+                <a class="hb__c-brand" href="#top">
+                    <span class="hb__c-brand__mark" aria-hidden="true">B</span>
+                    <span class="hb__c-brand__text">
+                        <span class="hb__c-brand__name">バイバイコムズ</span>
+                        <span class="hb__c-brand__sub">ホビー買取</span>
+                    </span>
+                </a>
+                <nav class="hb__p-header__nav" aria-label="グローバルナビ">
+                    <a href="#recommend">おすすめ</a>
+                    <a href="#method">買取方法</a>
+                    <a href="#solution">強み</a>
+                    <a href="#condition">状態</a>
+                    <a href="#tips">高く売るコツ</a>
+                    <a href="#faq">よくある質問</a>
+                </nav>
+                <div class="hb__p-header__cta">
+                    <a href="tel:0120000000" class="hb__p-header__tel">
+                        <span class="hb__p-header__tel-label">通話無料</span>
+                        <span class="hb__p-header__tel-num">0120-000-000</span>
+                    </a>
+                    <a
+                        href="kaitori-form.html"
+                        class="hb__c-btn hb__c-btn--primary hb__c-btn--sm"
+                        >無料査定を申し込む</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main id="top">
+            <section class="hb__l-section hb-item-genre__p-main-visual">
+                <div
+                    class="hb__l-container hb-item-genre__p-main-visual__inner"
+                >
+                    <div class="hb-item-genre__p-main-visual__body">
+                        <span class="hb-item-genre__p-main-visual__badge"
+                            >手数料無料・全国対応</span
+                        >
+                        <h1 class="hb-item-genre__p-main-visual__title">
+                            XXXの買取ならお任せ下さい（仮）
+                        </h1>
+                        <p class="hb-item-genre__p-main-visual__text">
+                            まとめて箱に詰めて送るだけ。専門バイヤーが状態や希少性を丁寧に見極め、納得感のある査定をご案内します。
+                        </p>
+                        <div class="hb-item-genre__p-main-visual__actions">
+                            <a
+                                class="hb__c-btn hb__c-btn--ghost"
+                                href="kaitori-form.html"
+                                >無料査定を申し込む</a
+                            >
+                            <a
+                                class="hb__c-btn hb__c-btn--primary"
+                                href="#recommend"
+                                >詳しく見る</a
+                            >
+                        </div>
+                    </div>
+                    <figure class="hb-item-genre__p-main-visual__image">
+                        <img
+                            src="https://placehold.co/800x600/eef3ee/5f6f66?text=Main+Visual"
+                            alt="買取対象のホビー品をまとめたイメージ"
+                        />
+                    </figure>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-results"
+                id="results"
+            >
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            買取価格実績
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-recommend"
+                id="recommend"
+            >
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-recommend-inner">
+                        <figure class="hb-item-genre__p-recommend-image">
+                            <img
+                                src="https://placehold.co/800x600/eef3ee/5f6f66?text=Recommend"
+                                alt="ホビー品をまとめて整理するイメージ"
+                            />
+                        </figure>
+                        <div class="hb-item-genre__p-recommend-body">
+                            <div class="hb-item-genre__p-section-head">
+                                <h2 class="hb-item-genre__p-section-title">
+                                    こんな方にご利用いただいております！
+                                </h2>
+                            </div>
+                            <ul class="hb-item-genre__p-recommend-list">
+                                <li class="hb-item-genre__p-recommend-item">
+                                    <span
+                                        class="hb-item-genre__p-check-icon"
+                                        aria-hidden="true"
+                                        >✓</span
+                                    >
+                                    <span>手軽にすばやく売りたい</span>
+                                </li>
+                                <li class="hb-item-genre__p-recommend-item">
+                                    <span
+                                        class="hb-item-genre__p-check-icon"
+                                        aria-hidden="true"
+                                        >✓</span
+                                    >
+                                    <span
+                                        >フリマで出品が面倒、トラブルが不安</span
+                                    >
+                                </li>
+                                <li class="hb-item-genre__p-recommend-item">
+                                    <span
+                                        class="hb-item-genre__p-check-icon"
+                                        aria-hidden="true"
+                                        >✓</span
+                                    >
+                                    <span
+                                        >コレクションをまとめて整理したい</span
+                                    >
+                                </li>
+                                <li class="hb-item-genre__p-recommend-item">
+                                    <span
+                                        class="hb-item-genre__p-check-icon"
+                                        aria-hidden="true"
+                                        >✓</span
+                                    >
+                                    <span
+                                        >鑑定のプロにしっかり査定してもらいたい</span
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hb__l-section hb-item-genre__p-method" id="method">
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            選べる3つの買取方法
+                        </h2>
+                    </div>
+                    <div class="hb-item-genre__p-method-grid">
+                        <article class="hb-item-genre__p-method-card">
+                            <figure class="hb-item-genre__p-method-image">
+                                <img
+                                    src="https://placehold.co/640x400/eef3ee/5f6f66?text=Delivery"
+                                    alt="宅配買取のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-method-title">
+                                宅配買取
+                            </h3>
+                            <p class="hb-item-genre__p-method-text">
+                                ご自宅から段ボールに詰めて発送するだけ。手間なく全国どこからでもご利用いただけます。
+                            </p>
+                            <ul class="hb-item-genre__p-method-list">
+                                <li>送料・梱包材無料</li>
+                                <li>買取キットの発送も可能</li>
+                                <li>10点以上から受付</li>
+                            </ul>
+                            <div class="hb-item-genre__p-method-action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--ghost"
+                                    href="page-flow.html#takuhai-flow"
+                                    >宅配買取はこちら</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-method-card">
+                            <figure class="hb-item-genre__p-method-image">
+                                <img
+                                    src="https://placehold.co/640x400/eef3ee/5f6f66?text=Visit"
+                                    alt="出張買取のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-method-title">
+                                出張買取
+                            </h3>
+                            <p class="hb-item-genre__p-method-text">
+                                スタッフがご自宅まで直接お伺いします。大量にある場合や重い商品でも安心してご利用いただけます。
+                            </p>
+                            <ul class="hb-item-genre__p-method-list">
+                                <li>出張料・査定料無料</li>
+                                <li>段ボール5箱以上から</li>
+                                <li>ご希望日時に対応</li>
+                            </ul>
+                            <div class="hb-item-genre__p-method-action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--ghost"
+                                    href="page-flow.html#shuccho-flow"
+                                    >出張買取はこちら</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-method-card">
+                            <figure class="hb-item-genre__p-method-image">
+                                <img
+                                    src="https://placehold.co/640x400/eef3ee/5f6f66?text=Store"
+                                    alt="持ち込み買取のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-method-title">
+                                持ち込み買取
+                            </h3>
+                            <p class="hb-item-genre__p-method-text">
+                                店頭へお持ち込みいただくと、その場でスピーディに査定・お支払いいたします。
+                            </p>
+                            <ul class="hb-item-genre__p-method-list">
+                                <li>即日現金払い</li>
+                                <li>点数制限なし</li>
+                                <li>事前予約で待ち時間短縮</li>
+                            </ul>
+                            <div class="hb-item-genre__p-method-action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--ghost"
+                                    href="page-flow.html#store-flow"
+                                    >持ち込み買取はこちら</a
+                                >
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-featured"
+                id="featured"
+            >
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            買取強化中の<span class="hb__c-hl">アイテム</span>
+                        </h2>
+                        <p class="hb-item-genre__p-lead">
+                            2026年5月時点で相場が高騰中・需要が高いシリーズです。お手元にあれば、ぜひお売りください。
+                        </p>
+                    </div>
+                    <div class="hb-item-genre__p-featured-grid">
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=S.H.Figuarts"
+                                    alt="S.H.Figuartsのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    S.H.Figuarts
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="S.H.Figuartsの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=METAL+BUILD"
+                                    alt="METAL BUILDのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    METAL BUILD
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="METAL BUILDの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Nendoroid"
+                                    alt="ねんどろいどのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    ねんどろいど
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="ねんどろいどの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=figma"
+                                    alt="figmaのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    figma
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="figmaの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Ichiban+Kuji"
+                                    alt="一番くじフィギュアのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    一番くじフィギュア
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="一番くじフィギュアの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Chogokin"
+                                    alt="超合金のイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    超合金
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="超合金の詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Prize"
+                                    alt="プライズフィギュアのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    プライズフィギュア
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="プライズフィギュアの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-featured-card">
+                            <figure class="hb-item-genre__p-featured-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Gunpla"
+                                    alt="ガンプラのイメージ"
+                                />
+                                <span class="hb-item-genre__p-featured-badge"
+                                    >買取強化中</span
+                                >
+                            </figure>
+                            <div class="hb-item-genre__p-featured-body">
+                                <h3 class="hb-item-genre__p-featured-title">
+                                    ガンプラ
+                                </h3>
+                                <a
+                                    class="hb-item-genre__p-featured-link"
+                                    href="#price"
+                                    aria-label="ガンプラの詳細を見る"
+                                    >›</a
+                                >
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-solution"
+                id="solution"
+            >
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            売買コムズにお任せ下さい
+                        </h2>
+                    </div>
+                    <div class="hb-item-genre__p-solution-grid">
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >01</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Kit"
+                                    alt="買取キットのイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                買取キットを無料でプレゼント！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                全国対応の買取キットで、売りたいものを箱に詰めるだけでOK！何箱でも無料で進呈いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >02</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Pickup"
+                                    alt="集荷手配のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                集荷の手配も代行します！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                ご自宅まで集荷スタッフが引き取りに伺いますのでわずらわしい手続きは不要です。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >03</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Estimate"
+                                    alt="事前査定のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                事前査定もOK！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                モデルを伝えるだけで査定が可能！査定後のキャンセルもOK！安心してご依頼いただけます。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >04</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Bulk"
+                                    alt="大量買取のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                大量大歓迎！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                数が多い場合でも、おまとめアップ査定でお得に売却が可能。ジャンルを問わず幅広く買取いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >05</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Buyer"
+                                    alt="専門バイヤーの査定イメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                査定のプロのみが鑑定
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                ホビーの知識を持つ専門バイヤーのみが査定を担当。相場や希少性を正確に評価します。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >06</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Junk"
+                                    alt="ジャンク品査定のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                ジャンク品もOK
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                パーツ欠品、台座なし、破損有りでも査定対象。可能な限りお値段をお付けできるよう努力いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >07</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Collection"
+                                    alt="コレクション整理のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                生前整理・遺品整理も対応
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                大切なコレクションを1点1点、真心を込めて査定いたします。
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-condition"
+                id="condition"
+            >
+                <div class="hb__l-container hb-item-genre__p-split">
+                    <figure class="hb-item-genre__p-split-image">
+                        <img
+                            src="https://placehold.co/800x600/eef3ee/5f6f66?text=Condition"
+                            alt="さまざまな状態のホビー品のイメージ"
+                        />
+                    </figure>
+                    <div class="hb-item-genre__p-split-body">
+                        <h2 class="hb-item-genre__p-split-title">
+                            こんな状態でも買取可能です
+                        </h2>
+                        <p class="hb-item-genre__p-lead">
+                            新品未開封はもちろん、開封済み・箱なし・付属品なし・パーツ欠品・経年劣化のあるものまで、フィギュアならどんな状態でもまずは査定にお出しください。専門バイヤーが再販・パーツ取りの観点まで含めて1点ずつ価値を見極めます。
+                        </p>
+                        <ul class="hb-item-genre__p-ok-list">
+                            <li class="hb-item-genre__p-ok-item">
+                                <span class="hb-item-genre__p-ok-badge"
+                                    >OK</span
+                                >
+                                <span>新品・未開封・シュリンク付きOK</span>
+                            </li>
+                            <li class="hb-item-genre__p-ok-item">
+                                <span class="hb-item-genre__p-ok-badge"
+                                    >OK</span
+                                >
+                                <span>開封済み・展示品OK</span>
+                            </li>
+                            <li class="hb-item-genre__p-ok-item">
+                                <span class="hb-item-genre__p-ok-badge"
+                                    >OK</span
+                                >
+                                <span>外箱なし・本体のみOK</span>
+                            </li>
+                            <li class="hb-item-genre__p-ok-item">
+                                <span class="hb-item-genre__p-ok-badge"
+                                    >OK</span
+                                >
+                                <span>付属品・パーツ一部欠品OK</span>
+                            </li>
+                            <li class="hb-item-genre__p-ok-item">
+                                <span class="hb-item-genre__p-ok-badge"
+                                    >OK</span
+                                >
+                                <span>経年劣化・色褪せ・黄ばみOK</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hb__l-section hb-item-genre__p-tips" id="tips">
+                <div
+                    class="hb__l-container hb-item-genre__p-split hb-item-genre__p-split--reverse"
+                >
+                    <div class="hb-item-genre__p-split-body">
+                        <h2 class="hb-item-genre__p-split-title">
+                            XXXを高く売るコツ
+                        </h2>
+                        <ol class="hb-item-genre__p-tip-list">
+                            <li class="hb-item-genre__p-tip-item">
+                                <span class="hb-item-genre__p-tip-number"
+                                    >1</span
+                                >
+                                <div>
+                                    <h3 class="hb-item-genre__p-tip-title">
+                                        新品のまま売る
+                                    </h3>
+                                    <p class="hb-item-genre__p-card-text">
+                                        パッケージ未開封の商品が一番高く売れます。開封されていてもパーツが未使用であれば査定額アップに繋がります。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="hb-item-genre__p-tip-item">
+                                <span class="hb-item-genre__p-tip-number"
+                                    >2</span
+                                >
+                                <div>
+                                    <h3 class="hb-item-genre__p-tip-title">
+                                        外箱・付属品はすべて揃える
+                                    </h3>
+                                    <p class="hb-item-genre__p-card-text">
+                                        ブリスター・台座・差し替えパーツ・購入特典まで、揃っているほど査定額は上がります。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="hb-item-genre__p-tip-item">
+                                <span class="hb-item-genre__p-tip-number"
+                                    >3</span
+                                >
+                                <div>
+                                    <h3 class="hb-item-genre__p-tip-title">
+                                        相場が高いうちに早めに売る
+                                    </h3>
+                                    <p class="hb-item-genre__p-card-text">
+                                        市場相場は流行・話題性で大きく変動します。「もう飾らないかも」「入れ替えようかな」と思った時が売り時。LINEで画像を送るだけで事前査定も可能です。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="hb-item-genre__p-tip-item">
+                                <span class="hb-item-genre__p-tip-number"
+                                    >4</span
+                                >
+                                <div>
+                                    <h3 class="hb-item-genre__p-tip-title">
+                                        まとめ売りで査定額アップ！
+                                    </h3>
+                                    <p class="hb-item-genre__p-card-text">
+                                        2点からでもおまとめアップ査定が適用され、単体で売るよりもお得に売却が可能です。数が増えれば料率もアップします。
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure class="hb-item-genre__p-split-image">
+                        <img
+                            src="https://placehold.co/800x600/eef3ee/5f6f66?text=Tips"
+                            alt="高く売るコツのイメージ"
+                        />
+                    </figure>
+                </div>
+            </section>
+
+            <section class="hb__l-section hb-item-genre__p-price" id="price">
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            買取価格相場
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hb__l-section hb-item-genre__p-maker" id="maker">
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            対応メーカー、シリーズ一覧
+                        </h2>
+                    </div>
+                    <dl class="hb-item-genre__p-maker-list">
+                        <div class="hb-item-genre__p-maker-row">
+                            <dt class="hb-item-genre__p-maker-term">
+                                主要メーカー
+                            </dt>
+                            <dd
+                                class="hb-item-genre__p-maker-rule"
+                                aria-hidden="true"
+                            ></dd>
+                            <dd class="hb-item-genre__p-maker-tags">
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >海洋堂</span
+                                >
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >バンダイ</span
+                                >
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >マックスファクトリー</span
+                                >
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >メガハウス</span
+                                >
+                            </dd>
+                        </div>
+                        <div class="hb-item-genre__p-maker-row">
+                            <dt class="hb-item-genre__p-maker-term">
+                                バンダイ系シリーズ
+                            </dt>
+                            <dd
+                                class="hb-item-genre__p-maker-rule"
+                                aria-hidden="true"
+                            ></dd>
+                            <dd class="hb-item-genre__p-maker-tags">
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >S.H.Figuarts</span
+                                >
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >METAL BUILD</span
+                                >
+                                <span class="hb-item-genre__p-maker-tag"
+                                    >ROBOT魂</span
+                                >
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+
+            <section class="hb__l-section hb-item-genre__p-faq" id="faq">
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            買取のよくある質問
+                        </h2>
+                    </div>
+                    <div class="hb-item-genre__p-faq-list">
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >箱なし・開封済みのアイテムでも買取してもらえますか？</span
+                                >
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    はい、買取可能です。専門バイヤーが状態を1点ずつ確認し、開封済み・箱なしでも適正な金額をご提示します。
+                                </p>
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >パーツや台座が欠品していても査定可能ですか？</span
+                                >
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    はい、問題ございません。一部欠損などがある場合でも可能な限りお値段をつけさせていただきます。
+                                </p>
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span>海外限定品は買取可能ですか？</span>
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    はい、買取可能です。ただし、保証書・ギャランティー・メーカーの販売証明書などがない場合は、査定額が下がったり、買取が出来ない場合もございます。
+                                </p>
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >家の中が散らかっていても大丈夫ですか？</span
+                                >
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    はい、問題ございません。1点1点確認させていただき、丁寧に査定をさせていただきます。
+                                </p>
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span>何点から買取可能ですか？</span>
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    1点からお売りいただけます。売却予定点数が1点～9点の場合は事前査定をお願いいたします。
+                                </p>
+                            </div>
+                        </article>
+                        <article class="hb-item-genre__p-faq-item">
+                            <button
+                                class="hb-item-genre__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >プライズ商品も買取してもらえますか？</span
+                                >
+                                <span class="hb-item-genre__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-item-genre__p-faq-answer">
+                                <span
+                                    class="hb-item-genre__p-faq-icon hb-item-genre__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-item-genre__p-card-text">
+                                    プライズ商品は単価が低いため、1点のみの場合はお買取りが難しいケースがございます。他の商品とまとめてご依頼いただくとおまとめアップ査定が可能です。
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="hb-item-genre__p-faq-more">
+                        <a class="hb__c-btn hb__c-btn--ghost" href="#faq"
+                            >もっと見る</a
+                        >
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="hb__l-footer" data-screen-label="Footer">
+            <div class="hb__l-container hb__p-footer">
+                <div class="hb__p-footer__brand">
+                    <div class="hb__c-brand">
+                        <span class="hb__c-brand__mark" aria-hidden="true"
+                            >B</span
+                        >
+                        <span class="hb__c-brand__text">
+                            <span class="hb__c-brand__name"
+                                >バイバイコムズ</span
+                            >
+                            <span class="hb__c-brand__sub">ホビー買取</span>
+                        </span>
+                    </div>
+                    <p class="hb__p-footer__about">
+                        ホビー・コレクター品専門の買取サービス。<br />
+                        箱に詰めて送るだけ。送料・査定料・返送料すべて無料。
+                    </p>
+                    <p class="hb__p-footer__addr">
+                        〒000-0000 東京都○○区○○ 1-2-3<br />
+                        TEL: 0120-000-000 / 受付 9:00〜20:00
+                    </p>
+                </div>
+                <div class="hb__p-footer__col">
+                    <h5 class="hb__p-footer__col-title">サービス</h5>
+                    <ul class="hb__p-footer__list" role="list">
+                        <li><a href="#recommend">おすすめ</a></li>
+                        <li><a href="#solution">売買コムズの強み</a></li>
+                        <li><a href="#condition">買取できる状態</a></li>
+                        <li><a href="#tips">高く売るコツ</a></li>
+                    </ul>
+                </div>
+                <div class="hb__p-footer__col">
+                    <h5 class="hb__p-footer__col-title">買取品目</h5>
+                    <ul class="hb__p-footer__list" role="list">
+                        <li><a href="#maker">主要メーカー</a></li>
+                        <li><a href="#maker">シリーズ一覧</a></li>
+                        <li><a href="#price">買取価格相場</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="hb__p-footer__col">
+                    <h5 class="hb__p-footer__col-title">サポート</h5>
+                    <ul class="hb__p-footer__list" role="list">
+                        <li><a href="kaitori-form.html">お問い合わせ</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#">サイトマップ</a></li>
+                    </ul>
+                </div>
+                <div class="hb__p-footer__col">
+                    <h5 class="hb__p-footer__col-title">会社情報</h5>
+                    <ul class="hb__p-footer__list" role="list">
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">特定商取引法に基づく表記</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hb__p-footer__legal">
+                <div class="hb__l-container hb__p-footer__legal-inner">
+                    <span>古物商許可番号：東京都公安委員会 第○○○○○○○号</span>
+                    <span class="hb__p-footer__dot"></span>
+                    <span>© 2026 BaiBaiComs Inc. All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document
+                .querySelectorAll(".hb-item-genre__p-faq-question")
+                .forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const item = button.closest(
+                            ".hb-item-genre__p-faq-item",
+                        );
+                        const isOpen = item.classList.toggle(
+                            "hb-item-genre__is-open",
+                        );
+                        button.setAttribute("aria-expanded", String(isOpen));
+                        button.querySelector(
+                            ".hb-item-genre__p-faq-toggle",
+                        ).textContent = isOpen ? "－" : "＋";
+                    });
+                });
+        </script>
+    </body>
+</html>
