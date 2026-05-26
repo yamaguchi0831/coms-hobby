@@ -218,7 +218,7 @@
             }
 
             .hb__p-form textarea {
-                min-height: 132px;
+                min-height: 264px;
                 resize: vertical;
             }
 
@@ -230,10 +230,13 @@
             .hb__p-form__field-error {
                 display: block;
                 margin-top: var(--hb-space-xs);
-                color: var(--hb-color-error);
-                font-size: var(--hb-font-size-caption);
+                border: 1px solid var(--hb-color-error);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-error);
+                color: var(--hb-color-neutral-0);
+                font-size: var(--hb-font-size-body--sm);
                 font-weight: 700;
-                line-height: 1.5;
+                padding: var(--hb-space-md);
             }
 
             .hb__p-form__field-error[hidden] {
@@ -440,6 +443,10 @@
                 .hb__p-form__kit-row,
                 .hb__p-form__wish-row {
                     grid-template-columns: 1fr;
+                }
+
+                .hb__p-form textarea {
+                    min-height: 360px;
                 }
             }
         </style>
@@ -846,7 +853,7 @@
                                     出張希望日時を入力してください
                                 </h2>
                                 <p class="hb__p-form__note">
-                                    第1希望は必須です。第2希望以降は任意です。
+                                    任意(お申込み後に日時調整をおこなう)
                                 </p>
                             </div>
                             <div class="hb__p-form__fields">
@@ -1428,19 +1435,6 @@
                     block
                         .querySelectorAll("input, select, textarea")
                         .forEach((field) => {
-                            if (
-                                field.type === "radio" ||
-                                field.type === "checkbox"
-                            )
-                                field.checked = false;
-                            if (field.tagName === "SELECT") field.value = "0";
-                            if (
-                                field.type === "date" ||
-                                field.type === "text" ||
-                                field.type === "email" ||
-                                field.type === "tel"
-                            )
-                                field.value = "";
                             field.required = false;
                             field.disabled = true;
                         });
@@ -1550,7 +1544,8 @@
                         setFieldError(emailField, "");
                         return true;
                     }
-                    const emailMessage = "正しいメールアドレスを入力して下さい。";
+                    const emailMessage =
+                        "正しいメールアドレスを入力して下さい。";
                     const atCount = (value.match(/@/g) || []).length;
                     const [local, domain] = value.split("@");
                     const hasFullWidth = /[^\x00-\x7f]/.test(value);
@@ -1614,20 +1609,49 @@
                     });
                 };
 
+                const getCheckedValue = (name) =>
+                    form.querySelector(`[name="${name}"]:checked`)?.value || "";
+
                 const showCustomer = (type) => {
                     setNotes(type);
                     showBlock("customer");
                     scrollToBlock("customer");
                 };
 
+                const restoreTakuhaiBlocks = () => {
+                    const quantity = getCheckedValue("takuhai_qty");
+                    if (quantity !== "over") return;
+                    showBlock("box-prep");
+                    const boxPrep = getCheckedValue("box_prep");
+                    if (boxPrep === "kit") {
+                        showBlock("kit");
+                        setNotes("takuhai");
+                        showBlock("customer");
+                    }
+                    if (boxPrep === "self") {
+                        setNotes("takuhai");
+                        showBlock("customer");
+                    }
+                };
+
+                const restoreShucchoBlocks = () => {
+                    const quantity = getCheckedValue("shuccho_qty");
+                    if (quantity !== "over") return;
+                    showBlock("shuccho-date");
+                    setNotes("shuccho");
+                    showBlock("customer");
+                };
+
                 const handleMethod = (type) => {
                     resetAfterMethod();
                     if (type === "takuhai") {
                         showBlock("takuhai-qty");
+                        restoreTakuhaiBlocks();
                         scrollToBlock("takuhai-qty");
                     }
                     if (type === "shuccho") {
                         showBlock("shuccho-qty");
+                        restoreShucchoBlocks();
                         scrollToBlock("shuccho-qty");
                     }
                     if (type === "mochikomi") {
@@ -1760,8 +1784,9 @@
 
                 form.addEventListener("submit", (event) => {
                     hideAlert();
+                    const selectedMethod = getCheckedValue("purchase_type");
                     const boxPrep = form.elements.box_prep?.value;
-                    if (boxPrep === "kit") {
+                    if (selectedMethod === "takuhai" && boxPrep === "kit") {
                         const total = [
                             "box_s",
                             "box_m",
