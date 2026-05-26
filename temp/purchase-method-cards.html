@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>買取方法カード UI</title>
+    <link rel="stylesheet" href="../asset/css/tokens.css">
+    <link rel="stylesheet" href="../asset/css/reset.css">
+    <link rel="stylesheet" href="../asset/css/base.css">
+    <link rel="stylesheet" href="../asset/css/utility.css">
+    <link rel="stylesheet" href="../asset/css/component.css">
+    <style>
+        .hb__p-buy-method {
+            min-height: 100vh;
+            padding-block: var(--hb-space-xl);
+            background:
+                radial-gradient(circle at right top, var(--hb-color-surface-mint) 0, var(--hb-color-white-alpha-0) 20%),
+                radial-gradient(circle at left bottom, var(--hb-color-surface-mint-soft) 0, var(--hb-color-white-alpha-0) 18%),
+                var(--hb-color-white);
+        }
+
+        .hb__p-buy-method__grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--hb-space-md);
+        }
+
+        .hb__p-buy-method-card {
+            position: relative;
+            display: grid;
+            grid-template-rows: minmax(150px, auto) 1fr;
+            min-width: 0;
+            overflow: visible;
+            border: 1px solid var(--hb-color-border-muted);
+            border-radius: var(--hb-radius-md);
+            background: var(--hb-color-white);
+            box-shadow: var(--hb-shadow-sm);
+        }
+
+        .hb__p-buy-method-card--recommended {
+            border: 2px solid var(--hb-color-tertiary-500);
+        }
+
+        .hb__p-buy-method-card__ribbon {
+            position: absolute;
+            top: calc(var(--hb-space-md) * -1);
+            left: 50%;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 92px;
+            min-height: 30px;
+            padding-inline: var(--hb-space-md);
+            transform: translateX(-50%);
+            border-radius: var(--hb-radius-sm);
+            background: var(--hb-color-brand-orange);
+            color: var(--hb-color-white);
+            font-size: var(--hb-font-size-caption);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .hb__p-buy-method-card__ribbon::before,
+        .hb__p-buy-method-card__ribbon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 15px solid var(--hb-color-brand-orange);
+            border-bottom: 15px solid var(--hb-color-brand-orange);
+        }
+
+        .hb__p-buy-method-card__ribbon::before {
+            left: calc(var(--hb-space-sm) * -1);
+            border-left: var(--hb-space-sm) solid var(--hb-color-white-alpha-0);
+        }
+
+        .hb__p-buy-method-card__ribbon::after {
+            right: calc(var(--hb-space-sm) * -1);
+            border-right: var(--hb-space-sm) solid var(--hb-color-white-alpha-0);
+        }
+
+        .hb__p-buy-method-card__visual {
+            padding: var(--hb-space-md) var(--hb-space-md) 0;
+        }
+
+        .hb__p-buy-method-card__image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: var(--hb-radius-sm);
+            background: var(--hb-color-placeholder-stripe-1);
+        }
+
+        .hb__p-buy-method-card__body {
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr);
+            gap: var(--hb-space-sm);
+            padding: var(--hb-space-md) var(--hb-space-lg) var(--hb-space-lg);
+        }
+
+        .hb__p-buy-method-card__icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--hb-radius-full);
+            background: var(--hb-color-primary-600);
+            object-fit: cover;
+        }
+
+        .hb__p-buy-method-card__title {
+            color: var(--hb-color-primary-700);
+            font-size: var(--hb-font-size-h3);
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .hb__p-buy-method-card__text {
+            margin-top: var(--hb-space-sm);
+            color: var(--hb-color-text-deep);
+            font-size: var(--hb-font-size-caption);
+            font-weight: 700;
+            line-height: 1.85;
+        }
+
+        @media (max-width: 767px) {
+            .hb__p-buy-method {
+                padding-block: var(--hb-space-lg);
+            }
+
+            .hb__p-buy-method__grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-inline: auto;
+            }
+
+            .hb__p-buy-method-card {
+                grid-template-rows: auto;
+            }
+
+            .hb__p-buy-method-card__body {
+                padding: var(--hb-space-md);
+            }
+
+            .hb__p-buy-method-card__title {
+                font-size: var(--hb-font-size-h4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hb__p-buy-method" aria-label="買取方法">
+        <div class="hb__l-container">
+            <div class="hb__p-buy-method__grid">
+                <article class="hb__p-buy-method-card hb__p-buy-method-card--recommended">
+                    <span class="hb__p-buy-method-card__ribbon">おすすめ</span>
+                    <div class="hb__p-buy-method-card__visual">
+                        <img class="hb__p-buy-method-card__image" src="https://placehold.co/640x360/f8fbf8/006e1c?text=Delivery+Buyback" alt="宅配買取のイラストプレースホルダー">
+                    </div>
+                    <div class="hb__p-buy-method-card__body">
+                        <img class="hb__p-buy-method-card__icon" src="https://placehold.co/80x80/005818/ffffff?text=Box" alt="" aria-hidden="true">
+                        <div>
+                            <h2 class="hb__p-buy-method-card__title">宅配買取</h2>
+                            <p class="hb__p-buy-method-card__text">
+                                売りたい品物を箱に詰めて送るだけ。全国どこからでも送料無料でご利用いただけます。査定後は最短で即日ご入金いたします。
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hb__p-buy-method-card">
+                    <div class="hb__p-buy-method-card__visual">
+                        <img class="hb__p-buy-method-card__image" src="https://placehold.co/640x360/f8fbf8/006e1c?text=Visit+Buyback" alt="出張買取のイラストプレースホルダー">
+                    </div>
+                    <div class="hb__p-buy-method-card__body">
+                        <img class="hb__p-buy-method-card__icon" src="https://placehold.co/80x80/005818/ffffff?text=Home" alt="" aria-hidden="true">
+                        <div>
+                            <h2 class="hb__p-buy-method-card__title">出張買取</h2>
+                            <p class="hb__p-buy-method-card__text">
+                                ご自宅まで査定スタッフがお伺いし、その場で査定・買取いたします。大量のお品物や大型の商品も安心してお任せください。
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hb__p-buy-method-card">
+                    <div class="hb__p-buy-method-card__visual">
+                        <img class="hb__p-buy-method-card__image" src="https://placehold.co/640x360/f8fbf8/006e1c?text=Store+Buyback" alt="持ち込み買取のイラストプレースホルダー">
+                    </div>
+                    <div class="hb__p-buy-method-card__body">
+                        <img class="hb__p-buy-method-card__icon" src="https://placehold.co/80x80/005818/ffffff?text=Pin" alt="" aria-hidden="true">
+                        <div>
+                            <h2 class="hb__p-buy-method-card__title">持ち込み買取</h2>
+                            <p class="hb__p-buy-method-card__text">
+                                店舗に直接お品物をお持ち込みください。その場で査定し、すぐに現金でお支払いいたします。ご予約不要でも気軽にご利用いただけます。
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

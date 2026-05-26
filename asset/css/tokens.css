@@ -1,0 +1,147 @@
+/**
+ * バイバイコムズ ホビー買取 Design Tokens
+ * Version: 1.0
+ * Updated: 2026.05
+ */
+
+:root {
+  /* Color: Primary / brand green */
+  --hb-color-primary-50: #e6f0e8;
+  --hb-color-primary-100: #b8d4be;
+  --hb-color-primary-200: #8ab893;
+  --hb-color-primary-300: #5c9c69;
+  --hb-color-primary-400: #2e803e;
+  --hb-color-primary-500: #006e1c;
+  --hb-color-primary-600: #005818;
+  --hb-color-primary-700: #004213;
+  --hb-color-primary-800: #002c0d;
+  --hb-color-primary-900: #001607;
+
+  /* Color: Secondary / bright green */
+  --hb-color-secondary-50: #ecf6ed;
+  --hb-color-secondary-100: #c8e6cb;
+  --hb-color-secondary-200: #a5d6a9;
+  --hb-color-secondary-300: #81c787;
+  --hb-color-secondary-400: #5db865;
+  --hb-color-secondary-500: #4caf50;
+  --hb-color-secondary-600: #3d9c41;
+  --hb-color-secondary-700: #2e7d32;
+  --hb-color-secondary-800: #1f5f23;
+  --hb-color-secondary-900: #103f14;
+
+  /* Color: Tertiary / orange */
+  --hb-color-tertiary-50: #fff4e6;
+  --hb-color-tertiary-100: #ffe0b8;
+  --hb-color-tertiary-200: #ffcc8a;
+  --hb-color-tertiary-300: #ffb85c;
+  --hb-color-tertiary-400: #ffa92e;
+  --hb-color-tertiary-500: #ff9800;
+  --hb-color-tertiary-600: #e08600;
+  --hb-color-tertiary-700: #b86d00;
+  --hb-color-tertiary-800: #905500;
+  --hb-color-tertiary-900: #683c00;
+
+  /* Color: Accent / yellow */
+  --hb-color-accent-50: #fff8e1;
+  --hb-color-accent-100: #ffecb3;
+  --hb-color-accent-200: #ffe082;
+  --hb-color-accent-300: #ffd54f;
+  --hb-color-accent-400: #ffca28;
+  --hb-color-accent-500: #ffc107;
+  --hb-color-accent-600: #ffb300;
+  --hb-color-accent-700: #ffa000;
+  --hb-color-accent-800: #ff8f00;
+  --hb-color-accent-900: #ff6f00;
+
+  /* Color: Semantic */
+  --hb-color-success: #4caf50;
+  --hb-color-warning: #ffc107;
+  --hb-color-error: #f44350;
+  --hb-color-info: #2196f3;
+
+  /* Color: Neutral */
+  --hb-color-neutral-0: #ffffff;
+  --hb-color-neutral-50: #f5f5f5;
+  --hb-color-neutral-100: #e0e0e0;
+  --hb-color-neutral-200: #9e9e9e;
+  --hb-color-neutral-300: #757575;
+  --hb-color-neutral-400: #424242;
+  --hb-color-neutral-900: #212121;
+
+  /* Color: Semantic surfaces / component support */
+  --hb-color-black: #000000;
+  --hb-color-white: var(--hb-color-neutral-0);
+  --hb-color-text-deep: #33423a;
+  --hb-color-text-muted: #5f6f66;
+  --hb-color-brand-orange: #ff7800;
+  --hb-color-line: #06c755;
+  --hb-color-border-muted: #dfe7e1;
+  --hb-color-border-strong: #bfd8c6;
+  --hb-color-surface-green: #f3f6f4;
+  --hb-color-surface-soft: #f6faf6;
+  --hb-color-surface-green-light: #f8fbf8;
+  --hb-color-surface-green-selected: #f0fbf4;
+  --hb-color-surface-mint: #e0f3e9;
+  --hb-color-surface-mint-soft: #e4f7ec;
+  --hb-color-surface-mint-strong: #d7f2df;
+  --hb-color-surface-pill: #e0f7ea;
+  --hb-color-hero-glow: #cdebd7;
+  --hb-color-hero-bg: #eff8ef;
+  --hb-color-placeholder-stripe-1: #eef3ee;
+  --hb-color-placeholder-stripe-2: #e7eee8;
+  --hb-color-footer-bg: #18231d;
+  --hb-color-footer-preview-bg: #17231d;
+  --hb-color-footer-text: #d7e3da;
+  --hb-color-white-alpha-94: rgb(255 255 255 / 94%);
+  --hb-color-white-alpha-70: rgb(255 255 255 / 70%);
+  --hb-color-white-alpha-10: rgb(255 255 255 / 10%);
+  --hb-color-white-alpha-8: rgb(255 255 255 / 8%);
+  --hb-color-white-alpha-0: rgb(255 255 255 / 0);
+  --hb-color-primary-alpha-24: rgb(0 44 13 / 24%);
+  --hb-color-primary-alpha-14: rgb(0 44 13 / 14%);
+  --hb-color-primary-alpha-10: rgb(0 44 13 / 10%);
+  --hb-color-primary-alpha-8: rgb(0 44 13 / 8%);
+  --hb-color-orange-shadow-alpha-18: rgb(104 60 0 / 18%);
+
+  /* Gradients */
+  --hb-gradient-primary: linear-gradient(135deg, #006e1c 0%, #4caf50 100%);
+  --hb-gradient-primary-dark: linear-gradient(135deg, #001607 0%, #004213 100%);
+  --hb-gradient-accent: linear-gradient(135deg, #ff9800 0%, #ffc107 100%);
+  --hb-gradient-accent-dark: linear-gradient(135deg, #683c00 0%, #b86d00 100%);
+
+  /* Spacing */
+  --hb-space-2xs: 4px;
+  --hb-space-xs: 8px;
+  --hb-space-sm: 12px;
+  --hb-space-md: 16px;
+  --hb-space-lg: 24px;
+  --hb-space-xl: 32px;
+  --hb-space-2xl: 48px;
+  --hb-space-3xl: 64px;
+
+  /* Radius */
+  --hb-radius-none: 0;
+  --hb-radius-xs: 2px;
+  --hb-radius-sm: 4px;
+  --hb-radius-md: 8px;
+  --hb-radius-lg: 12px;
+  --hb-radius-xl: 16px;
+  --hb-radius-2xl: 24px;
+  --hb-radius-full: 9999px;
+
+  /* Effects / layout */
+  --hb-shadow-sm: 0 2px 8px var(--hb-color-primary-alpha-8);
+  --hb-shadow-md: 0 10px 28px var(--hb-color-primary-alpha-10);
+  --hb-shadow-lg: 0 18px 48px var(--hb-color-primary-alpha-14);
+  --hb-container: 1120px;
+
+  /* Typography */
+  --hb-font-size-caption: 12px;
+  --hb-font-size-body: 16px;
+  --hb-font-size-body--sm: 14px;
+  --hb-font-size-h4: 18px;
+  --hb-font-size-h3: 20px;
+  --hb-font-size-h2: 24px;
+  --hb-font-size-h1: 32px;
+  --hb-font-size-display: 42px;
+}

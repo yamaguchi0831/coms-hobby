@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>下層ページタイトル UI</title>
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css" />
+    <style>
+      .hb__p-subpage-title {
+        background: var(--hb-color-primary-600);
+      }
+
+      .hb__p-subpage-title__inner {
+        display: flex;
+        min-height: 230px;
+        align-items: center;
+      }
+
+      .hb__p-subpage-title__heading {
+        margin: 0;
+        color: var(--hb-color-white);
+        font-size: clamp(
+          var(--hb-font-size-h1),
+          5vw,
+          var(--hb-font-size-display)
+        );
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.35;
+      }
+
+      .hb__p-subpage-title__breadcrumb-area {
+        background: var(--hb-color-white);
+      }
+
+      .hb__p-subpage-title__breadcrumb {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--hb-space-xs);
+        min-height: 54px;
+        margin: 0;
+        padding: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.5;
+        list-style: none;
+      }
+
+      .hb__p-subpage-title__breadcrumb-link {
+        color: var(--hb-color-primary-700);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .hb__p-subpage-title__breadcrumb-separator {
+        color: var(--hb-color-text-muted);
+      }
+
+      .hb__p-subpage-title__breadcrumb-current {
+        color: var(--hb-color-text-deep);
+      }
+
+      @media (max-width: 767px) {
+        .hb__p-subpage-title__inner {
+          min-height: 160px;
+        }
+
+        .hb__p-subpage-title__breadcrumb {
+          min-height: 48px;
+          font-size: var(--hb-font-size-caption);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hb__p-subpage-title" aria-label="会社情報">
+      <div class="hb__l-container hb__p-subpage-title__inner">
+        <h1 class="hb__p-subpage-title__heading">会社情報</h1>
+      </div>
+    </section>
+
+    <nav
+      class="hb__p-subpage-title__breadcrumb-area"
+      aria-label="パンくずリスト"
+    >
+      <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
+        <li class="hb__p-subpage-title__breadcrumb-item">
+          <a class="hb__p-subpage-title__breadcrumb-link" href="#">TOP</a>
+        </li>
+        <li
+          class="hb__p-subpage-title__breadcrumb-separator"
+          aria-hidden="true"
+        >
+          &gt;
+        </li>
+        <li class="hb__p-subpage-title__breadcrumb-current" aria-current="page">
+          会社情報
+        </li>
+      </ol>
+    </nav>
+  </body>
+</html>

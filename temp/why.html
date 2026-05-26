@@ -1,0 +1,277 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選ばれる理由 UI</title>
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <style>
+      .hb-reason__section {
+        background: var(--hb-color-white);
+      }
+
+      .hb-reason__head {
+        margin-bottom: var(--hb-space-2xl);
+        text-align: center;
+      }
+
+      .hb-reason__eyebrow {
+        margin: 0 0 var(--hb-space-sm);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h3);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .hb-reason__title {
+        margin: 0;
+        color: var(--hb-color-primary-800);
+        font-size: clamp(
+          var(--hb-font-size-h1),
+          4vw,
+          var(--hb-font-size-display)
+        );
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.25;
+      }
+
+      .hb-reason__title-accent {
+        color: var(--hb-color-primaru-600);
+      }
+
+      .hb-reason__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--hb-space-lg);
+      }
+
+      .hb-reason__card {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-reason__card-title {
+        margin: 0;
+        padding: var(--hb-space-xl) var(--hb-space-lg);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-800);
+        font-size: var(--hb-font-size-h4);
+        font-weight: 900;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .hb-reason__card-body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        row-gap: var(--hb-space-md);
+        padding: var(--hb-space-lg);
+      }
+
+      .hb-reason__image {
+        display: grid;
+        min-height: 150px;
+        place-items: center;
+        overflow: hidden;
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-reason__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hb-reason__text {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body);
+        font-weight: 700;
+        line-height: 1.8;
+      }
+
+      .hb-reason__link {
+        display: inline-flex;
+        align-items: center;
+        justify-self: start;
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1.5;
+        border-bottom: 1px solid currentColor;
+        text-decoration: none;
+      }
+
+      .hb-reason__link::before {
+        content: ">";
+        margin-right: var(--hb-space-2xs);
+        color: var(--hb-color-primary-500);
+      }
+
+      @media (max-width: 767px) {
+        .hb-reason__head {
+          margin-bottom: var(--hb-space-xl);
+        }
+
+        .hb-reason__eyebrow {
+          font-size: var(--hb-font-size-body);
+        }
+
+        .hb-reason__grid {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin-inline: auto;
+        }
+
+        .hb-reason__card-body {
+          padding: var(--hb-space-md);
+        }
+
+        .hb-reason__image {
+          min-height: 132px;
+        }
+
+        .hb-reason__text {
+          font-size: var(--hb-font-size-body--sm);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="hb-reason__section hb__l-section"
+      aria-labelledby="hb-reason-title"
+    >
+      <div class="hb__l-container">
+        <div class="hb-reason__head">
+          <p class="hb-reason__eyebrow">＼売買コムズが／</p>
+          <h2 class="hb-reason__title" id="hb-reason-title">
+            <span class="hb-reason__title-accent">940万人</span>に選ばれる理由
+          </h2>
+        </div>
+
+        <div class="hb-reason__grid">
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">全国対応</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Area"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                宅配買取は全国どこからでも対応可能です。出張買取希望の場合も、お気軽にご相談ください。※お住まいの地域や状況によりご要望にお応えできかねる場合もございます。
+              </p>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">買取キットプレゼント</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Kit"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                宅配買取に必要な買取キットは何箱でも無料！必要なサイズと箱数をお申し付けください。
+              </p>
+              <a class="hb-reason__link" href="#">宅配買取はこちら</a>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">集荷の手配も当店が代行</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Pickup"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                梱包後の集荷の手配も当店がおこないます！営業所への持ち込みなども不要。ご自宅まで引き取りに伺います。
+              </p>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">査定料・出張費・手数料はゼロ</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Free"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                どれだけ量が多くても査定は無料！出張費や振り込み手数料なども当店負担。気軽にご利用いただけます。
+              </p>
+              <a class="hb-reason__link" href="#">よくあるご質問について</a>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">事前査定も可能</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Estimate"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                金額が分からないまま預けるのが不安な場合は、便利な事前査定をご利用ください。LINEで画像を送るだけで査定可能です。
+              </p>
+              <a class="hb-reason__link" href="#">LINE査定はこちら</a>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">最短即日お支払い</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Payment"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                最短、商品が届いた即日のお振込みいたします。店頭買取・出張買取の場合も原則即日お支払い。※量によっては数日いただく場合がございます。
+              </p>
+            </div>
+          </article>
+
+          <article class="hb-reason__card">
+            <h3 class="hb-reason__card-title">数が増えれば査定額アップ！</h3>
+            <div class="hb-reason__card-body">
+              <figure class="hb-reason__image">
+                <img
+                  src="https://placehold.co/640x360/e0f3e9/006e1c?text=Bonus"
+                  alt=""
+                />
+              </figure>
+              <p class="hb-reason__text">
+                数量が増えるとおまとめアップ査定を適用。単体で売るよりもオトクに売却が可能です。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+

@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+:root {
+  --hb-layout-container: 1200px;
+  --hb-layout-container-sm: 800px;
+  --hb-layout-gutter: clamp(16px, 4vw, 32px);
+  --hb-layout-section-y: clamp(48px, 8vw, 96px);
+  --hb-leading-body: 1.8;
+  --hb-leading-heading: 1.35;
+  --hb-duration-base: 0.2s;
+  --hb-ease-base: ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--hb-color-white);
+  color: var(--hb-color-text-deep);
+  font-family:
+    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: var(--hb-font-size-body);
+  font-weight: 400;
+  line-height: var(--hb-leading-body);
+  letter-spacing: 0;
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--hb-color-primary-800);
+  font-weight: 700;
+  line-height: var(--hb-leading-heading);
+}
+
+h1 {
+  font-size: clamp(var(--hb-font-size-h1), 4vw, var(--hb-font-size-display));
+}
+
+h2 {
+  font-size: clamp(var(--hb-font-size-h2), 3vw, var(--hb-font-size-h1));
+}
+
+h3 {
+  font-size: clamp(var(--hb-font-size-h3), 2.4vw, var(--hb-font-size-h2));
+}
+
+h4 {
+  font-size: var(--hb-font-size-h4);
+}
+
+p {
+  line-height: var(--hb-leading-body);
+}
+
+a {
+  transition:
+    color var(--hb-duration-base) var(--hb-ease-base),
+    opacity var(--hb-duration-base) var(--hb-ease-base);
+}
+
+a:hover {
+  opacity: 0.82;
+}
+
+small {
+  font-size: var(--hb-font-size-caption);
+}
+
+strong {
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--hb-color-surface-mint);
+  color: var(--hb-color-primary-800);
+}
+
+.hb__l-container {
+  width: min(100% - (var(--hb-layout-gutter) * 2), var(--hb-layout-container));
+  margin-inline: auto;
+}
+
+.hb__l-container--sm {
+  width: min(
+    100% - (var(--hb-layout-gutter) * 2),
+    var(--hb-layout-container-sm)
+  );
+  margin-inline: auto;
+}
+
+.hb__l-section {
+  padding-block: var(--hb-layout-section-y);
+}
+
+.hb__l-section--sm {
+  padding-block: clamp(32px, 6vw, 64px);
+}
+
+.hb__l-section--lg {
+  padding-block: clamp(64px, 10vw, 120px);
+}
+
+.hb__c-placeholder {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  border: 1px solid var(--hb-color-border-muted);
+  border-radius: var(--hb-radius-md);
+  background: linear-gradient(
+    135deg,
+    var(--hb-color-placeholder-stripe-1) 25%,
+    var(--hb-color-placeholder-stripe-2) 25%,
+    var(--hb-color-placeholder-stripe-2) 50%,
+    var(--hb-color-placeholder-stripe-1) 50%,
+    var(--hb-color-placeholder-stripe-1) 75%,
+    var(--hb-color-placeholder-stripe-2) 75%
+  );
+  background-size: 24px 24px;
+  color: var(--hb-color-text-muted);
+  font-size: var(--hb-font-size-caption);
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .hb__l-section {
+    padding-block: clamp(40px, 12vw, 64px);
+  }
+}
+/*下層ページタイトル*/
+.hb__p-subpage-title {
+  background: var(--hb-color-primary-600);
+}
+
+.hb__p-subpage-title__inner {
+  display: flex;
+  min-height: 230px;
+  align-items: center;
+}
+
+.hb__p-subpage-title__heading {
+  margin: 0;
+  color: var(--hb-color-white);
+  font-size: clamp(var(--hb-font-size-h1), 5vw, var(--hb-font-size-display));
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.hb__p-subpage-title__breadcrumb-area {
+  background: var(--hb-color-white);
+}
+
+.hb__p-subpage-title__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--hb-space-xs);
+  min-height: 54px;
+  margin: 0;
+  padding: 0;
+  color: var(--hb-color-text-deep);
+  font-size: var(--hb-font-size-body--sm);
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.hb__p-subpage-title__breadcrumb-link {
+  color: var(--hb-color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hb__p-subpage-title__breadcrumb-separator {
+  color: var(--hb-color-text-muted);
+}
+
+.hb__p-subpage-title__breadcrumb-current {
+  color: var(--hb-color-text-deep);
+}
+
+@media (max-width: 767px) {
+  .hb__p-subpage-title__inner {
+    min-height: 160px;
+  }
+
+  .hb__p-subpage-title__breadcrumb {
+    min-height: 48px;
+    font-size: var(--hb-font-size-caption);
+  }
+}
