@@ -227,6 +227,19 @@
                 opacity: 1;
             }
 
+            .hb__p-form__field-error {
+                display: block;
+                margin-top: var(--hb-space-xs);
+                color: var(--hb-color-error);
+                font-size: var(--hb-font-size-caption);
+                font-weight: 700;
+                line-height: 1.5;
+            }
+
+            .hb__p-form__field-error[hidden] {
+                display: none;
+            }
+
             .hb__p-form input:focus,
             .hb__p-form select:focus,
             .hb__p-form textarea:focus {
@@ -1106,8 +1119,15 @@
                                         type="email"
                                         name="customer_email"
                                         autocomplete="email"
+                                        aria-describedby="customer-email-error"
                                         required
                                     />
+                                    <span
+                                        class="hb__p-form__field-error"
+                                        id="customer-email-error"
+                                        data-field-error="customer_email"
+                                        hidden
+                                    ></span>
                                 </div>
                                 <div>
                                     <label
@@ -1142,8 +1162,15 @@
                                         type="tel"
                                         name="customer_tel"
                                         autocomplete="tel"
+                                        aria-describedby="customer-tel-error"
                                         required
                                     />
+                                    <span
+                                        class="hb__p-form__field-error"
+                                        id="customer-tel-error"
+                                        data-field-error="customer_tel"
+                                        hidden
+                                    ></span>
                                 </div>
                                 <div>
                                     <label
@@ -1363,6 +1390,13 @@
                 const alertBox = form.querySelector("[data-alert]");
                 const submitButton = form.querySelector(".hb__p-form__submit");
                 const messageField = form.elements.message;
+                const emailField = form.elements.customer_email;
+                const telField = form.elements.customer_tel;
+                const fieldErrors = Object.fromEntries(
+                    [...form.querySelectorAll("[data-field-error]")].map(
+                        (error) => [error.dataset.fieldError, error],
+                    ),
+                );
 
                 const messagePlaceholders = {
                     takuhai:
@@ -1473,6 +1507,67 @@
                         behavior: "smooth",
                         block: "center",
                     });
+                };
+
+                const toHalfWidthNumber = (value) =>
+                    value.replace(/[０-９]/g, (char) =>
+                        String.fromCharCode(char.charCodeAt(0) - 0xfee0),
+                    );
+
+                const setFieldError = (field, message) => {
+                    const error = fieldErrors[field.name];
+                    field.setCustomValidity(message);
+                    if (!error) return;
+                    error.textContent = message;
+                    error.hidden = !message;
+                };
+
+                const validateTel = () => {
+                    const value = telField.value.trim();
+                    if (!value) {
+                        setFieldError(telField, "");
+                        return true;
+                    }
+                    const telMessage = "正しい電話番号を入力して下さい。";
+                    const allowedChars = /^[0-9０-９\-－]+$/;
+                    const normalized = toHalfWidthNumber(value).replace(
+                        /[\-－]/g,
+                        "",
+                    );
+                    const isValid =
+                        allowedChars.test(value) &&
+                        (normalized.length === 10 ||
+                            normalized.length === 11) &&
+                        normalized.startsWith("0") &&
+                        !/^(\d)\1+$/.test(normalized);
+                    setFieldError(telField, isValid ? "" : telMessage);
+                    return isValid;
+                };
+
+                const validateEmail = () => {
+                    const value = emailField.value.trim();
+                    if (!value) {
+                        setFieldError(emailField, "");
+                        return true;
+                    }
+                    const emailMessage = "正しいメールアドレスを入力して下さい。";
+                    const atCount = (value.match(/@/g) || []).length;
+                    const [local, domain] = value.split("@");
+                    const hasFullWidth = /[^\x00-\x7f]/.test(value);
+                    const isValid =
+                        atCount === 1 &&
+                        Boolean(local) &&
+                        Boolean(domain) &&
+                        domain.includes(".") &&
+                        !hasFullWidth;
+                    setFieldError(emailField, isValid ? "" : emailMessage);
+                    return isValid;
+                };
+
+                const validateContactFields = () => {
+                    const isEmailValid = validateEmail();
+                    const isTelValid = validateTel();
+                    return isEmailValid && isTelValid;
                 };
 
                 const setMessagePlaceholder = (type) => {
@@ -1641,6 +1736,9 @@
                     if (field.name === "box_prep") handleBoxPrep(field.value);
                 });
 
+                emailField.addEventListener("blur", validateEmail);
+                telField.addEventListener("blur", validateTel);
+
                 modal.addEventListener("click", (event) => {
                     const selectTypeLink =
                         event.target.closest("[data-select-type]");
@@ -1679,6 +1777,15 @@
                             );
                             return;
                         }
+                    }
+
+                    if (!validateContactFields()) {
+                        event.preventDefault();
+                        form.querySelector(":invalid")?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                        });
+                        return;
                     }
 
                     if (!form.checkValidity()) {
