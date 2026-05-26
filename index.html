@@ -1,497 +1,969 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Component List</title>
-    <link rel="stylesheet" href="asset/css/tokens.css">
-    <link rel="stylesheet" href="asset/css/reset.css">
-    <link rel="stylesheet" href="asset/css/base.css">
-    <link rel="stylesheet" href="asset/css/utility.css">
-    <link rel="stylesheet" href="asset/css/component.css">
-</head>
-<body>
-    <header class="hb__p-header" data-menu-open="false">
-        <div class="hb__l-container hb__p-header__inner">
-            <a class="hb__p-header__brand" href="#" aria-label="バイバイコムズ トップ">
-                <span class="hb__p-header__brand-mark">BC</span>
-                <span class="hb__p-header__brand-text">
-                    <span class="hb__p-header__brand-name">バイバイコムズ</span>
-                    <span class="hb__p-header__brand-sub">HOBBY BUYBACK</span>
-                </span>
-            </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Component List</title>
+        <link rel="stylesheet" href="asset/css/tokens.css" />
+        <link rel="stylesheet" href="asset/css/reset.css" />
+        <link rel="stylesheet" href="asset/css/base.css" />
+        <link rel="stylesheet" href="asset/css/utility.css" />
+        <link rel="stylesheet" href="asset/css/component.css" />
+        <link rel="stylesheet" href="asset/css/page.css" />
+    </head>
+    <body>
+        <header class="hb__p-header" data-menu-open="false">
+            <div class="hb__l-container hb__p-header__inner">
+                <a
+                    class="hb__p-header__brand"
+                    href="#"
+                    aria-label="バイバイコムズ トップ"
+                >
+                    <span class="hb__p-header__brand-mark">BC</span>
+                    <span class="hb__p-header__brand-text">
+                        <span class="hb__p-header__brand-name"
+                            >バイバイコムズ</span
+                        >
+                        <span class="hb__p-header__brand-sub"
+                            >HOBBY BUYBACK</span
+                        >
+                    </span>
+                </a>
 
-            <nav class="hb__p-header__nav" aria-label="グローバルナビゲーション">
-                <a class="hb__p-header__nav-link" href="#">選ばれる理由</a>
-                <a class="hb__p-header__nav-link" href="#">買取方法</a>
-                <a class="hb__p-header__nav-link" href="#">買取の流れ</a>
-                <a class="hb__p-header__nav-link" href="#">買取品目</a>
-                <a class="hb__p-header__nav-link" href="#">買取相場</a>
-                <a class="hb__p-header__nav-link" href="#">よくある質問</a>
-            </nav>
-
-            <div class="hb__p-header__actions">
-                <p class="hb__p-header__phone">
-                    <span class="hb__p-header__phone-label">受付 10:00 - 19:00</span>
-                    <span class="hb__p-header__phone-number">0120-000-000</span>
-                </p>
-                <a class="hb__p-header__cta" href="#">無料査定</a>
-            </div>
-
-            <button class="hb__p-header__menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="header-menu">
-                <span class="hb__p-header__menu-lines" aria-hidden="true">
-                    <span class="hb__p-header__menu-line"></span>
-                    <span class="hb__p-header__menu-line"></span>
-                    <span class="hb__p-header__menu-line"></span>
-                </span>
-            </button>
-        </div>
-
-        <div class="hb__p-header__panel" id="header-menu">
-            <div class="hb__l-container hb__p-header__panel-inner">
-                <nav class="hb__p-header__panel-nav" aria-label="モバイルナビゲーション">
-                    <a class="hb__p-header__panel-link" href="#">選ばれる理由</a>
-                    <a class="hb__p-header__panel-link" href="#">買取方法</a>
-                    <a class="hb__p-header__panel-link" href="#">買取の流れ</a>
-                    <a class="hb__p-header__panel-link" href="#">買取品目</a>
-                    <a class="hb__p-header__panel-link" href="#">買取相場</a>
-                    <a class="hb__p-header__panel-link" href="#">よくある質問</a>
+                <nav
+                    class="hb__p-header__nav"
+                    aria-label="グローバルナビゲーション"
+                >
+                    <a class="hb__p-header__nav-link" href="#">選ばれる理由</a>
+                    <a class="hb__p-header__nav-link" href="#">買取方法</a>
+                    <a class="hb__p-header__nav-link" href="#">買取の流れ</a>
+                    <a class="hb__p-header__nav-link" href="#">買取品目</a>
+                    <a class="hb__p-header__nav-link" href="#">買取相場</a>
+                    <a class="hb__p-header__nav-link" href="#">よくある質問</a>
                 </nav>
-                <div class="hb__p-header__panel-actions">
-                    <p class="hb__p-header__panel-phone">
-                        <span class="hb__p-header__panel-phone-label">受付 10:00 - 19:00</span>
-                        0120-000-000
+
+                <div class="hb__p-header__actions">
+                    <p class="hb__p-header__phone">
+                        <span class="hb__p-header__phone-label"
+                            >受付 10:00 - 19:00</span
+                        >
+                        <span class="hb__p-header__phone-number"
+                            >0120-000-000</span
+                        >
                     </p>
-                    <a class="hb__p-header__panel-cta" href="#">無料査定</a>
+                    <a class="hb__p-header__cta" href="#">無料査定</a>
+                </div>
+
+                <button
+                    class="hb__p-header__menu-button"
+                    type="button"
+                    aria-label="メニューを開く"
+                    aria-expanded="false"
+                    aria-controls="header-menu"
+                >
+                    <span class="hb__p-header__menu-lines" aria-hidden="true">
+                        <span class="hb__p-header__menu-line"></span>
+                        <span class="hb__p-header__menu-line"></span>
+                        <span class="hb__p-header__menu-line"></span>
+                    </span>
+                </button>
+            </div>
+
+            <div class="hb__p-header__panel" id="header-menu">
+                <div class="hb__l-container hb__p-header__panel-inner">
+                    <nav
+                        class="hb__p-header__panel-nav"
+                        aria-label="モバイルナビゲーション"
+                    >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >選ばれる理由</a
+                        >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >買取方法</a
+                        >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >買取の流れ</a
+                        >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >買取品目</a
+                        >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >買取相場</a
+                        >
+                        <a class="hb__p-header__panel-link" href="#"
+                            >よくある質問</a
+                        >
+                    </nav>
+                    <div class="hb__p-header__panel-actions">
+                        <p class="hb__p-header__panel-phone">
+                            <span class="hb__p-header__panel-phone-label"
+                                >受付 10:00 - 19:00</span
+                            >
+                            0120-000-000
+                        </p>
+                        <a class="hb__p-header__panel-cta" href="#">無料査定</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <section class="hb__p-hero" aria-labelledby="hero-title">
-            <div class="hb__l-container hb__p-hero__inner">
-                <div class="hb__p-hero__content">
-                    <p class="hb__p-hero__eyebrow">HOBBY SPECIALIST・おかげさまで査定実績 80,000件</p>
-                    <h1 class="hb__p-hero__title" id="hero-title">
-                        ホビー専門だから、<br>
-                        <span class="hb__p-hero__title-line">あなたの<wbr><span class="hb__p-hero__title-accent">コレクションの<wbr>価値</span>が</span><br>
-                        <span class="hb__p-hero__title-marker">わかる。</span>
-                    </h1>
-                    <p class="hb__p-hero__lead">
-                        フィギュア・プラモデル・特撮アイテムから、レトロゲーム・トレカまで。
-                        専門知識を持つバイヤーが、一点一点ていねいに査定。送料・査定料・キャンセル料すべて0円。
-                    </p>
-                    <div class="hb__p-hero__actions" aria-label="主な導線">
-                        <a class="hb__p-hero__button hb__p-hero__button--primary" href="#">無料査定を申し込む →</a>
-                        <a class="hb__p-hero__button hb__p-hero__button--secondary" href="#">買取の流れを見る</a>
+        <main>
+            <section class="hb__p-hero" aria-labelledby="hero-title">
+                <div class="hb__l-container hb__p-hero__inner">
+                    <div class="hb__p-hero__content">
+                        <p class="hb__p-hero__eyebrow">
+                            HOBBY SPECIALIST・おかげさまで査定実績 80,000件
+                        </p>
+                        <h1 class="hb__p-hero__title" id="hero-title">
+                            ホビー専門だから、<br />
+                            <span class="hb__p-hero__title-line"
+                                >あなたの<wbr /><span
+                                    class="hb__p-hero__title-accent"
+                                    >コレクションの<wbr />価値</span
+                                >が</span
+                            ><br />
+                            <span class="hb__p-hero__title-marker"
+                                >わかる。</span
+                            >
+                        </h1>
+                        <p class="hb__p-hero__lead">
+                            フィギュア・プラモデル・特撮アイテムから、レトロゲーム・トレカまで。
+                            専門知識を持つバイヤーが、一点一点ていねいに査定。送料・査定料・キャンセル料すべて0円。
+                        </p>
+                        <div class="hb__p-hero__actions" aria-label="主な導線">
+                            <a
+                                class="hb__p-hero__button hb__p-hero__button--primary"
+                                href="#"
+                                >無料査定を申し込む →</a
+                            >
+                            <a
+                                class="hb__p-hero__button hb__p-hero__button--secondary"
+                                href="#"
+                                >買取の流れを見る</a
+                            >
+                        </div>
+                        <div
+                            class="hb__p-hero__features"
+                            aria-label="サービスの特徴"
+                        >
+                            <p class="hb__p-hero__feature">
+                                <span class="hb__p-hero__check">✓</span>査定料 /
+                                送料無料
+                            </p>
+                            <p class="hb__p-hero__feature">
+                                <span class="hb__p-hero__check">✓</span
+                                >最短当日入金
+                            </p>
+                            <p class="hb__p-hero__feature">
+                                <span class="hb__p-hero__check">✓</span
+                                >専門スタッフが査定
+                            </p>
+                            <p class="hb__p-hero__feature">
+                                <span class="hb__p-hero__check">✓</span
+                                >全国対応・宅配買取OK
+                            </p>
+                        </div>
                     </div>
-                    <div class="hb__p-hero__features" aria-label="サービスの特徴">
-                        <p class="hb__p-hero__feature"><span class="hb__p-hero__check">✓</span>査定料 / 送料無料</p>
-                        <p class="hb__p-hero__feature"><span class="hb__p-hero__check">✓</span>最短当日入金</p>
-                        <p class="hb__p-hero__feature"><span class="hb__p-hero__check">✓</span>専門スタッフが査定</p>
-                        <p class="hb__p-hero__feature"><span class="hb__p-hero__check">✓</span>全国対応・宅配買取OK</p>
+
+                    <div
+                        class="hb__p-hero__visual"
+                        aria-label="買取対象商品のイメージ"
+                    >
+                        <div class="hb__p-hero__visual-frame">
+                            <img
+                                class="hb__p-hero__visual-image"
+                                src="https://placehold.co/920x720/eef3ee/5f6f66?text=Hero+Visual"
+                                alt="買取対象商品のビジュアルプレースホルダー"
+                            />
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="hb__p-hero__visual" aria-label="買取対象商品のイメージ">
-                    <div class="hb__p-hero__visual-frame">
-                        <img class="hb__p-hero__visual-image" src="https://placehold.co/920x720/eef3ee/5f6f66?text=Hero+Visual" alt="買取対象商品のビジュアルプレースホルダー">
+            <section class="hb__p-strength" aria-labelledby="strength-title">
+                <div class="hb__l-container hb__p-strength__inner">
+                    <div class="hb__p-strength__head">
+                        <p class="hb__p-strength__eyebrow">WHY CHOOSE US</p>
+                        <h2 class="hb__p-strength__title" id="strength-title">
+                            バイバイコムズが<span
+                                class="hb__p-strength__title-accent"
+                                >選ばれる理由</span
+                            >
+                        </h2>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="hb__p-strength" aria-labelledby="strength-title">
-            <div class="hb__l-container hb__p-strength__inner">
-                <div class="hb__p-strength__head">
-                    <p class="hb__p-strength__eyebrow">WHY CHOOSE US</p>
-                    <h2 class="hb__p-strength__title" id="strength-title">
-                        バイバイコムズが<span class="hb__p-strength__title-accent">選ばれる理由</span>
-                    </h2>
-                </div>
-
-                <div class="hb__p-strength__list">
-                    <article class="hb__p-strength__card">
-                        <div class="hb__p-strength__image-wrap">
-                            <img class="hb__p-strength__image" src="asset/image/sennmonnbaiya-.webp" alt="ホビー専門バイヤーのイメージ">
-                        </div>
-                        <div class="hb__p-strength__body">
-                            <h3 class="hb__p-strength__card-title">
-                                <span class="hb__p-strength__card-title-accent">ホビー専門</span>バイヤー
-                            </h3>
-                            <p class="hb__p-strength__text">
-                                フィギュア・プラモデル・特撮グッズなど各ジャンルに精通した専門査定士が在籍。希少品やプレミアアイテムの価値も的確に評価し、適正価格をご提示します。
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-strength__card">
-                        <div class="hb__p-strength__image-wrap">
-                            <img class="hb__p-strength__image" src="asset/image/saikousuijunnnokaitorikakaku.webp" alt="業界最高水準の買取価格のイメージ">
-                        </div>
-                        <div class="hb__p-strength__body">
-                            <h3 class="hb__p-strength__card-title">
-                                業界最高水準の<span class="hb__p-strength__card-title-accent">買取価格</span>
-                            </h3>
-                            <p class="hb__p-strength__text">
-                                独自の販売網と海外バイヤー連携により高単価を実現。市場動向をリアルタイムで反映した買取相場で、コレクション一点一点の価値をしっかり還元します。
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-strength__card">
-                        <div class="hb__p-strength__image-wrap">
-                            <img class="hb__p-strength__image" src="asset/image/speed.webp" alt="スピード対応と安心保証のイメージ">
-                        </div>
-                        <div class="hb__p-strength__body">
-                            <h3 class="hb__p-strength__card-title">
-                                <span class="hb__p-strength__card-title-accent">スピード対応</span>と安心保証
-                            </h3>
-                            <p class="hb__p-strength__text">
-                                査定から入金まで最短当日。送料・査定料・キャンセル料はすべて0円。ご納得いただけない場合は無料で返送するので、はじめての方も安心してご利用いただけます。
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="hb__p-method" aria-labelledby="method-title">
-            <div class="hb__l-container hb__p-method__inner">
-                <div class="hb__p-method__head">
-                    <p class="hb__p-method__eyebrow">BUYBACK METHODS</p>
-                    <h2 class="hb__p-method__title" id="method-title">
-                        3つの<span class="hb__p-method__title-accent">買取方法</span>からお選びいただけます
-                    </h2>
-                    <p class="hb__p-method__lead">
-                        点数や状況にあわせて選べる3スタイル。一番おすすめは送るだけの「宅配買取」です。
-                    </p>
-                </div>
-
-                <div class="hb__p-method__list">
-                    <article class="hb__p-method__card hb__p-method__card--recommended">
-                        <p class="hb__p-method__badge">★ おすすめ</p>
-                        <div class="hb__p-method__visual hb__p-method__visual--delivery">
-                            <h3 class="hb__p-method__card-title">宅配買取</h3>
-                        </div>
-                        <div class="hb__p-method__body">
-                            <p class="hb__p-method__text">
-                                段ボールに詰めて送るだけ。全国どこからでも、ご自宅にいながら査定・売却が完了します。梱包キットも無料でお届け。
-                            </p>
-                            <div class="hb__p-method__tags">
-                                <span class="hb__p-method__tag">送料無料</span>
-                                <span class="hb__p-method__tag">梱包キット無料</span>
-                                <span class="hb__p-method__tag">最短翌日査定</span>
-                                <span class="hb__p-method__tag">全国対応</span>
+                    <div class="hb__p-strength__list">
+                        <article class="hb__p-strength__card">
+                            <div class="hb__p-strength__image-wrap">
+                                <img
+                                    class="hb__p-strength__image"
+                                    src="asset/image/sennmonnbaiya-.webp"
+                                    alt="ホビー専門バイヤーのイメージ"
+                                />
                             </div>
-                            <a class="hb__p-method__button hb__p-method__button--primary" href="#">宅配買取を申し込む</a>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-method__card">
-                        <div class="hb__p-method__visual hb__p-method__visual--visit">
-                            <h3 class="hb__p-method__card-title">出張買取</h3>
-                        </div>
-                        <div class="hb__p-method__body">
-                            <p class="hb__p-method__text">
-                                大量・大型のお品物はスタッフがご自宅まで伺います。査定・運び出しまで、すべてお任せください。
-                            </p>
-                            <div class="hb__p-method__tags">
-                                <span class="hb__p-method__tag">出張費無料</span>
-                                <span class="hb__p-method__tag">即現金化</span>
+                            <div class="hb__p-strength__body">
+                                <h3 class="hb__p-strength__card-title">
+                                    <span
+                                        class="hb__p-strength__card-title-accent"
+                                        >ホビー専門</span
+                                    >バイヤー
+                                </h3>
+                                <p class="hb__p-strength__text">
+                                    フィギュア・プラモデル・特撮グッズなど各ジャンルに精通した専門査定士が在籍。希少品やプレミアアイテムの価値も的確に評価し、適正価格をご提示します。
+                                </p>
                             </div>
-                            <a class="hb__p-method__button" href="#">出張買取を申し込む</a>
-                        </div>
-                    </article>
+                        </article>
 
-                    <article class="hb__p-method__card">
-                        <div class="hb__p-method__visual hb__p-method__visual--store">
-                            <h3 class="hb__p-method__card-title">持ち込み買取</h3>
-                        </div>
-                        <div class="hb__p-method__body">
-                            <p class="hb__p-method__text">
-                                お近くの店舗へ直接お持ち込みいただけます。その場で査定・現金化が可能です。
-                            </p>
-                            <div class="hb__p-method__tags">
-                                <span class="hb__p-method__tag">即日現金化</span>
-                                <span class="hb__p-method__tag">対面査定</span>
+                        <article class="hb__p-strength__card">
+                            <div class="hb__p-strength__image-wrap">
+                                <img
+                                    class="hb__p-strength__image"
+                                    src="asset/image/saikousuijunnnokaitorikakaku.webp"
+                                    alt="業界最高水準の買取価格のイメージ"
+                                />
                             </div>
-                            <a class="hb__p-method__button" href="#">店舗を探す</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+                            <div class="hb__p-strength__body">
+                                <h3 class="hb__p-strength__card-title">
+                                    業界最高水準の<span
+                                        class="hb__p-strength__card-title-accent"
+                                        >買取価格</span
+                                    >
+                                </h3>
+                                <p class="hb__p-strength__text">
+                                    独自の販売網と海外バイヤー連携により高単価を実現。市場動向をリアルタイムで反映した買取相場で、コレクション一点一点の価値をしっかり還元します。
+                                </p>
+                            </div>
+                        </article>
 
-        <section class="hb__p-flow" aria-labelledby="flow-title">
-            <div class="hb__l-container hb__p-flow__inner">
-                <div class="hb__p-flow__head">
-                    <p class="hb__p-flow__eyebrow">BUYBACK FLOW</p>
-                    <h2 class="hb__p-flow__title" id="flow-title">
-                        <span class="hb__p-flow__title-accent">買取の流れ</span>
-                    </h2>
-                </div>
-
-                <div class="hb__p-flow__list">
-                    <article class="hb__p-flow__item">
-                        <div class="hb__p-flow__card">
-                            <p class="hb__p-flow__number">01</p>
-                            <p class="hb__p-flow__icon" aria-hidden="true">📋</p>
-                            <h3 class="hb__p-flow__card-title">申し込み</h3>
-                            <p class="hb__p-flow__text">
-                                申し込みフォームから必要事項を入力し、売りたい商品情報や写真を送信してください。
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-flow__item">
-                        <div class="hb__p-flow__card">
-                            <p class="hb__p-flow__number">02</p>
-                            <p class="hb__p-flow__icon" aria-hidden="true">🔍</p>
-                            <h3 class="hb__p-flow__card-title">査定</h3>
-                            <p class="hb__p-flow__text">
-                                専門スタッフが商品を確認し、査定金額をご提示します。（通常1〜3営業日以内）
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-flow__item">
-                        <div class="hb__p-flow__card">
-                            <p class="hb__p-flow__number">03</p>
-                            <p class="hb__p-flow__icon" aria-hidden="true">☑️</p>
-                            <h3 class="hb__p-flow__card-title">承認</h3>
-                            <p class="hb__p-flow__text">
-                                査定金額をご確認いただき、ご承認いただくと買取手続きが完了します。
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="hb__p-flow__item">
-                        <div class="hb__p-flow__card">
-                            <p class="hb__p-flow__number">04</p>
-                            <p class="hb__p-flow__icon" aria-hidden="true">🏦</p>
-                            <h3 class="hb__p-flow__card-title">入金</h3>
-                            <p class="hb__p-flow__text">
-                                ご指定の口座へ迅速にお振込みいたします。（最短当日〜翌営業日）
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="hb__p-category" aria-labelledby="category-title">
-            <div class="hb__l-container hb__p-category__inner">
-                <div class="hb__p-category__head">
-                    <p class="hb__p-category__eyebrow">CATEGORIES</p>
-                    <h2 class="hb__p-category__title" id="category-title">
-                        幅広い<span class="hb__p-category__title-accent">買取品目一覧</span>
-                    </h2>
-                    <p class="hb__p-category__lead">
-                        下記カテゴリ以外もまずはご相談ください。コレクション一式・まとめ売り大歓迎です。
-                    </p>
-                </div>
-
-                <div class="hb__p-category__grid">
-                    <article class="hb__p-category__card">
-                        <span class="hb__p-category__badge">強化中</span>
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=figure" alt="フィギュアのプレースホルダー">
-                        <h3 class="hb__p-category__name">フィギュア</h3>
-                        <p class="hb__p-category__note">スケール / ねんどろいど / figma 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <span class="hb__p-category__badge">強化中</span>
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=plamodel" alt="プラモデルのプレースホルダー">
-                        <h3 class="hb__p-category__name">プラモデル</h3>
-                        <p class="hb__p-category__note">ガンプラ / スケールモデル 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card hb__p-category__card--featured">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=robot" alt="超合金・ロボット玩具のプレースホルダー">
-                        <h3 class="hb__p-category__name">超合金・ロボット玩具</h3>
-                        <p class="hb__p-category__note">魂SPEC / DX超合金 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <span class="hb__p-category__badge">強化中</span>
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=rider" alt="仮面ライダー・特撮のプレースホルダー">
-                        <h3 class="hb__p-category__name">仮面ライダー・特撮</h3>
-                        <p class="hb__p-category__note">変身ベルト / 怪人ソフビ 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=retro" alt="レトロおもちゃ・ソフビのプレースホルダー">
-                        <h3 class="hb__p-category__name">レトロおもちゃ・ソフビ</h3>
-                        <p class="hb__p-category__note">昭和レトロ / 当時物玩具 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <span class="hb__p-category__badge">強化中</span>
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=card" alt="トレーディングカードのプレースホルダー">
-                        <h3 class="hb__p-category__name">トレーディングカード</h3>
-                        <p class="hb__p-category__note">ポケカ / 遊戯王 / MTG 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=game" alt="レトロゲーム・ゲーム機のプレースホルダー">
-                        <h3 class="hb__p-category__name">レトロゲーム・ゲーム機</h3>
-                        <p class="hb__p-category__note">FC / SFC / GB / 旧ハード 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=minicar" alt="ミニカー・鉄道模型のプレースホルダー">
-                        <h3 class="hb__p-category__name">ミニカー・鉄道模型</h3>
-                        <p class="hb__p-category__note">トミカ / HOゲージ / Nゲージ</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=gacha" alt="ガシャポン・シール類のプレースホルダー">
-                        <h3 class="hb__p-category__name">ガシャポン・シール類</h3>
-                        <p class="hb__p-category__note">食玩 / ビックリマン 等</p>
-                    </article>
-
-                    <article class="hb__p-category__card">
-                        <img class="hb__p-category__image" src="https://placehold.co/320x320/eef3ee/5f6f66?text=anime" alt="アニメグッズ全般のプレースホルダー">
-                        <h3 class="hb__p-category__name">アニメグッズ全般</h3>
-                        <p class="hb__p-category__note">缶バッジ / アクスタ / 同人 等</p>
-                    </article>
-                </div>
-
-                <div class="hb__p-category__series" aria-labelledby="category-series-title">
-                    <h3 class="hb__p-category__series-title" id="category-series-title">人気シリーズ</h3>
-                    <div class="hb__p-category__series-list">
-                        <span class="hb__p-category__series-tag">ねんどろいど</span>
-                        <span class="hb__p-category__series-tag">figma</span>
-                        <span class="hb__p-category__series-tag">ガンプラ</span>
-                        <span class="hb__p-category__series-tag">DX超合金</span>
-                        <span class="hb__p-category__series-tag">変身ベルト</span>
-                        <span class="hb__p-category__series-tag">トミカ</span>
-                        <span class="hb__p-category__series-tag">ポケモンカード</span>
-                        <span class="hb__p-category__series-tag">ビックリマン</span>
+                        <article class="hb__p-strength__card">
+                            <div class="hb__p-strength__image-wrap">
+                                <img
+                                    class="hb__p-strength__image"
+                                    src="asset/image/speed.webp"
+                                    alt="スピード対応と安心保証のイメージ"
+                                />
+                            </div>
+                            <div class="hb__p-strength__body">
+                                <h3 class="hb__p-strength__card-title">
+                                    <span
+                                        class="hb__p-strength__card-title-accent"
+                                        >スピード対応</span
+                                    >と安心保証
+                                </h3>
+                                <p class="hb__p-strength__text">
+                                    査定から入金まで最短当日。送料・査定料・キャンセル料はすべて0円。ご納得いただけない場合は無料で返送するので、はじめての方も安心してご利用いただけます。
+                                </p>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="hb__p-results" aria-labelledby="results-title">
-            <div class="hb__l-container hb__p-results__inner">
-                <div class="hb__p-results__head">
-                    <div>
-                        <p class="hb__p-results__eyebrow">RECENT RESULTS</p>
-                        <h2 class="hb__p-results__title" id="results-title">直近の買取実績</h2>
+            <section class="hb__p-method" aria-labelledby="method-title">
+                <div class="hb__l-container hb__p-method__inner">
+                    <div class="hb__p-method__head">
+                        <p class="hb__p-method__eyebrow">BUYBACK METHODS</p>
+                        <h2 class="hb__p-method__title" id="method-title">
+                            3つの<span class="hb__p-method__title-accent"
+                                >買取方法</span
+                            >からお選びいただけます
+                        </h2>
+                        <p class="hb__p-method__lead">
+                            点数や状況にあわせて選べる3スタイル。一番おすすめは送るだけの「宅配買取」です。
+                        </p>
                     </div>
-                    <p class="hb__p-results__lead">ガンプラ、フィギュア、ミリタリー、工具まで、実際に査定したアイテムの一例です。</p>
-                </div>
 
-                <div class="hb__p-results__toolbar">
-                    <div class="hb__p-results__tabs" role="tablist" aria-label="買取実績カテゴリ">
-                        <button class="hb__p-results__tab" type="button" role="tab" aria-selected="true">すべて</button>
-                        <button class="hb__p-results__tab" type="button" role="tab" aria-selected="false">ガンダム</button>
-                        <button class="hb__p-results__tab" type="button" role="tab" aria-selected="false">ミリタリー</button>
-                        <button class="hb__p-results__tab" type="button" role="tab" aria-selected="false">キャラクター</button>
-                        <button class="hb__p-results__tab" type="button" role="tab" aria-selected="false">工具・材料</button>
+                    <div class="hb__p-method__list">
+                        <article
+                            class="hb__p-method__card hb__p-method__card--recommended"
+                        >
+                            <p class="hb__p-method__badge">★ おすすめ</p>
+                            <div
+                                class="hb__p-method__visual hb__p-method__visual--delivery"
+                            >
+                                <h3 class="hb__p-method__card-title">
+                                    宅配買取
+                                </h3>
+                            </div>
+                            <div class="hb__p-method__body">
+                                <p class="hb__p-method__text">
+                                    段ボールに詰めて送るだけ。全国どこからでも、ご自宅にいながら査定・売却が完了します。梱包キットも無料でお届け。
+                                </p>
+                                <div class="hb__p-method__tags">
+                                    <span class="hb__p-method__tag"
+                                        >送料無料</span
+                                    >
+                                    <span class="hb__p-method__tag"
+                                        >梱包キット無料</span
+                                    >
+                                    <span class="hb__p-method__tag"
+                                        >最短翌日査定</span
+                                    >
+                                    <span class="hb__p-method__tag"
+                                        >全国対応</span
+                                    >
+                                </div>
+                                <a
+                                    class="hb__p-method__button hb__p-method__button--primary"
+                                    href="#"
+                                    >宅配買取を申し込む</a
+                                >
+                            </div>
+                        </article>
+
+                        <article class="hb__p-method__card">
+                            <div
+                                class="hb__p-method__visual hb__p-method__visual--visit"
+                            >
+                                <h3 class="hb__p-method__card-title">
+                                    出張買取
+                                </h3>
+                            </div>
+                            <div class="hb__p-method__body">
+                                <p class="hb__p-method__text">
+                                    大量・大型のお品物はスタッフがご自宅まで伺います。査定・運び出しまで、すべてお任せください。
+                                </p>
+                                <div class="hb__p-method__tags">
+                                    <span class="hb__p-method__tag"
+                                        >出張費無料</span
+                                    >
+                                    <span class="hb__p-method__tag"
+                                        >即現金化</span
+                                    >
+                                </div>
+                                <a class="hb__p-method__button" href="#"
+                                    >出張買取を申し込む</a
+                                >
+                            </div>
+                        </article>
+
+                        <article class="hb__p-method__card">
+                            <div
+                                class="hb__p-method__visual hb__p-method__visual--store"
+                            >
+                                <h3 class="hb__p-method__card-title">
+                                    持ち込み買取
+                                </h3>
+                            </div>
+                            <div class="hb__p-method__body">
+                                <p class="hb__p-method__text">
+                                    お近くの店舗へ直接お持ち込みいただけます。その場で査定・現金化が可能です。
+                                </p>
+                                <div class="hb__p-method__tags">
+                                    <span class="hb__p-method__tag"
+                                        >即日現金化</span
+                                    >
+                                    <span class="hb__p-method__tag"
+                                        >対面査定</span
+                                    >
+                                </div>
+                                <a class="hb__p-method__button" href="#"
+                                    >店舗を探す</a
+                                >
+                            </div>
+                        </article>
                     </div>
-                    <div class="hb__p-results__controls">
-                        <label class="hb__u-visually-hidden" for="results-sort">並び替え</label>
-                        <select class="hb__p-results__select" id="results-sort">
-                            <option>人気順</option>
-                            <option>新着順</option>
-                            <option>高価買取順</option>
-                        </select>
-                        <button class="hb__p-results__view-button" type="button" aria-label="グリッド表示" aria-pressed="true">▦</button>
-                        <button class="hb__p-results__view-button" type="button" aria-label="リスト表示" aria-pressed="false">☰</button>
+                </div>
+            </section>
+
+            <section class="hb__p-flow" aria-labelledby="flow-title">
+                <div class="hb__l-container hb__p-flow__inner">
+                    <div class="hb__p-flow__head">
+                        <p class="hb__p-flow__eyebrow">BUYBACK FLOW</p>
+                        <h2 class="hb__p-flow__title" id="flow-title">
+                            <span class="hb__p-flow__title-accent"
+                                >買取の流れ</span
+                            >
+                        </h2>
+                    </div>
+
+                    <div class="hb__p-flow__list">
+                        <article class="hb__p-flow__item">
+                            <div class="hb__p-flow__card">
+                                <p class="hb__p-flow__number">01</p>
+                                <p class="hb__p-flow__icon" aria-hidden="true">
+                                    📋
+                                </p>
+                                <h3 class="hb__p-flow__card-title">申し込み</h3>
+                                <p class="hb__p-flow__text">
+                                    申し込みフォームから必要事項を入力し、売りたい商品情報や写真を送信してください。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb__p-flow__item">
+                            <div class="hb__p-flow__card">
+                                <p class="hb__p-flow__number">02</p>
+                                <p class="hb__p-flow__icon" aria-hidden="true">
+                                    🔍
+                                </p>
+                                <h3 class="hb__p-flow__card-title">査定</h3>
+                                <p class="hb__p-flow__text">
+                                    専門スタッフが商品を確認し、査定金額をご提示します。（通常1〜3営業日以内）
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb__p-flow__item">
+                            <div class="hb__p-flow__card">
+                                <p class="hb__p-flow__number">03</p>
+                                <p class="hb__p-flow__icon" aria-hidden="true">
+                                    ☑️
+                                </p>
+                                <h3 class="hb__p-flow__card-title">承認</h3>
+                                <p class="hb__p-flow__text">
+                                    査定金額をご確認いただき、ご承認いただくと買取手続きが完了します。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb__p-flow__item">
+                            <div class="hb__p-flow__card">
+                                <p class="hb__p-flow__number">04</p>
+                                <p class="hb__p-flow__icon" aria-hidden="true">
+                                    🏦
+                                </p>
+                                <h3 class="hb__p-flow__card-title">入金</h3>
+                                <p class="hb__p-flow__text">
+                                    ご指定の口座へ迅速にお振込みいたします。（最短当日〜翌営業日）
+                                </p>
+                            </div>
+                        </article>
                     </div>
                 </div>
+            </section>
 
-                <div class="hb__p-results__grid">
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=MG+Gundam" alt="MG ガンダムRX-78-2 Ver.3.0">
-                        <h3 class="hb__p-results__name">MG ガンダムRX-78-2 Ver.3.0</h3>
-                        <span class="hb__p-results__tag">ガンダム</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥3,500〜¥5,000</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=RG+Sazabi" alt="RG サザビー">
-                        <h3 class="hb__p-results__name">RG サザビー</h3>
-                        <span class="hb__p-results__tag">ガンダム</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥2,800〜¥4,000</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=HGUC+Zaku" alt="HGUC ザクII F2型">
-                        <h3 class="hb__p-results__name">HGUC ザクII F2型</h3>
-                        <span class="hb__p-results__tag">ガンダム</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥1,200〜¥2,000</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=M1A2+Tank" alt="タミヤ 1/35 M1A2 エイブラムス">
-                        <h3 class="hb__p-results__name">タミヤ 1/35 M1A2 エイブラムス</h3>
-                        <span class="hb__p-results__tag">ミリタリー</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥2,000〜¥3,500</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=Frame+Arms" alt="フレームアームズ・ガール 轟雷">
-                        <h3 class="hb__p-results__name">フレームアームズ・ガール 轟雷</h3>
-                        <span class="hb__p-results__tag">キャラクター</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥1,500〜¥2,500</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=30MS+Rishetta" alt="30MS リシェッタ">
-                        <h3 class="hb__p-results__name">30MS リシェッタ</h3>
-                        <span class="hb__p-results__tag">キャラクター</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥1,200〜¥2,000</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=Tamiya+Cement" alt="タミヤ セメント 流し込みタイプ">
-                        <h3 class="hb__p-results__name">タミヤ セメント（流し込みタイプ）</h3>
-                        <span class="hb__p-results__tag">工具・材料</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥300〜¥600</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
-                    <article class="hb__p-results__card">
-                        <button class="hb__p-results__favorite" type="button" aria-label="お気に入りに追加">♡</button>
-                        <img class="hb__p-results__image" src="https://placehold.co/480x300/f4f7f4/33423a?text=GodHand+Nipper" alt="ゴッドハンド ニッパー SPN-120">
-                        <h3 class="hb__p-results__name">ゴッドハンド ニッパー SPN-120</h3>
-                        <span class="hb__p-results__tag">工具・材料</span>
-                        <p class="hb__p-results__price-label">買取参考価格: <span class="hb__p-results__price">¥3,000〜¥4,500</span></p>
-                        <a class="hb__p-results__link" href="#">詳細を見る</a>
-                    </article>
+            <section class="hb__p-category" aria-labelledby="category-title">
+                <div class="hb__l-container hb__p-category__inner">
+                    <div class="hb__p-category__head">
+                        <p class="hb__p-category__eyebrow">CATEGORIES</p>
+                        <h2 class="hb__p-category__title" id="category-title">
+                            幅広い<span class="hb__p-category__title-accent"
+                                >買取品目一覧</span
+                            >
+                        </h2>
+                        <p class="hb__p-category__lead">
+                            下記カテゴリ以外もまずはご相談ください。コレクション一式・まとめ売り大歓迎です。
+                        </p>
+                    </div>
+
+                    <div class="hb__p-category__grid">
+                        <article class="hb__p-category__card">
+                            <span class="hb__p-category__badge">強化中</span>
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=figure"
+                                alt="フィギュアのプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">フィギュア</h3>
+                            <p class="hb__p-category__note">
+                                スケール / ねんどろいど / figma 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <span class="hb__p-category__badge">強化中</span>
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=plamodel"
+                                alt="プラモデルのプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">プラモデル</h3>
+                            <p class="hb__p-category__note">
+                                ガンプラ / スケールモデル 等
+                            </p>
+                        </article>
+
+                        <article
+                            class="hb__p-category__card hb__p-category__card--featured"
+                        >
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=robot"
+                                alt="超合金・ロボット玩具のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                超合金・ロボット玩具
+                            </h3>
+                            <p class="hb__p-category__note">
+                                魂SPEC / DX超合金 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <span class="hb__p-category__badge">強化中</span>
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=rider"
+                                alt="仮面ライダー・特撮のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                仮面ライダー・特撮
+                            </h3>
+                            <p class="hb__p-category__note">
+                                変身ベルト / 怪人ソフビ 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=retro"
+                                alt="レトロおもちゃ・ソフビのプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                レトロおもちゃ・ソフビ
+                            </h3>
+                            <p class="hb__p-category__note">
+                                昭和レトロ / 当時物玩具 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <span class="hb__p-category__badge">強化中</span>
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=card"
+                                alt="トレーディングカードのプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                トレーディングカード
+                            </h3>
+                            <p class="hb__p-category__note">
+                                ポケカ / 遊戯王 / MTG 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=game"
+                                alt="レトロゲーム・ゲーム機のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                レトロゲーム・ゲーム機
+                            </h3>
+                            <p class="hb__p-category__note">
+                                FC / SFC / GB / 旧ハード 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=minicar"
+                                alt="ミニカー・鉄道模型のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                ミニカー・鉄道模型
+                            </h3>
+                            <p class="hb__p-category__note">
+                                トミカ / HOゲージ / Nゲージ
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=gacha"
+                                alt="ガシャポン・シール類のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                ガシャポン・シール類
+                            </h3>
+                            <p class="hb__p-category__note">
+                                食玩 / ビックリマン 等
+                            </p>
+                        </article>
+
+                        <article class="hb__p-category__card">
+                            <img
+                                class="hb__p-category__image"
+                                src="https://placehold.co/320x320/eef3ee/5f6f66?text=anime"
+                                alt="アニメグッズ全般のプレースホルダー"
+                            />
+                            <h3 class="hb__p-category__name">
+                                アニメグッズ全般
+                            </h3>
+                            <p class="hb__p-category__note">
+                                缶バッジ / アクスタ / 同人 等
+                            </p>
+                        </article>
+                    </div>
+
+                    <div
+                        class="hb__p-category__series"
+                        aria-labelledby="category-series-title"
+                    >
+                        <h3
+                            class="hb__p-category__series-title"
+                            id="category-series-title"
+                        >
+                            人気シリーズ
+                        </h3>
+                        <div class="hb__p-category__series-list">
+                            <span class="hb__p-category__series-tag"
+                                >ねんどろいど</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >figma</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >ガンプラ</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >DX超合金</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >変身ベルト</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >トミカ</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >ポケモンカード</span
+                            >
+                            <span class="hb__p-category__series-tag"
+                                >ビックリマン</span
+                            >
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-    </main>
+            <section class="hb__p-results" aria-labelledby="results-title">
+                <div class="hb__l-container hb__p-results__inner">
+                    <div class="hb__p-results__head">
+                        <div>
+                            <p class="hb__p-results__eyebrow">RECENT RESULTS</p>
+                            <h2 class="hb__p-results__title" id="results-title">
+                                直近の買取実績
+                            </h2>
+                        </div>
+                        <p class="hb__p-results__lead">
+                            ガンプラ、フィギュア、ミリタリー、工具まで、実際に査定したアイテムの一例です。
+                        </p>
+                    </div>
 
-    <script>
-        (() => {
-            const header = document.querySelector(".hb__p-header");
-            const button = document.querySelector(".hb__p-header__menu-button");
+                    <div class="hb__p-results__toolbar">
+                        <div
+                            class="hb__p-results__tabs"
+                            role="tablist"
+                            aria-label="買取実績カテゴリ"
+                        >
+                            <button
+                                class="hb__p-results__tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="true"
+                            >
+                                すべて
+                            </button>
+                            <button
+                                class="hb__p-results__tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                ガンダム
+                            </button>
+                            <button
+                                class="hb__p-results__tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                ミリタリー
+                            </button>
+                            <button
+                                class="hb__p-results__tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                キャラクター
+                            </button>
+                            <button
+                                class="hb__p-results__tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                工具・材料
+                            </button>
+                        </div>
+                        <div class="hb__p-results__controls">
+                            <label
+                                class="hb__u-visually-hidden"
+                                for="results-sort"
+                                >並び替え</label
+                            >
+                            <select
+                                class="hb__p-results__select"
+                                id="results-sort"
+                            >
+                                <option>人気順</option>
+                                <option>新着順</option>
+                                <option>高価買取順</option>
+                            </select>
+                            <button
+                                class="hb__p-results__view-button"
+                                type="button"
+                                aria-label="グリッド表示"
+                                aria-pressed="true"
+                            >
+                                ▦
+                            </button>
+                            <button
+                                class="hb__p-results__view-button"
+                                type="button"
+                                aria-label="リスト表示"
+                                aria-pressed="false"
+                            >
+                                ☰
+                            </button>
+                        </div>
+                    </div>
 
-            if (!header || !button) {
-                return;
-            }
+                    <div class="hb__p-results__grid">
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=MG+Gundam"
+                                alt="MG ガンダムRX-78-2 Ver.3.0"
+                            />
+                            <h3 class="hb__p-results__name">
+                                MG ガンダムRX-78-2 Ver.3.0
+                            </h3>
+                            <span class="hb__p-results__tag">ガンダム</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥3,500〜¥5,000</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=RG+Sazabi"
+                                alt="RG サザビー"
+                            />
+                            <h3 class="hb__p-results__name">RG サザビー</h3>
+                            <span class="hb__p-results__tag">ガンダム</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥2,800〜¥4,000</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=HGUC+Zaku"
+                                alt="HGUC ザクII F2型"
+                            />
+                            <h3 class="hb__p-results__name">
+                                HGUC ザクII F2型
+                            </h3>
+                            <span class="hb__p-results__tag">ガンダム</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥1,200〜¥2,000</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=M1A2+Tank"
+                                alt="タミヤ 1/35 M1A2 エイブラムス"
+                            />
+                            <h3 class="hb__p-results__name">
+                                タミヤ 1/35 M1A2 エイブラムス
+                            </h3>
+                            <span class="hb__p-results__tag">ミリタリー</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥2,000〜¥3,500</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=Frame+Arms"
+                                alt="フレームアームズ・ガール 轟雷"
+                            />
+                            <h3 class="hb__p-results__name">
+                                フレームアームズ・ガール 轟雷
+                            </h3>
+                            <span class="hb__p-results__tag">キャラクター</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥1,500〜¥2,500</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=30MS+Rishetta"
+                                alt="30MS リシェッタ"
+                            />
+                            <h3 class="hb__p-results__name">30MS リシェッタ</h3>
+                            <span class="hb__p-results__tag">キャラクター</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥1,200〜¥2,000</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=Tamiya+Cement"
+                                alt="タミヤ セメント 流し込みタイプ"
+                            />
+                            <h3 class="hb__p-results__name">
+                                タミヤ セメント（流し込みタイプ）
+                            </h3>
+                            <span class="hb__p-results__tag">工具・材料</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥300〜¥600</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                        <article class="hb__p-results__card">
+                            <button
+                                class="hb__p-results__favorite"
+                                type="button"
+                                aria-label="お気に入りに追加"
+                            >
+                                ♡
+                            </button>
+                            <img
+                                class="hb__p-results__image"
+                                src="https://placehold.co/480x300/f4f7f4/33423a?text=GodHand+Nipper"
+                                alt="ゴッドハンド ニッパー SPN-120"
+                            />
+                            <h3 class="hb__p-results__name">
+                                ゴッドハンド ニッパー SPN-120
+                            </h3>
+                            <span class="hb__p-results__tag">工具・材料</span>
+                            <p class="hb__p-results__price-label">
+                                買取参考価格:
+                                <span class="hb__p-results__price"
+                                    >¥3,000〜¥4,500</span
+                                >
+                            </p>
+                            <a class="hb__p-results__link" href="#"
+                                >詳細を見る</a
+                            >
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-            button.addEventListener("click", () => {
-                const isOpen = header.dataset.menuOpen === "true";
-                header.dataset.menuOpen = String(!isOpen);
-                button.setAttribute("aria-expanded", String(!isOpen));
-                button.setAttribute("aria-label", isOpen ? "メニューを開く" : "メニューを閉じる");
-            });
-        })();
-    </script>
-</body>
+        <script>
+            (() => {
+                const header = document.querySelector(".hb__p-header");
+                const button = document.querySelector(
+                    ".hb__p-header__menu-button",
+                );
+
+                if (!header || !button) {
+                    return;
+                }
+
+                button.addEventListener("click", () => {
+                    const isOpen = header.dataset.menuOpen === "true";
+                    header.dataset.menuOpen = String(!isOpen);
+                    button.setAttribute("aria-expanded", String(!isOpen));
+                    button.setAttribute(
+                        "aria-label",
+                        isOpen ? "メニューを開く" : "メニューを閉じる",
+                    );
+                });
+            })();
+        </script>
+    </body>
 </html>
