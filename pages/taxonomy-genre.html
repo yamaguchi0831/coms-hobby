@@ -118,64 +118,54 @@
             }
 
             .hb-item-genre__p-recommend {
-                background: var(--hb-color-white);
+                background: var(--hb-color-surface-green);
             }
 
             .hb-item-genre__p-recommend-inner {
                 display: grid;
-                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
                 gap: var(--hb-space-2xl);
-                align-items: center;
             }
 
-            .hb-item-genre__p-recommend-image {
-                margin: 0;
-                overflow: hidden;
-                border-radius: var(--hb-radius-md);
-                background: var(--hb-color-surface-green-light);
-                box-shadow: var(--hb-shadow-sm);
-            }
-
-            .hb-item-genre__p-recommend-image img {
-                display: block;
-                width: 100%;
-                aspect-ratio: 4 / 3;
-                object-fit: cover;
-            }
-
-            .hb-item-genre__p-recommend-body {
-                min-width: 0;
-            }
-
-            .hb-item-genre__p-recommend-body .hb-item-genre__p-section-head {
-                margin-inline: 0;
-                text-align: left;
+            .hb-item-genre__p-recommend-inner .hb-item-genre__p-section-head {
+                margin-bottom: 0;
             }
 
             .hb-item-genre__p-recommend-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: var(--hb-space-lg);
                 margin: 0;
                 padding: 0;
-                border: 1px solid var(--hb-color-border-muted);
-                border-radius: var(--hb-radius-md);
-                background: var(--hb-color-white);
-                box-shadow: var(--hb-shadow-sm);
                 list-style: none;
             }
 
             .hb-item-genre__p-recommend-item {
-                display: flex;
-                gap: var(--hb-space-md);
+                display: grid;
+                grid-template-columns: 96px minmax(0, 1fr);
+                gap: var(--hb-space-lg);
                 align-items: center;
-                padding: var(--hb-space-lg);
+                min-height: 128px;
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
                 color: var(--hb-color-text-deep);
                 font-size: var(--hb-font-size-h4);
                 font-weight: 900;
                 line-height: 1.6;
+                padding: var(--hb-space-md);
             }
 
             .hb-item-genre__p-recommend-item
                 + .hb-item-genre__p-recommend-item {
-                border-top: 1px dashed var(--hb-color-primary-300);
+                border-top: 0;
+            }
+
+            .hb-item-genre__p-recommend-item img {
+                display: block;
+                width: 96px;
+                aspect-ratio: 1;
+                border-radius: var(--hb-radius-sm);
+                object-fit: cover;
             }
 
             .hb-item-genre__p-check-icon {
@@ -516,8 +506,9 @@
 
             .hb-item-genre__p-tip-item {
                 display: grid;
-                grid-template-columns: auto minmax(0, 1fr);
+                grid-template-columns: 160px minmax(0, 1fr);
                 gap: var(--hb-space-md);
+                align-items: center;
                 padding: var(--hb-space-lg);
                 border: 1px solid var(--hb-color-border-muted);
                 border-radius: var(--hb-radius-md);
@@ -525,11 +516,31 @@
                 box-shadow: var(--hb-shadow-sm);
             }
 
+            .hb-item-genre__p-tip-image {
+                margin: 0;
+                overflow: hidden;
+                border-radius: var(--hb-radius-sm);
+                background: var(--hb-color-surface-green-light);
+            }
+
+            .hb-item-genre__p-tip-image img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+            }
+
+            .hb-item-genre__p-tip-body {
+                min-width: 0;
+            }
+
             .hb-item-genre__p-tip-number {
                 color: var(--hb-color-tertiary-600);
                 font-size: var(--hb-font-size-h1);
                 font-weight: 900;
                 line-height: 1;
+                display: block;
+                margin-bottom: var(--hb-space-xs);
             }
 
             .hb-item-genre__p-tip-title {
@@ -690,7 +701,6 @@
 
             @media (max-width: 980px) {
                 .hb-item-genre__p-main-visual__inner,
-                .hb-item-genre__p-recommend-inner,
                 .hb-item-genre__p-method-grid,
                 .hb-item-genre__p-solution-grid,
                 .hb-item-genre__p-split,
@@ -702,6 +712,14 @@
                     grid-template-columns: repeat(2, minmax(0, 1fr));
                 }
 
+                .hb-item-genre__p-recommend-list {
+                    grid-template-columns: 1fr;
+                }
+
+                .hb-item-genre__p-solution-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
                 .hb-item-genre__p-split--reverse .hb-item-genre__p-split-image {
                     order: -1;
                 }
@@ -710,6 +728,11 @@
             @media (max-width: 640px) {
                 .hb-item-genre__p-section-head {
                     text-align: left;
+                }
+
+                .hb-item-genre__p-recommend-inner
+                    .hb-item-genre__p-section-head {
+                    text-align: center;
                 }
 
                 .hb-item-genre__p-main-visual__inner {
@@ -734,16 +757,42 @@
                 }
 
                 .hb-item-genre__p-featured-grid {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
                 }
 
                 .hb-item-genre__p-recommend-item {
-                    align-items: flex-start;
+                    grid-template-columns: 80px minmax(0, 1fr);
+                    gap: var(--hb-space-md);
                     font-size: var(--hb-font-size-body);
+                    min-height: 104px;
+                }
+
+                .hb-item-genre__p-recommend-item img {
+                    width: 80px;
+                }
+
+                .hb-item-genre__p-solution-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: var(--hb-space-sm);
+                }
+
+                .hb-item-genre__p-solution-card {
+                    gap: var(--hb-space-xs);
+                    padding: var(--hb-space-xs);
                 }
 
                 .hb-item-genre__p-tip-item {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: 88px minmax(0, 1fr);
+                    gap: var(--hb-space-sm);
+                }
+
+                .hb-item-genre__p-tip-title {
+                    font-size: var(--hb-font-size-body);
+                }
+
+                .hb-item-genre__p-tip-number {
+                    margin-bottom: var(--hb-space-2xs);
+                    font-size: var(--hb-font-size-h3);
                 }
 
                 .hb-item-genre__p-maker-list {
@@ -873,59 +922,175 @@
             >
                 <div class="hb__l-container">
                     <div class="hb-item-genre__p-recommend-inner">
-                        <figure class="hb-item-genre__p-recommend-image">
-                            <img
-                                src="https://placehold.co/800x600/eef3ee/5f6f66?text=Recommend"
-                                alt="ホビー品をまとめて整理するイメージ"
-                            />
-                        </figure>
-                        <div class="hb-item-genre__p-recommend-body">
-                            <div class="hb-item-genre__p-section-head">
-                                <h2 class="hb-item-genre__p-section-title">
-                                    こんな方にご利用いただいております！
-                                </h2>
-                            </div>
-                            <ul class="hb-item-genre__p-recommend-list">
-                                <li class="hb-item-genre__p-recommend-item">
-                                    <span
-                                        class="hb-item-genre__p-check-icon"
-                                        aria-hidden="true"
-                                        >✓</span
-                                    >
-                                    <span>手軽にすばやく売りたい</span>
-                                </li>
-                                <li class="hb-item-genre__p-recommend-item">
-                                    <span
-                                        class="hb-item-genre__p-check-icon"
-                                        aria-hidden="true"
-                                        >✓</span
-                                    >
-                                    <span
-                                        >フリマで出品が面倒、トラブルが不安</span
-                                    >
-                                </li>
-                                <li class="hb-item-genre__p-recommend-item">
-                                    <span
-                                        class="hb-item-genre__p-check-icon"
-                                        aria-hidden="true"
-                                        >✓</span
-                                    >
-                                    <span
-                                        >コレクションをまとめて整理したい</span
-                                    >
-                                </li>
-                                <li class="hb-item-genre__p-recommend-item">
-                                    <span
-                                        class="hb-item-genre__p-check-icon"
-                                        aria-hidden="true"
-                                        >✓</span
-                                    >
-                                    <span
-                                        >鑑定のプロにしっかり査定してもらいたい</span
-                                    >
-                                </li>
-                            </ul>
+                        <div class="hb-item-genre__p-section-head">
+                            <h2 class="hb-item-genre__p-section-title">
+                                こんな方にご利用いただいております！
+                            </h2>
                         </div>
+                        <ul class="hb-item-genre__p-recommend-list">
+                            <li class="hb-item-genre__p-recommend-item">
+                                <img
+                                    src="https://placehold.co/192x192/eef3ee/5f6f66?text=Quick"
+                                    alt=""
+                                />
+                                <span>手軽にすばやく売りたい</span>
+                            </li>
+                            <li class="hb-item-genre__p-recommend-item">
+                                <img
+                                    src="https://placehold.co/192x192/eef3ee/5f6f66?text=Easy"
+                                    alt=""
+                                />
+                                <span>フリマで出品が面倒、トラブルが不安</span>
+                            </li>
+                            <li class="hb-item-genre__p-recommend-item">
+                                <img
+                                    src="https://placehold.co/192x192/eef3ee/5f6f66?text=Organize"
+                                    alt=""
+                                />
+                                <span>コレクションをまとめて整理したい</span>
+                            </li>
+                            <li class="hb-item-genre__p-recommend-item">
+                                <img
+                                    src="https://placehold.co/192x192/eef3ee/5f6f66?text=Assess"
+                                    alt=""
+                                />
+                                <span>鑑定のプロにしっかり査定してもらいたい</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="hb__l-section hb-item-genre__p-solution"
+                id="solution"
+            >
+                <div class="hb__l-container">
+                    <div class="hb-item-genre__p-section-head">
+                        <h2 class="hb-item-genre__p-section-title">
+                            悩みのアンサー（仮）
+                        </h2>
+                    </div>
+                    <div class="hb-item-genre__p-solution-grid">
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >01</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Kit"
+                                    alt="買取キットのイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                買取キットを無料でプレゼント！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                全国対応の買取キットで、売りたいものを箱に詰めるだけでOK！何箱でも無料で進呈いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >02</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Pickup"
+                                    alt="集荷手配のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                集荷の手配も代行します！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                ご自宅まで集荷スタッフが引き取りに伺いますのでわずらわしい手続きは不要です。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >03</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Estimate"
+                                    alt="事前査定のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                事前査定もOK！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                モデルを伝えるだけで査定が可能！査定後のキャンセルもOK！安心してご依頼いただけます。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >04</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Bulk"
+                                    alt="大量買取のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                大量大歓迎！
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                数が多い場合でも、おまとめアップ査定でお得に売却が可能。ジャンルを問わず幅広く買取いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >05</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Buyer"
+                                    alt="専門バイヤーの査定イメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                査定のプロのみが鑑定
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                ホビーの知識を持つ専門バイヤーのみが査定を担当。相場や希少性を正確に評価します。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >06</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Junk"
+                                    alt="ジャンク品査定のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                ジャンク品もOK
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                パーツ欠品、台座なし、破損有りでも査定対象。可能な限りお値段をお付けできるよう努力いたします。
+                            </p>
+                        </article>
+                        <article class="hb-item-genre__p-solution-card">
+                            <span class="hb-item-genre__p-solution-number"
+                                >07</span
+                            >
+                            <figure class="hb-item-genre__p-solution-image">
+                                <img
+                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Collection"
+                                    alt="コレクション整理のイメージ"
+                                />
+                            </figure>
+                            <h3 class="hb-item-genre__p-card-title">
+                                生前整理・遺品整理も対応
+                            </h3>
+                            <p class="hb-item-genre__p-card-text">
+                                大切なコレクションを1点1点、真心を込めて査定いたします。
+                            </p>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -1215,140 +1380,6 @@
             </section>
 
             <section
-                class="hb__l-section hb-item-genre__p-solution"
-                id="solution"
-            >
-                <div class="hb__l-container">
-                    <div class="hb-item-genre__p-section-head">
-                        <h2 class="hb-item-genre__p-section-title">
-                            売買コムズにお任せ下さい
-                        </h2>
-                    </div>
-                    <div class="hb-item-genre__p-solution-grid">
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >01</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Kit"
-                                    alt="買取キットのイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                買取キットを無料でプレゼント！
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                全国対応の買取キットで、売りたいものを箱に詰めるだけでOK！何箱でも無料で進呈いたします。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >02</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Pickup"
-                                    alt="集荷手配のイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                集荷の手配も代行します！
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                ご自宅まで集荷スタッフが引き取りに伺いますのでわずらわしい手続きは不要です。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >03</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Estimate"
-                                    alt="事前査定のイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                事前査定もOK！
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                モデルを伝えるだけで査定が可能！査定後のキャンセルもOK！安心してご依頼いただけます。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >04</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Bulk"
-                                    alt="大量買取のイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                大量大歓迎！
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                数が多い場合でも、おまとめアップ査定でお得に売却が可能。ジャンルを問わず幅広く買取いたします。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >05</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Buyer"
-                                    alt="専門バイヤーの査定イメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                査定のプロのみが鑑定
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                ホビーの知識を持つ専門バイヤーのみが査定を担当。相場や希少性を正確に評価します。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >06</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Junk"
-                                    alt="ジャンク品査定のイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                ジャンク品もOK
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                パーツ欠品、台座なし、破損有りでも査定対象。可能な限りお値段をお付けできるよう努力いたします。
-                            </p>
-                        </article>
-                        <article class="hb-item-genre__p-solution-card">
-                            <span class="hb-item-genre__p-solution-number"
-                                >07</span
-                            >
-                            <figure class="hb-item-genre__p-solution-image">
-                                <img
-                                    src="https://placehold.co/640x480/eef3ee/5f6f66?text=Collection"
-                                    alt="コレクション整理のイメージ"
-                                />
-                            </figure>
-                            <h3 class="hb-item-genre__p-card-title">
-                                生前整理・遺品整理も対応
-                            </h3>
-                            <p class="hb-item-genre__p-card-text">
-                                大切なコレクションを1点1点、真心を込めて査定いたします。
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section
                 class="hb__l-section hb-item-genre__p-condition"
                 id="condition"
             >
@@ -1412,10 +1443,16 @@
                         </h2>
                         <ol class="hb-item-genre__p-tip-list">
                             <li class="hb-item-genre__p-tip-item">
-                                <span class="hb-item-genre__p-tip-number"
-                                    >1</span
-                                >
-                                <div>
+                                <figure class="hb-item-genre__p-tip-image">
+                                    <img
+                                        src="https://placehold.co/320x240/eef3ee/5f6f66?text=Unopened"
+                                        alt=""
+                                    />
+                                </figure>
+                                <div class="hb-item-genre__p-tip-body">
+                                    <span class="hb-item-genre__p-tip-number"
+                                        >1</span
+                                    >
                                     <h3 class="hb-item-genre__p-tip-title">
                                         新品のまま売る
                                     </h3>
@@ -1425,10 +1462,16 @@
                                 </div>
                             </li>
                             <li class="hb-item-genre__p-tip-item">
-                                <span class="hb-item-genre__p-tip-number"
-                                    >2</span
-                                >
-                                <div>
+                                <figure class="hb-item-genre__p-tip-image">
+                                    <img
+                                        src="https://placehold.co/320x240/eef3ee/5f6f66?text=Parts"
+                                        alt=""
+                                    />
+                                </figure>
+                                <div class="hb-item-genre__p-tip-body">
+                                    <span class="hb-item-genre__p-tip-number"
+                                        >2</span
+                                    >
                                     <h3 class="hb-item-genre__p-tip-title">
                                         外箱・付属品はすべて揃える
                                     </h3>
@@ -1438,10 +1481,16 @@
                                 </div>
                             </li>
                             <li class="hb-item-genre__p-tip-item">
-                                <span class="hb-item-genre__p-tip-number"
-                                    >3</span
-                                >
-                                <div>
+                                <figure class="hb-item-genre__p-tip-image">
+                                    <img
+                                        src="https://placehold.co/320x240/eef3ee/5f6f66?text=Timing"
+                                        alt=""
+                                    />
+                                </figure>
+                                <div class="hb-item-genre__p-tip-body">
+                                    <span class="hb-item-genre__p-tip-number"
+                                        >3</span
+                                    >
                                     <h3 class="hb-item-genre__p-tip-title">
                                         相場が高いうちに早めに売る
                                     </h3>
@@ -1451,10 +1500,16 @@
                                 </div>
                             </li>
                             <li class="hb-item-genre__p-tip-item">
-                                <span class="hb-item-genre__p-tip-number"
-                                    >4</span
-                                >
-                                <div>
+                                <figure class="hb-item-genre__p-tip-image">
+                                    <img
+                                        src="https://placehold.co/320x240/eef3ee/5f6f66?text=Bulk"
+                                        alt=""
+                                    />
+                                </figure>
+                                <div class="hb-item-genre__p-tip-body">
+                                    <span class="hb-item-genre__p-tip-number"
+                                        >4</span
+                                    >
                                     <h3 class="hb-item-genre__p-tip-title">
                                         まとめ売りで査定額アップ！
                                     </h3>
