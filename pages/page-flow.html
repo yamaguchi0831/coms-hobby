@@ -102,14 +102,17 @@
             .hb-flow__p-methods__grid {
                 display: grid;
                 grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: var(--hb-space-lg);
-                align-items: stretch;
+                column-gap: var(--hb-space-lg);
+                row-gap: var(--hb-space-md);
+                align-items: start;
             }
 
             .hb-flow__p-method-card {
                 position: relative;
+                /* image(1行) + body内4行 = 5行を親グリッドと共有 */
+                grid-row: span 5;
                 display: grid;
-                grid-template-rows: auto 1fr;
+                grid-template-rows: subgrid;
                 overflow: hidden;
                 border: 1px solid var(--hb-color-border-muted);
                 border-radius: var(--hb-radius-md);
@@ -144,8 +147,10 @@
             }
 
             .hb-flow__p-method-card__body {
+                /* title・badge・desc・check の4行をサブグリッドで共有 */
+                grid-row: span 4;
                 display: grid;
-                gap: var(--hb-space-md);
+                grid-template-rows: subgrid;
                 padding: var(--hb-space-lg);
             }
 
@@ -543,10 +548,11 @@
 
             <section class="hb__l-section hb-flow__p-flows" id="flows">
                 <div class="hb__l-container">
-
                     <div class="hb-flow__p-flow-card" id="takuhai-flow">
                         <div class="hb-flow__p-detail__head">
-                            <h2 class="hb-flow__p-detail__title">宅配買取の流れ</h2>
+                            <h2 class="hb-flow__p-detail__title">
+                                宅配買取の流れ
+                            </h2>
                         </div>
                         <div class="hb-flow__p-steps">
                             <article class="hb-flow__p-step">
@@ -610,7 +616,9 @@
 
                     <div class="hb-flow__p-flow-card" id="shuccho-flow">
                         <div class="hb-flow__p-detail__head">
-                            <h2 class="hb-flow__p-detail__title">出張買取の流れ</h2>
+                            <h2 class="hb-flow__p-detail__title">
+                                出張買取の流れ
+                            </h2>
                         </div>
                         <div class="hb-flow__p-steps">
                             <article class="hb-flow__p-step">
@@ -674,7 +682,9 @@
 
                     <div class="hb-flow__p-flow-card" id="store-flow">
                         <div class="hb-flow__p-detail__head">
-                            <h2 class="hb-flow__p-detail__title">店頭買取の流れ</h2>
+                            <h2 class="hb-flow__p-detail__title">
+                                店頭買取の流れ
+                            </h2>
                         </div>
                         <div class="hb-flow__p-steps">
                             <article class="hb-flow__p-step">
@@ -735,13 +745,14 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </section>
             <!-- ============================== 最近の買取実績 ============================== -->
             <section class="hb__l-section" id="cases">
                 <div class="hb__l-container">
-                    <header class="hb__c-section-head hb__c-section-head--center">
+                    <header
+                        class="hb__c-section-head hb__c-section-head--center"
+                    >
                         <span class="hb__c-section-head__kicker">Cases</span>
                         <h2 class="hb__c-section-head__title">
                             最近の <span class="hb__c-hl">買取実績</span>
@@ -761,15 +772,23 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">プラモデル / まとめ売り</span>
-                                <h3 class="hb__c-cases__title">ガンプラRG・MG 約120点</h3>
+                                <span class="hb__c-cases__cat"
+                                    >プラモデル / まとめ売り</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    ガンプラRG・MG 約120点
+                                </h3>
                                 <p class="hb__c-cases__text">
                                     千葉県・40代 /
                                     押し入れ整理。未組立中心、外箱コンディション良好。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">宅配買取</span>
-                                    <span class="hb__c-cases__price">¥ 380,000 〜 482,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >宅配買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 380,000 〜 482,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -783,15 +802,23 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">フィギュア / コレクション引退</span>
-                                <h3 class="hb__c-cases__title">スケールフィギュア 86体</h3>
+                                <span class="hb__c-cases__cat"
+                                    >フィギュア / コレクション引退</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    スケールフィギュア 86体
+                                </h3>
                                 <p class="hb__c-cases__text">
                                     東京都・30代 /
                                     コレクション引退。グッスマ・アルター・コトブキヤなど。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">出張買取</span>
-                                    <span class="hb__c-cases__price">¥ 215,000 〜 268,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >出張買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 215,000 〜 268,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -805,14 +832,22 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">レトロゲーム / 遺品整理</span>
-                                <h3 class="hb__c-cases__title">ファミコン本体＋ソフト 240本</h3>
+                                <span class="hb__c-cases__cat"
+                                    >レトロゲーム / 遺品整理</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    ファミコン本体＋ソフト 240本
+                                </h3>
                                 <p class="hb__c-cases__text">
                                     神奈川県・遺品整理。箱・説明書付き多数、レア作品含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">出張買取</span>
-                                    <span class="hb__c-cases__price">¥ 142,000 〜 188,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >出張買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 142,000 〜 188,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -826,14 +861,22 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">トレカ / まとめ売り</span>
-                                <h3 class="hb__c-cases__title">ポケモンカード 旧裏〜SV 約3,000枚</h3>
+                                <span class="hb__c-cases__cat"
+                                    >トレカ / まとめ売り</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    ポケモンカード 旧裏〜SV 約3,000枚
+                                </h3>
                                 <p class="hb__c-cases__text">
                                     大阪府・20代 / 趣味じまい。PSA鑑定品含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">宅配買取</span>
-                                    <span class="hb__c-cases__price">¥ 96,000 〜 124,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >宅配買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 96,000 〜 124,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -847,14 +890,22 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">特撮 / コレクション</span>
-                                <h3 class="hb__c-cases__title">仮面ライダー変身ベルト 一式</h3>
+                                <span class="hb__c-cases__cat"
+                                    >特撮 / コレクション</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    仮面ライダー変身ベルト 一式
+                                </h3>
                                 <p class="hb__c-cases__text">
                                     埼玉県・引っ越し前整理。DX歴代ベルト＋関連グッズ。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">宅配買取</span>
-                                    <span class="hb__c-cases__price">¥ 58,000 〜 76,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >宅配買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 58,000 〜 76,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -868,30 +919,45 @@
                                 height="300"
                             />
                             <div class="hb__c-cases__body">
-                                <span class="hb__c-cases__cat">超合金 / コレクション</span>
-                                <h3 class="hb__c-cases__title">超合金魂・DX超合金 38点</h3>
+                                <span class="hb__c-cases__cat"
+                                    >超合金 / コレクション</span
+                                >
+                                <h3 class="hb__c-cases__title">
+                                    超合金魂・DX超合金 38点
+                                </h3>
                                 <p class="hb__c-cases__text">
-                                    愛知県・50代 / 生前整理。年代物・限定品を含む。
+                                    愛知県・50代 /
+                                    生前整理。年代物・限定品を含む。
                                 </p>
                                 <div class="hb__c-cases__foot">
-                                    <span class="hb__c-cases__method">出張買取</span>
-                                    <span class="hb__c-cases__price">¥ 168,000 〜 210,000</span>
+                                    <span class="hb__c-cases__method"
+                                        >出張買取</span
+                                    >
+                                    <span class="hb__c-cases__price"
+                                        >¥ 168,000 〜 210,000</span
+                                    >
                                 </div>
                             </div>
                         </article>
                     </div>
 
                     <div class="hb__c-section-more">
-                        <a href="#" class="hb__c-btn hb__c-btn--ghost">買取実績をもっと見る →</a>
+                        <a href="#" class="hb__c-btn hb__c-btn--ghost"
+                            >買取実績をもっと見る →</a
+                        >
                     </div>
                 </div>
             </section>
 
             <!-- ============================== 買取価格の目安 ============================== -->
             <section class="hb__l-section hb__l-section--soft" id="prices">
-                <div class="hb__l-container">
-                    <header class="hb__c-section-head hb__c-section-head--center">
-                        <span class="hb__c-section-head__kicker">Top prices</span>
+                <div class="hb__l-container--sm">
+                    <header
+                        class="hb__c-section-head hb__c-section-head--center"
+                    >
+                        <span class="hb__c-section-head__kicker"
+                            >Top prices</span
+                        >
                         <h2 class="hb__c-section-head__title">
                             買取価格の <span class="hb__c-hl">目安</span>
                         </h2>
@@ -912,85 +978,145 @@
 
                     <div class="hb__c-prices">
                         <div class="hb__c-price-group">
-                            <div class="hb__c-price-group__head">フィギュア</div>
+                            <div class="hb__c-price-group__head">
+                                フィギュア
+                            </div>
                             <ul class="hb__c-price-group__list" role="list">
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">グッドスマイルカンパニー / FREEing スケールフィギュア</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 8,000 〜 60,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >グッドスマイルカンパニー / FREEing
+                                        スケールフィギュア</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 8,000 〜 60,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">アルター スケールフィギュア</span
+                                    <span class="hb__c-price-group__name"
+                                        >アルター スケールフィギュア</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 5,000 〜 45,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 5,000 〜 45,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">ねんどろいど・figma（廃盤・限定）</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 3,000 〜 28,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >ねんどろいど・figma（廃盤・限定）</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 3,000 〜 28,000</span
+                                    >
                                 </li>
                             </ul>
                         </div>
 
                         <div class="hb__c-price-group">
-                            <div class="hb__c-price-group__head">プラモデル</div>
+                            <div class="hb__c-price-group__head">
+                                プラモデル
+                            </div>
                             <ul class="hb__c-price-group__list" role="list">
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">PG / RG / MG ガンプラ（未組立）</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 1,500 〜 80,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >PG / RG / MG ガンプラ（未組立）</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 1,500 〜 80,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">METAL BUILD / METAL ROBOT魂</span
+                                    <span class="hb__c-price-group__name"
+                                        >METAL BUILD / METAL ROBOT魂</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 8,000 〜 65,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 8,000 〜 65,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">タミヤ・ハセガワ スケールキット（絶版）</span
+                                    <span class="hb__c-price-group__name"
+                                        >タミヤ・ハセガワ
+                                        スケールキット（絶版）</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 3,000 〜 35,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 3,000 〜 35,000</span
+                                    >
                                 </li>
                             </ul>
                         </div>
 
                         <div class="hb__c-price-group">
-                            <div class="hb__c-price-group__head">トレーディングカード</div>
+                            <div class="hb__c-price-group__head">
+                                トレーディングカード
+                            </div>
                             <ul class="hb__c-price-group__list" role="list">
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">ポケモンカード（PSA鑑定品・初版）</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 5,000 〜 1,200,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >ポケモンカード（PSA鑑定品・初版）</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 5,000 〜 1,200,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">遊戯王（初期・絶版レア）</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 3,000 〜 800,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >遊戯王（初期・絶版レア）</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 3,000 〜 800,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">MTG（Reserved List・旧枠）</span
+                                    <span class="hb__c-price-group__name"
+                                        >MTG（Reserved List・旧枠）</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 2,000 〜 500,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 2,000 〜 500,000</span
+                                    >
                                 </li>
                             </ul>
                         </div>
 
                         <div class="hb__c-price-group">
-                            <div class="hb__c-price-group__head">レトロゲーム・ゲーム機</div>
+                            <div class="hb__c-price-group__head">
+                                レトロゲーム・ゲーム機
+                            </div>
                             <ul class="hb__c-price-group__list" role="list">
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">ファミコン・スーパーファミコン ソフト</span
+                                    <span class="hb__c-price-group__name"
+                                        >ファミコン・スーパーファミコン
+                                        ソフト</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 500 〜 80,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 500 〜 80,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">NEOGEO ROMカートリッジ</span
-                                    ><span class="hb__c-price-group__tag hb__c-price-group__tag--hot">買取強化中</span
-                                    ><span class="hb__c-price-group__price">¥ 5,000 〜 250,000</span>
+                                    <span class="hb__c-price-group__name"
+                                        >NEOGEO ROMカートリッジ</span
+                                    ><span
+                                        class="hb__c-price-group__tag hb__c-price-group__tag--hot"
+                                        >買取強化中</span
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 5,000 〜 250,000</span
+                                    >
                                 </li>
                                 <li class="hb__c-price-group__item">
-                                    <span class="hb__c-price-group__name">PCエンジン / メガドライブ 周辺機器</span
+                                    <span class="hb__c-price-group__name"
+                                        >PCエンジン / メガドライブ
+                                        周辺機器</span
                                     ><span class="hb__c-price-group__tag"></span
-                                    ><span class="hb__c-price-group__price">¥ 1,000 〜 45,000</span>
+                                    ><span class="hb__c-price-group__price"
+                                        >¥ 1,000 〜 45,000</span
+                                    >
                                 </li>
                             </ul>
                         </div>
