@@ -406,13 +406,19 @@
             }
 
             .hb__p-form-modal__text-link {
-                display: inline-flex;
-                width: fit-content;
+                width: 100%;
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-white);
                 color: var(--hb-color-primary-700);
+                cursor: pointer;
+                display: inline-flex;
+                font: inherit;
                 font-weight: 700;
-                line-height: 1.6;
-                text-decoration: underline;
-                text-underline-offset: 0.2em;
+                justify-content: center;
+                padding: var(--hb-space-sm) var(--hb-space-lg);
+                text-align: center;
+                text-decoration: none;
             }
 
             .hb__p-form-modal__button {
@@ -1667,7 +1673,7 @@
                     if (value === "under") {
                         openModal({
                             title: "商品点数が10点未満の場合",
-                            body: '<p>商品点数が10点未満の場合、まずは事前査定をお願いいたします。</p><div class="hb__p-form-modal__links"><a class="hb__p-form-modal__text-link" href="tel:0120000000">電話査定はこちら</a><a class="hb__p-form-modal__text-link" href="#">LINE写真査定はこちら</a></div>',
+                            body: '<p>商品点数が10点未満の場合、まずは事前査定をお願いいたします。</p><div class="hb__p-form-modal__links"><a class="hb__p-form-modal__text-link" href="tel:0120000000">電話査定はこちら</a><a class="hb__p-form-modal__text-link" href="https://line.me/R/ti/p/@081xadbs">LINE写真査定はこちら</a></div>',
                             actions: [
                                 modalButton(
                                     "閉じる",
