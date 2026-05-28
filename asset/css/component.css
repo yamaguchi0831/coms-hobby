@@ -506,3 +506,206 @@
     text-align: left;
   }
 }
+
+/* ============================================================
+   Project: Purchase methods (.hb-__p-method)
+============================================================ */
+
+.hb-__p-method {
+  --hb-method-card-min: 300px;
+  --hb-method-tab-max: 500px;
+  background: var(--hb-color-surface-soft);
+}
+
+.hb-__p-section-head {
+  display: grid;
+  gap: var(--hb-space-sm);
+  max-width: 760px;
+  margin: 0 auto var(--hb-space-2xl);
+  text-align: center;
+}
+
+.hb-__p-section-title {
+  margin: 0;
+  color: var(--hb-color-text-deep);
+  font-size: clamp(var(--hb-font-size-h2), 3vw, var(--hb-font-size-h1));
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.hb-__p-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--hb-method-card-min), 1fr));
+  gap: var(--hb-space-lg);
+}
+
+.hb-__p-method-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--hb-color-border-muted);
+  border-radius: var(--hb-radius-md);
+  background: var(--hb-color-white);
+  box-shadow: var(--hb-shadow-sm);
+}
+
+.hb-__p-method-image {
+  margin: 0;
+  background: var(--hb-color-surface-green-light);
+}
+
+.hb-__p-method-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.hb-__p-method-title {
+  margin: 0;
+  padding: var(--hb-space-lg) var(--hb-space-lg) 0;
+  color: var(--hb-color-text-deep);
+  font-size: var(--hb-font-size-h3);
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.hb-__p-method-text {
+  margin: 0;
+  padding: var(--hb-space-sm) var(--hb-space-lg) 0;
+  color: var(--hb-color-text-muted);
+  font-size: var(--hb-font-size-body--sm);
+  line-height: 1.85;
+}
+
+.hb-__p-method-list {
+  display: grid;
+  gap: var(--hb-space-xs);
+  margin: var(--hb-space-md) var(--hb-space-lg) 0;
+  padding: var(--hb-space-md) 0 0;
+  border-top: 1px dashed var(--hb-color-border-muted);
+  list-style: none;
+}
+
+.hb-__p-method-list li {
+  position: relative;
+  padding-left: var(--hb-space-lg);
+  color: var(--hb-color-text-deep);
+  font-size: var(--hb-font-size-body--sm);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.hb-__p-method-list li::before {
+  position: absolute;
+  top: 0.45em;
+  left: 0;
+  width: var(--hb-space-xs);
+  height: var(--hb-space-xs);
+  border-radius: var(--hb-radius-full);
+  background: var(--hb-color-primary-500);
+  content: "";
+}
+
+.hb-__p-method-action {
+  display: flex;
+  padding: var(--hb-space-lg);
+  margin-top: auto;
+}
+
+.hb-__p-method-action .hb__c-btn {
+  width: 100%;
+  border: 0;
+  background: var(--hb-gradient-primary);
+  color: var(--hb-color-white);
+}
+
+.hb-__p-method-tabs {
+  position: relative;
+  display: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--hb-space-xs);
+  max-width: var(--hb-method-tab-max);
+  margin-inline: auto;
+  padding-bottom: var(--hb-space-sm);
+}
+
+.hb-__p-method-tabs::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--hb-space-sm);
+  background: var(--hb-gradient-primary);
+  content: "";
+}
+
+.hb-__p-method-tab {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: 56px;
+  padding: var(--hb-space-sm);
+  border: 1px solid var(--hb-color-border-muted);
+  border-bottom: 0;
+  border-radius: var(--hb-radius-sm) var(--hb-radius-sm) 0 0;
+  background: var(--hb-color-white);
+  color: var(--hb-color-text-deep);
+  font-size: var(--hb-font-size-body);
+  font-weight: 900;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hb-__p-method-tab.hb-__is-active {
+  border-color: var(--hb-color-primary-500);
+  background: var(--hb-gradient-primary);
+  color: var(--hb-color-white);
+}
+
+@media (max-width: 1012px) {
+  .hb-__p-method-tabs {
+    display: grid;
+  }
+
+  .hb-__p-method-grid {
+    grid-template-columns: 1fr;
+    max-width: var(--hb-method-tab-max);
+    margin-inline: auto;
+  }
+
+  .hb-__p-method--tabs .hb-__p-method-card {
+    display: none;
+  }
+
+  .hb-__p-method--tabs .hb-__p-method-card.hb-__is-active {
+    display: grid;
+  }
+}
+
+@media (max-width: 640px) {
+  .hb-__p-section-head {
+    text-align: left;
+  }
+
+  .hb-__p-method-title,
+  .hb-__p-method-action {
+    padding: var(--hb-space-md);
+  }
+
+  .hb-__p-method-text {
+    padding-inline: var(--hb-space-md);
+  }
+
+  .hb-__p-method-list {
+    margin-inline: var(--hb-space-md);
+  }
+
+  .hb-__p-method--tabs .hb-__p-method-tab {
+    padding-inline: var(--hb-space-xs);
+    font-size: var(--hb-font-size-caption);
+    white-space: nowrap;
+  }
+}

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../asset/css/utility.css" />
     <link rel="stylesheet" href="../asset/css/component.css" />
     <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
     <style>
       .hb-flow__p-lead {
         background: var(--hb-color-white);
@@ -489,117 +490,7 @@
         </div>
       </section>
 
-      <section class="hb__l-section hb-flow__p-methods" id="methods">
-        <div class="hb__l-container">
-          <div class="hb-flow__p-section-head">
-            <h2 class="hb-flow__p-section-head__title">3つの買取方法</h2>
-            <p class="hb-flow__p-section-head__lead">
-              量・距離・進め方に合わせて、使いやすい方法を選べます。
-            </p>
-          </div>
-          <div class="hb-flow__p-methods__grid">
-            <article
-              class="hb-flow__p-method-card hb-flow__p-method-card--featured"
-            >
-              <span class="hb-flow__p-method-card__recommend">おすすめ</span>
-              <figure class="hb-flow__p-method-card__image">
-                <img
-                  src="https://placehold.co/640x400/eef3ee/5f6f66?text=Delivery"
-                  alt="宅配買取のイメージ"
-                />
-              </figure>
-              <div class="hb-flow__p-method-card__body">
-                <h3 class="hb-flow__p-method-card__title">宅配買取</h3>
-                <p class="hb-flow__p-method-card__badge">
-                  送料・手数料すべて無料！買取キットをプレゼント！
-                </p>
-                <p class="hb-flow__p-method-card__desc">
-                  全国から利用OK。箱に詰めて送るだけの買取方法です。
-                </p>
-                <ul class="hb-flow__p-check">
-                  <li>遠方に住んでいる</li>
-                  <li>近くにホビー買取店がない</li>
-                  <li>積みプラやフィギュアを箱ごとまとめて送りたい</li>
-                  <li>自分のタイミングで片付けながら進めたい</li>
-                  <li>
-                    未組立プラモデル・フィギュア・鉄道模型などをまとめて売りたい
-                  </li>
-                </ul>
-                <a
-                  class="hb__c-btn hb__c-btn--primary hb-flow__p-method-card__button"
-                  href="kaitori-form.html?type=takuhai"
-                >
-                  宅配買取を依頼する
-                </a>
-              </div>
-            </article>
-
-            <article class="hb-flow__p-method-card">
-              <figure class="hb-flow__p-method-card__image">
-                <img
-                  src="https://placehold.co/640x400/eef3ee/5f6f66?text=Visit"
-                  alt="出張買取のイメージ"
-                />
-              </figure>
-              <div class="hb-flow__p-method-card__body">
-                <h3 class="hb-flow__p-method-card__title">出張買取</h3>
-                <p class="hb-flow__p-method-card__badge">
-                  当店スタッフがまるごとお引き取り！
-                </p>
-                <p class="hb-flow__p-method-card__desc">
-                  大量のホビーを、自宅まで査定に来てほしい方向けです。
-                </p>
-                <ul class="hb-flow__p-check">
-                  <li>
-                    プラモデル・フィギュア・鉄道模型などが部屋いっぱいにある
-                  </li>
-                  <li>引っ越しや片付けで一気に整理したい</li>
-                  <li>遺品整理・生前整理で家族のコレクションを整理したい</li>
-                  <li>その場でまとめて引き取ってほしい</li>
-                  <li>関西エリアで大量買取を相談したい</li>
-                </ul>
-                <a
-                  class="hb__c-btn hb__c-btn--primary hb-flow__p-method-card__button"
-                  href="kaitori-form.html?type=shuccho"
-                >
-                  出張買取を依頼する
-                </a>
-              </div>
-            </article>
-
-            <article class="hb-flow__p-method-card">
-              <figure class="hb-flow__p-method-card__image">
-                <img
-                  src="https://placehold.co/640x400/eef3ee/5f6f66?text=Store"
-                  alt="店頭買取のイメージ"
-                />
-              </figure>
-              <div class="hb-flow__p-method-card__body">
-                <h3 class="hb-flow__p-method-card__title">店頭買取</h3>
-                <p class="hb-flow__p-method-card__badge">
-                  その場で相談しながら売りたい方に。
-                </p>
-                <p class="hb-flow__p-method-card__desc">
-                  店舗へ直接持ち込みたい方向けです。
-                </p>
-                <ul class="hb-flow__p-check">
-                  <li>すぐに持ち込んで売りたい</li>
-                  <li>少量～大量のホビーを売りたい</li>
-                  <li>ついでに店舗へ持って行きたい</li>
-                  <li>送料や発送の手間をかけたくない</li>
-                  <li>直接スタッフに相談したい</li>
-                </ul>
-                <a
-                  class="hb__c-btn hb__c-btn--primary hb-flow__p-method-card__button"
-                  href="kaitori-form.html?type=mochikomi"
-                >
-                  店頭買取を依頼する
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+      <div data-hb-include="../components/purchase-methods.html"></div>
 
       <section class="hb__l-section hb-flow__p-flows" id="flows">
         <div class="hb__l-container">

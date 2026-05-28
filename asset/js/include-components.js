@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       target.outerHTML = await response.text();
+
+      if (location.hash) {
+        document.querySelector(location.hash)?.scrollIntoView();
+      }
     } catch (error) {
       console.error(`Failed to load component: ${src}`, error);
     }
