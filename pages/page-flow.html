@@ -127,7 +127,8 @@
 
       .hb-flow__p-steps {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto auto 1fr;
         gap: var(--hb-space-lg);
         align-items: stretch;
       }
@@ -135,6 +136,9 @@
       .hb-flow__p-step {
         position: relative;
         display: grid;
+        grid-row: span 3;
+        grid-template-rows: subgrid;
+        min-width: 0;
         gap: var(--hb-space-md);
         border: 1px solid var(--hb-color-border-muted);
         border-radius: var(--hb-radius-md);
@@ -168,6 +172,7 @@
 
       .hb-flow__p-step__title {
         margin: 0;
+        min-width: 0;
         color: var(--hb-color-text-deep);
         font-size: var(--hb-font-size-h4);
         font-weight: 900;
@@ -175,6 +180,7 @@
 
       .hb-flow__p-step__text {
         margin: 0;
+        min-width: 0;
         color: var(--hb-color-text-muted);
         font-size: var(--hb-font-size-body--sm);
         line-height: 1.8;
@@ -195,29 +201,24 @@
         .hb-flow__p-lead__inner {
           grid-template-columns: 1fr;
         }
-
-        .hb-flow__p-steps {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .hb-flow__p-step:nth-child(2)::after {
-          display: none;
-        }
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 639px) {
         .hb-flow__p-section-head {
           text-align: left;
         }
 
         .hb-flow__p-steps {
           grid-template-columns: 1fr;
+          grid-template-rows: none;
           max-width: 500px;
           margin-inline: auto;
         }
 
         .hb-flow__p-step {
+          grid-row: auto;
           grid-template-columns: 30% minmax(0, 1fr);
+          grid-template-rows: auto auto;
           gap: var(--hb-space-xs) var(--hb-space-md);
           align-items: center;
         }
@@ -344,45 +345,33 @@
                     alt="梱包する箱のイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">梱包する</h3>
+                <h3 class="hb-flow__p-step__title">発送する</h3>
                 <p class="hb-flow__p-step__text">
-                  売りたいホビーを箱にまとめます。箱がない場合は買取キットをご利用いただけます。
+                  売りたいホビーを箱にまとめて着払いで送るだけ。箱がない場合は買取キットを無料プレゼントします。
                 </p>
               </article>
               <article class="hb-flow__p-step">
                 <figure class="hb-flow__p-step__image">
                   <img
                     src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
-                    alt="発送するイメージ"
+                    alt="査定のイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">送る</h3>
+                <h3 class="hb-flow__p-step__title">査定</h3>
                 <p class="hb-flow__p-step__text">
-                  ご自宅から発送するだけ。送料や手数料はすべて無料です。
+                  専門スタッフがしっかりと査定を行い、査定額をご案内します。
                 </p>
               </article>
               <article class="hb-flow__p-step">
                 <figure class="hb-flow__p-step__image">
                   <img
                     src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="査定のイメージ"
+                    alt="お支払いのイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">査定する</h3>
+                <h3 class="hb-flow__p-step__title">お支払い</h3>
                 <p class="hb-flow__p-step__text">
-                  専門スタッフが内容を確認し、査定結果をご案内します。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+4"
-                    alt="入金のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">入金</h3>
-                <p class="hb-flow__p-step__text">
-                  査定額にご納得いただけましたら、指定口座へお振り込みします。
+                  査定額にご納得いただけましたら、指定口座へお振込みします。
                 </p>
               </article>
             </div>
@@ -408,45 +397,33 @@
                     alt="相談するイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">相談する</h3>
+                <h3 class="hb-flow__p-step__title">日程調整をする</h3>
                 <p class="hb-flow__p-step__text">
-                  量や内容、お住まいの地域をフォームからお知らせください。
+                  内容や出張希望日時を専用フォームよりお知らせください。
                 </p>
               </article>
               <article class="hb-flow__p-step">
                 <figure class="hb-flow__p-step__image">
                   <img
                     src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
-                    alt="訪問日調整のイメージ"
+                    alt="出張査定のイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">日程調整</h3>
+                <h3 class="hb-flow__p-step__title">出張査定</h3>
                 <p class="hb-flow__p-step__text">
-                  スタッフよりご連絡し、訪問可能な日時を調整します。
+                  専門スタッフがご自宅へ伺い丁寧に査定をいたします。
                 </p>
               </article>
               <article class="hb-flow__p-step">
                 <figure class="hb-flow__p-step__image">
                   <img
                     src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="査定するスタッフのイメージ"
+                    alt="お支払いと引渡しのイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">訪問査定</h3>
+                <h3 class="hb-flow__p-step__title">お支払い＆引渡し</h3>
                 <p class="hb-flow__p-step__text">
-                  当店スタッフがご自宅へ伺い、ホビーをまとめて確認します。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+4"
-                    alt="引き取りのイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">引き取り</h3>
-                <p class="hb-flow__p-step__text">
-                  査定後、内容に応じてその場でまとめてお引き取りします。
+                  査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
                 </p>
               </article>
             </div>
@@ -472,9 +449,9 @@
                     alt="持ち込み準備のイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">準備する</h3>
+                <h3 class="hb-flow__p-step__title">日程調整をする</h3>
                 <p class="hb-flow__p-step__text">
-                  売りたいホビーをまとめ、内容や量が分かる状態にしておきます。
+                  内容や持込希望日時を専用フォームよりお知らせください。
                 </p>
               </article>
               <article class="hb-flow__p-step">
@@ -484,33 +461,21 @@
                     alt="店舗へ持ち込むイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">持ち込む</h3>
+                <h3 class="hb-flow__p-step__title">店舗へ持ち込む</h3>
                 <p class="hb-flow__p-step__text">
-                  ご希望日時に店舗へお持ち込みください。少量から大量まで相談できます。
+                  少量から大量まで、専門スタッフが丁寧に査定をいたします。
                 </p>
               </article>
               <article class="hb-flow__p-step">
                 <figure class="hb-flow__p-step__image">
                   <img
                     src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="店頭査定のイメージ"
+                    alt="お支払いと引渡しのイメージ"
                   />
                 </figure>
-                <h3 class="hb-flow__p-step__title">店頭査定</h3>
+                <h3 class="hb-flow__p-step__title">お支払い＆引渡し</h3>
                 <p class="hb-flow__p-step__text">
-                  スタッフが内容を確認し、査定結果をご案内します。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+4"
-                    alt="買取成立のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">買取成立</h3>
-                <p class="hb-flow__p-step__text">
-                  査定額にご納得いただけましたら、そのまま買取手続きへ進みます。
+                  査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
                 </p>
               </article>
             </div>
