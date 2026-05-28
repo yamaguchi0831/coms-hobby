@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../asset/css/base.css" />
     <link rel="stylesheet" href="../asset/css/utility.css" />
     <link rel="stylesheet" href="../asset/css/component.css" />
+    <script src="../asset/js/include-components.js" defer></script>
     <style>
       .hb-flow__p-lead {
         background: var(--hb-color-white);
@@ -426,38 +427,7 @@
     </style>
   </head>
   <body>
-    <header class="hb__l-header" data-screen-label="01 Header">
-      <div class="hb__l-container hb__p-header">
-        <a class="hb__c-brand" href="#top">
-          <span class="hb__c-brand__mark" aria-hidden="true">B</span>
-          <span class="hb__c-brand__text">
-            <span class="hb__c-brand__name">バイバイコムズ</span>
-            <span class="hb__c-brand__sub">ホビー買取</span>
-          </span>
-        </a>
-
-        <nav class="hb__p-header__nav" aria-label="グローバルナビ">
-          <a href="#methods">買取方法</a>
-          <a href="#takuhai-flow">宅配買取</a>
-          <a href="#shuccho-flow">出張買取</a>
-          <a href="#store-flow">店頭買取</a>
-          <a href="#faq">よくある質問</a>
-          <a href="#company">会社概要</a>
-        </nav>
-
-        <div class="hb__p-header__cta">
-          <a href="tel:0120000000" class="hb__p-header__tel">
-            <span class="hb__p-header__tel-label">通話無料</span>
-            <span class="hb__p-header__tel-num">0120-000-000</span>
-          </a>
-          <a
-            href="kaitori-form.html"
-            class="hb__c-btn hb__c-btn--primary hb__c-btn--sm"
-            >無料査定を申し込む</a
-          >
-        </div>
-      </div>
-    </header>
+    <div data-hb-include="../components/header.html"></div>
 
     <main id="top">
       <section class="hb__p-subpage-title" aria-label="買取方法">
@@ -1163,74 +1133,6 @@
       </section>
     </main>
 
-    <footer class="hb__l-footer" data-screen-label="Footer">
-      <div class="hb__l-container hb__p-footer">
-        <div class="hb__p-footer__brand">
-          <div class="hb__c-brand">
-            <span class="hb__c-brand__mark" aria-hidden="true">B</span>
-            <span class="hb__c-brand__text">
-              <span class="hb__c-brand__name">バイバイコムズ</span>
-              <span class="hb__c-brand__sub">ホビー買取</span>
-            </span>
-          </div>
-          <p class="hb__p-footer__about">
-            ホビー・コレクター品専門の買取サービス。<br />
-            箱に詰めて送るだけ。送料・査定料・返送料すべて無料。
-          </p>
-          <p class="hb__p-footer__addr">
-            〒000-0000 東京都◯◯区◯◯ 1-2-3<br />
-            TEL: 0120-000-000 / 受付 9:00〜20:00
-          </p>
-        </div>
-
-        <div class="hb__p-footer__col">
-          <h5 class="hb__p-footer__col-title">サービス</h5>
-          <ul class="hb__p-footer__list" role="list">
-            <li><a href="#methods">宅配買取</a></li>
-            <li><a href="#methods">出張買取</a></li>
-            <li><a href="#methods">店頭買取</a></li>
-            <li><a href="#takuhai-flow">買取の流れ</a></li>
-          </ul>
-        </div>
-
-        <div class="hb__p-footer__col">
-          <h5 class="hb__p-footer__col-title">買取品目</h5>
-          <ul class="hb__p-footer__list" role="list">
-            <li><a href="#categories">フィギュア</a></li>
-            <li><a href="#categories">プラモデル</a></li>
-            <li><a href="#categories">レトロゲーム</a></li>
-            <li><a href="#categories">トレーディングカード</a></li>
-          </ul>
-        </div>
-
-        <div class="hb__p-footer__col">
-          <h5 class="hb__p-footer__col-title">サポート</h5>
-          <ul class="hb__p-footer__list" role="list">
-            <li><a href="#faq">よくある質問</a></li>
-            <li><a href="kaitori-form.html">お問い合わせ</a></li>
-            <li><a href="#news">お知らせ</a></li>
-            <li><a href="#">サイトマップ</a></li>
-          </ul>
-        </div>
-
-        <div class="hb__p-footer__col">
-          <h5 class="hb__p-footer__col-title">会社情報</h5>
-          <ul class="hb__p-footer__list" role="list">
-            <li><a href="#">会社概要</a></li>
-            <li><a href="#">特定商取引法に基づく表記</a></li>
-            <li><a href="#">プライバシーポリシー</a></li>
-            <li><a href="#">利用規約</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="hb__p-footer__legal">
-        <div class="hb__l-container hb__p-footer__legal-inner">
-          <span>古物商許可番号：東京都公安委員会 第◯◯◯◯◯◯◯号</span>
-          <span class="hb__p-footer__dot"></span>
-          <span>© 2026 BaiBaiComs Inc. All rights reserved.</span>
-        </div>
-      </div>
-    </footer>
+    <div data-hb-include="../components/footer.html"></div>
   </body>
 </html>
