@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>よくあるご質問 | バイバイコムズ ホビー買取</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+    <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
+    <style>
+      .hb-faq__p-section-head {
+        display: grid;
+        gap: var(--hb-space-sm);
+        width: min(
+          calc(100% - (var(--hb-layout-gutter) * 2)),
+          var(--hb-layout-container-sm)
+        );
+        margin: 0 auto var(--hb-space-2xl);
+        text-align: center;
+      }
+
+      .hb-faq__p-section-title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: clamp(var(--hb-font-size-h2), 3vw, var(--hb-font-size-h1));
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hb-faq__p-lead {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+        overflow-wrap: anywhere;
+      }
+
+      .hb-faq__p-index {
+        background: var(--hb-color-white);
+        padding-bottom: var(--hb-space-md);
+      }
+
+      .hb-faq__p-index-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--hb-space-sm);
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-faq__p-index-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(var(--hb-space-xl) + var(--hb-space-sm));
+        padding: var(--hb-space-xs) var(--hb-space-md);
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-white);
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .hb-faq__p-index-link:hover {
+        background: var(--hb-color-surface-mint-soft);
+        opacity: 1;
+      }
+
+      .hb-faq__p-category {
+        background: var(--hb-color-white);
+        scroll-margin-top: calc(var(--hb-space-3xl) + var(--hb-space-xl));
+      }
+
+      .hb-faq__p-index + .hb-faq__p-category {
+        padding-top: var(--hb-space-md);
+      }
+
+      .hb-faq__p-category:nth-of-type(even) {
+        background: var(--hb-color-surface-soft);
+      }
+
+      .hb-faq__p-category-title {
+        margin: 0 auto var(--hb-space-xl);
+        width: min(
+          calc(100% - (var(--hb-layout-gutter) * 2)),
+          var(--hb-layout-container-sm)
+        );
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h2);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hb-faq__p-faq-list {
+        display: grid;
+        gap: var(--hb-space-md);
+        width: min(
+          calc(100% - (var(--hb-layout-gutter) * 2)),
+          var(--hb-layout-container-sm)
+        );
+        margin: 0 auto;
+      }
+
+      .hb-faq__p-faq-item {
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-faq__p-faq-question {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: var(--hb-space-md);
+        align-items: center;
+        width: 100%;
+        padding: var(--hb-space-lg);
+        border: 0;
+        background: transparent;
+        color: var(--hb-color-text-deep);
+        font: inherit;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .hb-faq__p-faq-icon {
+        display: inline-grid;
+        width: var(--hb-space-xl);
+        height: var(--hb-space-xl);
+        place-items: center;
+        border-radius: var(--hb-radius-full);
+        color: var(--hb-color-white);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hb-faq__p-faq-icon--q {
+        background: var(--hb-color-primary-500);
+      }
+
+      .hb-faq__p-faq-icon--a {
+        background: var(--hb-color-tertiary-500);
+      }
+
+      .hb-faq__p-faq-toggle {
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-h3);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hb-faq__p-faq-answer {
+        display: none;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--hb-space-md);
+        padding: 0 var(--hb-space-lg) var(--hb-space-lg);
+        color: var(--hb-color-text-muted);
+        line-height: 1.9;
+      }
+
+      .hb-faq__p-faq-answer-body {
+        display: grid;
+        gap: var(--hb-space-sm);
+        min-width: 0;
+      }
+
+      .hb-faq__p-faq-text {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+        overflow-wrap: anywhere;
+      }
+
+      .hb-faq__p-faq-list-body {
+        display: grid;
+        gap: var(--hb-space-xs);
+        margin: 0;
+        padding-left: var(--hb-space-lg);
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+      }
+
+      .hb-faq__p-faq-item.hb-faq__is-open .hb-faq__p-faq-answer {
+        display: grid;
+      }
+
+      @media (max-width: 767px) {
+        .hb-faq__p-index {
+          padding-bottom: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-index + .hb-faq__p-category {
+          padding-top: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-index-list {
+          justify-content: flex-start;
+        }
+
+        .hb-faq__p-category-title {
+          font-size: var(--hb-font-size-h3);
+        }
+
+        .hb-faq__p-faq-question {
+          padding: var(--hb-space-md);
+          gap: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-faq-answer {
+          padding: 0 var(--hb-space-md) var(--hb-space-md);
+          gap: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-faq-icon {
+          width: var(--hb-space-lg);
+          height: var(--hb-space-lg);
+        }
+
+        .hb-faq__p-faq-text,
+        .hb-faq__p-faq-list-body {
+          font-size: var(--hb-font-size-body--sm);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hb-include="../components/header.html"></div>
+
+    <main id="top">
+      <section class="hb__p-subpage-title" aria-label="よくあるご質問">
+        <div class="hb__l-container hb__p-subpage-title__inner">
+          <h1 class="hb__p-subpage-title__heading">よくあるご質問</h1>
+        </div>
+      </section>
+      <div class="hb__l-container">
+        <nav
+          class="hb__p-subpage-title__breadcrumb-area"
+          aria-label="パンくずリスト"
+        >
+          <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
+            <li class="hb__p-subpage-title__breadcrumb-item">
+              <a
+                class="hb__p-subpage-title__breadcrumb-link"
+                href="../index.html"
+                >TOP</a
+              >
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-separator"
+              aria-hidden="true"
+            >
+              &gt;
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-current"
+              aria-current="page"
+            >
+              よくあるご質問
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <section class="hb__l-section hb-faq__p-index">
+        <div class="hb__l-container">
+          <div class="hb-faq__p-section-head">
+            <h2 class="hb-faq__p-section-title">FAQ</h2>
+            <p class="hb-faq__p-lead">
+              買取方法や必要書類、各買取方法について、よくいただく質問をまとめました。
+            </p>
+          </div>
+          <ul class="hb-faq__p-index-list" aria-label="FAQカテゴリ">
+            <li>
+              <a class="hb-faq__p-index-link" href="#general"
+                >取引全般について</a
+              >
+            </li>
+            <li>
+              <a class="hb-faq__p-index-link" href="#delivery"
+                >宅配買取について</a
+              >
+            </li>
+            <li>
+              <a class="hb-faq__p-index-link" href="#visit">出張買取について</a>
+            </li>
+            <li>
+              <a class="hb-faq__p-index-link" href="#store">店頭買取について</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="hb__l-section hb-faq__p-category" id="general">
+        <div class="hb__l-container">
+          <h2 class="hb-faq__p-category-title">取引全般について</h2>
+          <div class="hb-faq__p-faq-list">
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取方法を教えてください。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    宅配買取、らくらく買取、出張買取、店頭買取を全て手数料無料で提供させて頂いております。
+                  </p>
+                  <ul class="hb-faq__p-faq-list-body">
+                    <li>
+                      <strong>宅配買取</strong
+                      >：自分の都合の良い時に簡単に買取サービスを利用したい方向け。送料無料の宅配キットに詰めて配送業者に渡すだけでOK！
+                    </li>
+                    <li>
+                      <strong>らくらく買取</strong
+                      >：重い商品ならコチラ。送料無料で、アートのスタッフが2名でご自宅内から運び出します。当店が集荷手配致しますのでお客様は待っているだけでOK！梱包も不要！
+                    </li>
+                    <li>
+                      <strong>出張買取</strong
+                      >：当店スタッフがご自宅まで買取にお伺い。大量・大型でもOK！その場でお支払い致します。
+                    </li>
+                    <li>
+                      <strong>店頭買取</strong
+                      >：今すぐに現金化したい方にオススメ。店頭にて査定・買取ですぐに現金化可能です。
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取に際して必要な物は？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    ご本人様確認書類（「氏名」「住所」「生年月日」が記載されている原本）が必要です。下記のうち、いずれか1点をご用意ください。（有効期限のあるものは有効期限内のものに限ります）
+                  </p>
+                  <ul class="hb-faq__p-faq-list-body">
+                    <li>運転免許証</li>
+                    <li>各種健康保険証</li>
+                    <li>パスポート</li>
+                    <li>学生証・外国人登録証明書</li>
+                    <li>住民票の写し（発行後3ヶ月以内の原本）</li>
+                    <li>公的機関が発行した各種免許証</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>どうして身分証明書が必要なの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    古物営業法により、身分証明書の提示・確認が義務付けられています。（コピーを取らせて頂きます）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>18歳未満でも買取サービスは受けられますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん可能です。18歳未満のお客様は、親権者もしくは保護者の承諾が必要となります。承諾書フォーマットより印刷してご記入の上ご依頼下さいませ。（郵送やFAXでお送りすることも可能です）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取の際の個人情報は守られているの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    ご安心ください。詳しくは「プライバシーポリシー」をご参照下さい。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>本当に無料なの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    弊社の買取サービスは全て完全無料です。査定料・送料・出張費・振込み手数料等は一切頂いておりませんのでご安心してご依頼下さい。（査定のみも無料です）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>振込口座はどうやって伝えるの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    原則ネットにて、銀行などでも採用されております「eKYC」を使用し、ご本人確認および振込口座の登録をお願いしております。ネットが難しい場合には梱包キットへメモを同梱して頂くか、お電話・メール・FAXでもお知らせ頂けます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>中古品やジャンク品でもいいの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん可能です。新品からジャンク品まで買取が可能です。状態をお伝えください。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>他社の方が査定額が高かった場合は？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    他社の方が査定額が高額だった場合は、遠慮せずにお申し付け下さい。他社よりも高く査定させて頂けるよう、勉強させて頂きます！
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取出来ない物はあるの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    下記の場合はお買取をお断りさせて頂く場合がございます。
+                  </p>
+                  <ul class="hb-faq__p-faq-list-body">
+                    <li>商品の型番等が特定出来ない商品</li>
+                    <li>レンタルやリース契約中の商品</li>
+                    <li>ライセンス契約のある商品</li>
+                    <li>分割でのお支払いがまだ済んでいない商品</li>
+                    <li>盗難品と疑わしい商品</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取出来ない場合はあるの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <ul class="hb-faq__p-faq-list-body">
+                    <li>
+                      身分証明書のご提示がない場合は買取サービスをご利用出来ない場合がございます。
+                    </li>
+                    <li>
+                      身分証明書とお振込み先のご名義が別人の場合は買取・お振込みが出来ない場合がございます。
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>初めての利用で不安です。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    懇切丁寧にご対応させて頂きます。どうしてもご不安な場合はお電話にてご相談頂ければ、ご不安を取り除くお手伝いが出来るかと存じますのでご安心下さいませ。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>リピーターなんだけど、身分証の提示は必要？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    大変恐縮ですが、リピーターのお客様でも毎回必要となります。
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="hb__l-section hb-faq__p-category" id="delivery">
+        <div class="hb__l-container">
+          <h2 class="hb-faq__p-category-title">宅配買取について</h2>
+          <div class="hb-faq__p-faq-list">
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>宅配買取をお願いするには？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    WEB・LINE・お電話よりお問い合わせ下さい。梱包キットを無料進呈致します。キットが到着致しましたらお品物を梱包して頂ければ、集荷のお手配も当店からさせていただきます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>宅配買取に必要な物は？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    原則ネットにて「eKYC」を使用し、ご本人確認を行います。ネットを使うのが難しい場合には梱包キットへ身分証のコピーを同梱して頂くか、LINE・メール・FAXでもお知らせ頂けます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span
+                  >急いでいるんだけど最短でいつ頃振り込んでくれますか？</span
+                >
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    最短で翌日のお振込みも可能です。混雑状況やご依頼点数によってはお日にちを頂く場合がございます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>商品を先に送りたいんだけど。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    宅配買取ページよりご依頼ください。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>本当に送料は無料なの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    ご安心ください。梱包キットの進呈・商品をお送り頂く際も完全無料（弊社負担）でご利用頂けます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>査定額はいつ分かりますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    事前査定の場合は、お問い合わせ頂きました当日中にご連絡致します。（お品物が多い場合や特殊な商品の場合は、若干お時間を頂く場合もございますのでご了承くださいませ）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買い取り金額はどの様に受け取るの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    お客様ご指定の銀行口座へ、手数料弊社負担にてお振込みさせて頂きます。※身分証明書とお振込み先のご名義は同一人物でないとお振込み・買取が出来ませんのでご注意下さいませ。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>査定額に納得出来ない場合はキャンセル可能ですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん可能です。その際は、すぐに商品をご返送致します。（送料弊社負担）※一部例外がございます
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>依頼量が多くて箱が大量になりそうなんだけど大丈夫？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん大丈夫です。その際も送料無料で必要な数の梱包キットをお送りさせて頂きます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>発送中の破損などが心配です。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    発送に関しましては、全ての商品に運送保険を掛けさせて頂いております。万が一の輸送事故に関しましても、お客様にご負担頂く事はなく、買取は完了させて頂けますのでご安心下さいませ。（査定の時点でジャンク商品としての査定に関しては保険適用外となりますのでご了承下さいませ）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>定休日はありますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    原則、定休日はございませんので通年ご利用頂けます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>対応不可の地域はありますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    全国対応ですので、お気軽にお問い合わせ下さい。
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="hb__l-section hb-faq__p-category" id="visit">
+        <div class="hb__l-container">
+          <h2 class="hb-faq__p-category-title">出張買取について</h2>
+          <div class="hb-faq__p-faq-list">
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>出張買取をお願いするには？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    フォーム・お電話・LINE査定よりお問い合わせ下さいませ。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>出張可能なエリアはどこですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    関西エリア（大阪府、兵庫県、京都府、奈良県、和歌山県、滋賀県）を中心に、商品点数によっては福岡〜関東までお伺いも可能です。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取の際に必要な物はありますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    身分証明書と商品をご用意くださいませ。身分証明書は弊社のスキャナでスキャンさせて頂きますのでコピーは不要です。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買取に来てほしい場所が現住所と違うんだけど。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    会社や倉庫等への対応は可能です。駐車場や公園等の住所が特定出来ない場所での買取はお断りしております。（お客様所有・契約の駐車場で現住所が確認出来る場所であれば可能です）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買い取り金額はいつ貰えますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    買取訪問時にお支払い致します。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>出張費は掛かりますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    出張費や手数料などは頂いておりませんので、完全無料でご利用頂けます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>申込者と当日立ち合い者が違うのですがいいですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    別の方でも可能です。お立合い頂ける方の身分証をご用意下さいませ。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>キャンセルは可能ですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    前日までのキャンセルは可能です。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span
+                  >当日、買い取ってほしい商品が増えそうですが対応出来ますか？</span
+                >
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん大歓迎です！現地にて査定させて頂き、その場でお支払いさせて頂きます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>出張日時の指定は出来ますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    もちろん可能です。ご希望の日程や訪問可能日時をお伝え頂けましたら、その日程でお伺いさせて頂きます。
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="hb__l-section hb-faq__p-category" id="store">
+        <div class="hb__l-container">
+          <h2 class="hb-faq__p-category-title">店頭買取について</h2>
+          <div class="hb-faq__p-faq-list">
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>店頭買取はどうしたらいいの？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    お電話か無料web査定よりお問い合わせ下さい。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>店頭買取の営業時間を教えてください。</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    10:00〜19:00で買取可能です。混雑を避けるため、あらかじめお電話にてご予約をお願い致します。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>買い取り金額はいつもらえますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    ご来店して頂き、査定にご納得頂ければその場で現金でお支払いさせて頂きます。
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>身分証明書は必要ですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    買取の際は身分証明書が必要となりますので、ご持参下さいませ。（コピーを取らせて頂きます）
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>キャンセルは可能ですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    キャンセル料は不要でキャンセル可能です。
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-hb-include="../components/footer.html"></div>
+
+    <script>
+      document.querySelectorAll(".hb-faq__p-faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".hb-faq__p-faq-item");
+          const isOpen = item.classList.toggle("hb-faq__is-open");
+          button.setAttribute("aria-expanded", String(isOpen));
+          button.querySelector(".hb-faq__p-faq-toggle").textContent = isOpen
+            ? "－"
+            : "＋";
+        });
+      });
+    </script>
+  </body>
+</html>
