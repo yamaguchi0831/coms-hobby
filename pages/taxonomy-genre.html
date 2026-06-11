@@ -348,7 +348,7 @@
       .hb-item-genre__p-split-image img {
         display: block;
         width: 100%;
-        aspect-ratio: 500 / 332;
+        aspect-ratio: 232 / 154;
         object-fit: contain;
       }
 
@@ -402,7 +402,7 @@
 
       .hb-item-genre__p-tip-list {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
         gap: var(--hb-space-md);
         margin: 0;
         padding: 0;
@@ -414,6 +414,9 @@
         grid-template-columns: 160px minmax(0, 1fr);
         gap: var(--hb-space-md);
         align-items: start;
+        width: 100%;
+        max-width: 600px;
+        margin-inline: auto;
         padding: var(--hb-space-lg);
         border: 1px solid var(--hb-color-border-muted);
         border-radius: var(--hb-radius-md);
@@ -436,6 +439,10 @@
       }
 
       .hb-item-genre__p-tip-body {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: var(--hb-space-sm);
+        align-items: center;
         min-width: 0;
       }
 
@@ -445,15 +452,20 @@
         font-weight: 900;
         line-height: 1;
         display: block;
-        margin-bottom: var(--hb-space-xs);
       }
 
       .hb-item-genre__p-tip-title {
-        margin: 0 0 var(--hb-space-xs);
+        margin: 0;
         color: var(--hb-color-text-deep);
         font-size: var(--hb-font-size-h4);
         font-weight: 900;
         line-height: 1.5;
+      }
+
+      .hb-item-genre__p-tip-body .hb-item-genre__p-card-text {
+        grid-column: 1 / -1;
+        margin-top: var(--hb-space-xs);
+        font-size: var(--hb-font-size-body);
       }
 
       .hb-item-genre__p-price {
@@ -720,7 +732,6 @@
         }
 
         .hb-item-genre__p-tip-number {
-          margin-bottom: var(--hb-space-2xs);
           font-size: var(--hb-font-size-h3);
         }
 
@@ -732,6 +743,7 @@
           padding: 0 var(--hb-space-md) var(--hb-space-md);
         }
       }
+
     </style>
   </head>
   <body>
@@ -1118,7 +1130,7 @@
         <div class="hb__l-container hb-item-genre__p-split">
           <figure class="hb-item-genre__p-split-image">
             <img
-              src="../images/condition.webp"
+              src="../images/condition02.webp"
               alt="さまざまな状態のホビー品のイメージ"
             />
           </figure>
