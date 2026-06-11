@@ -538,7 +538,12 @@
   box-shadow: var(--hb-shadow-sm);
 }
 
+.hb-__p-method-card[data-method-panel="takuhai"] {
+  border: 3px solid var(--hb-color-secondary-500);
+}
+
 .hb-__p-method-image {
+  position: relative;
   margin: 0;
   background: var(--hb-color-surface-green-light);
 }
@@ -546,8 +551,27 @@
 .hb-__p-method-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+}
+
+.hb-__p-method-badge {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  min-height: 28px;
+  padding: var(--hb-space-2xs) var(--hb-space-md);
+  border-radius: var(--hb-radius-sm);
+  background: var(--hb-color-tertiary-500);
+  color: var(--hb-color-white);
+  font-size: var(--hb-font-size-body--sm);
+  font-weight: 900;
+  line-height: 1;
+  transform: translate(-50%, 50%);
 }
 
 .hb-__p-method-title {
