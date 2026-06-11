@@ -131,7 +131,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgb(255 255 255 / 74%) 0%, transparent 66%);
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 74%) 0%,
+    transparent 66%
+  );
 }
 .hb-front__p-hero__inner {
   position: relative;
@@ -166,7 +170,7 @@
   font-weight: 900;
   line-height: 1.25;
   text-align: center;
-  transform: skewX(-8deg) rotate(3deg);
+  transform: skewX(-8deg) rotate(-3deg);
   box-shadow: var(--hb-shadow-md);
 }
 .hb-front__p-hero__ribbon > * {
@@ -194,26 +198,40 @@
 .hb-front__p-hero__title > span {
   white-space: nowrap;
 }
+.hb-front__p-hero__title > span:nth-child(1) {
+  font-size: min(60px, 5.4vw);
+}
+.hb-front__p-hero__title > span:nth-child(2) {
+  font-size: min(80px, 7.2vw);
+}
+.hb-front__p-hero__title > span:nth-child(3) {
+  font-size: min(74px, 6.7vw);
+}
 .hb-front__p-hero__title-accent {
   color: #f45a00;
-  font-size: 1.13em;
 }
 .hb-front__p-hero__badge {
   position: absolute;
-  left: -5%;
-  top: 29%;
+  right: -15%;
+  top: 51%;
   z-index: 2;
   display: grid;
-  width: 126px;
+  width: clamp(108px, 9.2vw, 136px);
   aspect-ratio: 1;
   place-items: center;
   border-radius: var(--hb-radius-full);
   background: #ffdf25;
   color: var(--hb-color-primary-800);
+  font-size: clamp(
+    var(--hb-font-size-body--sm),
+    1.25vw,
+    var(--hb-font-size-h4)
+  );
   font-weight: 900;
   line-height: 1.35;
   text-align: center;
   box-shadow: var(--hb-shadow-sm);
+  pointer-events: none;
 }
 .hb-front__p-hero__lead {
   margin-top: 0;
@@ -239,7 +257,7 @@
   z-index: 2;
   display: grid;
   gap: var(--hb-space-sm);
-  width: min(390px, 74%);
+  width: min(330px, 74%);
   margin-left: 100px;
 }
 .hb-front__p-hero__cta {
@@ -251,7 +269,7 @@
   padding: 12px 26px;
   border-radius: var(--hb-radius-lg);
   color: var(--hb-color-white);
-  font-size: clamp(var(--hb-font-size-h4), 2vw, var(--hb-font-size-h2));
+  font-size: 21px;
   font-weight: 900;
   line-height: 1.2;
   box-shadow: var(--hb-shadow-md);
@@ -292,10 +310,11 @@
 }
 .hb-front__p-hero__side-visual {
   position: absolute;
-  left: 0;
-  bottom: -8px;
+  left: -30px;
+  bottom: -25px;
   z-index: 1;
   width: 270px;
+  margin-top: var(--hb-space-xl);
   overflow: hidden;
   pointer-events: none;
 }
@@ -310,7 +329,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
-  margin-top: var(--hb-space-md);
+  margin-top: var(--hb-space-xl);
   padding: var(--hb-space-sm) var(--hb-space-md);
   list-style: none;
   border: 1px solid var(--hb-color-primary-200);
@@ -360,21 +379,32 @@
   }
   .hb-front__p-hero__copy {
     align-self: start;
+    justify-self: center;
     width: min(720px, 100%);
+    padding-right: 0;
     text-align: center;
   }
   .hb-front__p-hero__ribbon {
-    transform: skewX(-8deg) rotate(2deg);
+    transform: skewX(-8deg) rotate(-3deg);
   }
   .hb-front__p-hero__title {
     max-width: 720px;
     margin-inline: auto;
-    font-size: clamp(30px, 9.8vw, 54px);
+  }
+  .hb-front__p-hero__title > span:nth-child(1) {
+    font-size: min(60px, 8.3vw);
+  }
+  .hb-front__p-hero__title > span:nth-child(2) {
+    font-size: min(80px, 13vw);
+  }
+  .hb-front__p-hero__title > span:nth-child(3) {
+    font-size: min(74px, 13vw);
   }
   .hb-front__p-hero__badge {
-    left: 63%;
-    top: 11%;
-    width: clamp(72px, 20vw, 96px);
+    right: 17%;
+    top: revert;
+    bottom: -27%;
+    width: 96px;
     font-size: var(--hb-font-size-caption);
   }
   .hb-front__p-hero__visual {
@@ -387,7 +417,7 @@
   }
   .hb-front__p-hero__action {
     justify-self: center;
-    width: min(360px, 100%);
+    width: min(280px, 100%);
     min-height: auto;
     margin-top: calc(var(--hb-space-md) * -1);
   }
@@ -399,7 +429,7 @@
     min-height: 54px;
     padding: 9px 16px;
     border-radius: var(--hb-radius-md);
-    font-size: var(--hb-font-size-body--sm);
+    font-size: 17px;
   }
   .hb-front__p-hero__cta img {
     width: 28px;
@@ -416,14 +446,15 @@
     padding: 8px 14px 10px;
   }
   .hb-front__p-hero__title {
-    font-size: clamp(28px, 10.8vw, 42px);
+    max-width: 100%;
   }
   .hb-front__p-hero__lead {
     font-size: var(--hb-font-size-body--sm);
   }
   .hb-front__p-hero__badge {
-    left: 62%;
-    top: 9%;
+    right: 0;
+    top: revert;
+    bottom: -35%;
   }
 }
 
@@ -1218,4 +1249,3 @@
     grid-column: 1 / -1;
   }
 }
-

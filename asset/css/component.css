@@ -508,26 +508,26 @@
 }
 
 /* ============================================================
-   Project: Purchase methods (.hb-__p-method)
+   Project: Purchase methods (.hb__p-method)
 ============================================================ */
 
-.hb-__p-method,
-.hb-__p-method-ui {
+.hb__p-method,
+.hb__p-method-ui {
   --hb-method-card-min: 300px;
   --hb-method-tab-max: 500px;
 }
 
-.hb-__p-method {
+.hb__p-method {
   background: var(--hb-color-surface-soft);
 }
 
-.hb-__p-method-grid {
+.hb__p-method-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(var(--hb-method-card-min), 1fr));
   gap: var(--hb-space-lg);
 }
 
-.hb-__p-method-card {
+.hb__p-method-card {
   display: grid;
   grid-template-rows: auto auto 1fr auto auto;
   min-width: 0;
@@ -538,23 +538,23 @@
   box-shadow: var(--hb-shadow-sm);
 }
 
-.hb-__p-method-card[data-method-panel="takuhai"] {
+.hb__p-method-card[data-method-panel="takuhai"] {
   border: 3px solid var(--hb-color-secondary-500);
 }
 
-.hb-__p-method-image {
+.hb__p-method-image {
   position: relative;
   margin: 0;
   background: var(--hb-color-surface-green-light);
 }
 
-.hb-__p-method-image img {
+.hb__p-method-image img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.hb-__p-method-badge {
+.hb__p-method-badge {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -574,7 +574,7 @@
   transform: translate(-50%, 50%);
 }
 
-.hb-__p-method-title {
+.hb__p-method-title {
   margin: 0;
   padding: var(--hb-space-lg) var(--hb-space-lg) 0;
   color: var(--hb-color-text-deep);
@@ -583,7 +583,7 @@
   line-height: 1.5;
 }
 
-.hb-__p-method-text {
+.hb__p-method-text {
   margin: 0;
   padding: var(--hb-space-sm) var(--hb-space-lg) 0;
   color: var(--hb-color-text-muted);
@@ -591,7 +591,7 @@
   line-height: 1.85;
 }
 
-.hb-__p-method-list {
+.hb__p-method-list {
   display: grid;
   gap: var(--hb-space-xs);
   margin: var(--hb-space-md) var(--hb-space-lg) 0;
@@ -600,7 +600,7 @@
   list-style: none;
 }
 
-.hb-__p-method-list li {
+.hb__p-method-list li {
   position: relative;
   padding-left: var(--hb-space-lg);
   color: var(--hb-color-text-deep);
@@ -609,7 +609,7 @@
   line-height: 1.7;
 }
 
-.hb-__p-method-list li::before {
+.hb__p-method-list li::before {
   position: absolute;
   top: 0.45em;
   left: 0;
@@ -620,20 +620,20 @@
   content: "";
 }
 
-.hb-__p-method-action {
+.hb__p-method-action {
   display: flex;
   padding: var(--hb-space-lg);
   margin-top: auto;
 }
 
-.hb-__p-method-action .hb__c-btn {
+.hb__p-method-action .hb__c-btn {
   width: 100%;
   border: 0;
   background: var(--hb-gradient-primary);
   color: var(--hb-color-white);
 }
 
-.hb-__p-method-tabs {
+.hb__p-method-tabs {
   position: relative;
   display: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -643,7 +643,7 @@
   padding-bottom: var(--hb-space-sm);
 }
 
-.hb-__p-method-tabs::after {
+.hb__p-method-tabs::after {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -653,7 +653,7 @@
   content: "";
 }
 
-.hb-__p-method-tab {
+.hb__p-method-tab {
   position: relative;
   z-index: 1;
   min-width: 0;
@@ -671,47 +671,47 @@
   cursor: pointer;
 }
 
-.hb-__p-method-tab.hb-__is-active {
+.hb__p-method-tab.hb__is-active {
   border-color: var(--hb-color-primary-500);
   background: var(--hb-gradient-primary);
   color: var(--hb-color-white);
 }
 
 @media (max-width: 1012px) {
-  .hb-__p-method-tabs {
+  .hb__p-method-tabs {
     display: grid;
   }
 
-  .hb-__p-method-grid {
+  .hb__p-method-grid {
     grid-template-columns: 1fr;
     max-width: var(--hb-method-tab-max);
     margin-inline: auto;
   }
 
-  .hb-__p-method--tabs .hb-__p-method-card {
+  .hb__p-method--tabs .hb__p-method-card {
     display: none;
   }
 
-  .hb-__p-method--tabs .hb-__p-method-card.hb-__is-active {
+  .hb__p-method--tabs .hb__p-method-card.hb__is-active {
     display: grid;
   }
 }
 
 @media (max-width: 640px) {
-  .hb-__p-method-title,
-  .hb-__p-method-action {
+  .hb__p-method-title,
+  .hb__p-method-action {
     padding: var(--hb-space-md);
   }
 
-  .hb-__p-method-text {
+  .hb__p-method-text {
     padding-inline: var(--hb-space-md);
   }
 
-  .hb-__p-method-list {
+  .hb__p-method-list {
     margin-inline: var(--hb-space-md);
   }
 
-  .hb-__p-method--tabs .hb-__p-method-tab {
+  .hb__p-method--tabs .hb__p-method-tab {
     padding-inline: var(--hb-space-xs);
     font-size: var(--hb-font-size-caption);
     white-space: nowrap;

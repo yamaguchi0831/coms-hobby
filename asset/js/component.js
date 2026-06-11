@@ -1,11 +1,11 @@
 document.addEventListener("click", (event) => {
-  const tab = event.target.closest(".hb-__p-method-tab[data-method-tab]");
+  const tab = event.target.closest(".hb__p-method-tab[data-method-tab]");
 
   if (!tab) {
     return;
   }
 
-  const section = tab.closest(".hb-__p-method--tabs");
+  const section = tab.closest(".hb__p-method--tabs");
 
   if (!section) {
     return;
@@ -17,13 +17,13 @@ document.addEventListener("click", (event) => {
 
   tabs.forEach((item) => {
     const isActive = item === tab;
-    item.classList.toggle("hb-__is-active", isActive);
+    item.classList.toggle("hb__is-active", isActive);
     item.setAttribute("aria-selected", String(isActive));
   });
 
   panels.forEach((panel) => {
     panel.classList.toggle(
-      "hb-__is-active",
+      "hb__is-active",
       panel.dataset.methodPanel === target,
     );
   });
