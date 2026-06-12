@@ -409,7 +409,7 @@
                             買取の <span class="hb-front__c-hl">流れ</span>
                         </h2>
                         <p class="hb-front__c-section-head__lead">
-                            3つの買取方法ごとに、申込みから入金までの手順をご案内します。
+                            量・距離・進め方に合わせて選べる3つの方法を、タブで確認できます。
                         </p>
                     </header>
 
@@ -420,244 +420,249 @@
                     >
                         <button
                             class="hb-front__p-flow__tab is-active"
+                            id="front-flow-tab-takuhai"
                             role="tab"
                             aria-selected="true"
-                            data-tab="delivery"
+                            aria-controls="front-flow-panel-takuhai"
+                            type="button"
+                            data-front-flow-tab="takuhai"
                         >
                             宅配買取
                         </button>
                         <button
                             class="hb-front__p-flow__tab"
+                            id="front-flow-tab-shuccho"
                             role="tab"
                             aria-selected="false"
-                            data-tab="visit"
+                            aria-controls="front-flow-panel-shuccho"
+                            type="button"
+                            data-front-flow-tab="shuccho"
                         >
                             出張買取
                         </button>
                         <button
                             class="hb-front__p-flow__tab"
+                            id="front-flow-tab-store"
                             role="tab"
                             aria-selected="false"
-                            data-tab="store"
+                            aria-controls="front-flow-panel-store"
+                            type="button"
+                            data-front-flow-tab="store"
                         >
-                            持ち込み買取
+                            店頭買取
                         </button>
                     </div>
 
-                    <div class="hb-front__p-flow__pane" data-flow="delivery">
-                        <ol class="hb-front__p-flow__steps" role="list">
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    1
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    申込
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    Webフォーム / LINE /
-                                    お電話から、お申し込みください。所要1分。
+                    <div class="hb-front__p-flow__panels">
+                        <div
+                            class="hb-front__p-flow__pane"
+                            id="front-flow-panel-takuhai"
+                            role="tabpanel"
+                            aria-labelledby="front-flow-tab-takuhai"
+                            data-front-flow-panel="takuhai"
+                        >
+                            <div class="hb-front__p-flow__detail-head">
+                                <h3 class="hb-front__p-flow__detail-title">
+                                    宅配買取の流れ
+                                </h3>
+                                <p class="hb-front__p-flow__detail-lead">
+                                    箱にまとめて送るだけ。全国どこからでも手数料無料でご利用いただけます。
                                 </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    2
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    梱包・発送
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    ダンボール・緩衝材を無料でお届け。詰めて集荷依頼するだけ。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    3
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    査定・金額連絡
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    商品到着後、最短当日〜翌日に査定金額をメール/LINEで連絡。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    4
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    入金
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    ご了承いただいた当日、最短1営業日でご指定口座へお振込み。
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
+                            </div>
+                            <div class="hb-front__p-flow__steps">
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                                            alt="梱包する箱のイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        発送する
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        売りたいホビーを箱にまとめて着払いで送るだけ。箱がない場合は買取キットを無料プレゼントします。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                                            alt="査定のイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        査定
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        専門スタッフがしっかりと査定を行い、査定額をご案内します。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                                            alt="お支払いのイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        お支払い
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        査定額にご納得いただけましたら、指定口座へお振込みします。
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="hb-front__p-flow__action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-front__p-flow__button"
+                                    href="kaitori-form.html?type=takuhai"
+                                >
+                                    宅配買取を依頼する
+                                </a>
+                            </div>
+                        </div>
 
-                    <div
-                        class="hb-front__p-flow__pane"
-                        data-flow="visit"
-                        hidden
-                    >
-                        <ol class="hb-front__p-flow__steps" role="list">
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    1
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    申込・日時調整
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    Webフォーム /
-                                    電話で、ご住所と希望日時をお知らせください。
+                        <div
+                            class="hb-front__p-flow__pane"
+                            id="front-flow-panel-shuccho"
+                            role="tabpanel"
+                            aria-labelledby="front-flow-tab-shuccho"
+                            data-front-flow-panel="shuccho"
+                            hidden
+                        >
+                            <div class="hb-front__p-flow__detail-head">
+                                <h3 class="hb-front__p-flow__detail-title">
+                                    出張買取の流れ
+                                </h3>
+                                <p class="hb-front__p-flow__detail-lead">
+                                    大量のコレクションも運ばずにOK。専門スタッフがご自宅へ伺います。
                                 </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    2
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    査定士訪問
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    専門査定士がご自宅まで伺います。査定中はお茶を飲んでお待ちを。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    3
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    査定・金額提示
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    その場で1点ずつ査定。明細とあわせて金額をご提示します。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    4
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    現金 or 振込
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    ご了承後、現金でその場で受け取り、または最短1営業日で振込。
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
+                            </div>
+                            <div class="hb-front__p-flow__steps">
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                                            alt="相談するイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        日程調整をする
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        内容や出張希望日時を専用フォームよりお知らせください。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                                            alt="出張査定のイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        出張査定
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        専門スタッフがご自宅へ伺い丁寧に査定をいたします。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                                            alt="お支払いと引渡しのイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        お支払い＆引渡し
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="hb-front__p-flow__action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-front__p-flow__button"
+                                    href="kaitori-form.html?type=shuccho"
+                                >
+                                    出張買取を依頼する
+                                </a>
+                            </div>
+                        </div>
 
-                    <div
-                        class="hb-front__p-flow__pane"
-                        data-flow="store"
-                        hidden
-                    >
-                        <ol class="hb-front__p-flow__steps" role="list">
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    1
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    来店
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    予約不要。お近くの店舗にお気軽にお持ちください。
+                        <div
+                            class="hb-front__p-flow__pane"
+                            id="front-flow-panel-store"
+                            role="tabpanel"
+                            aria-labelledby="front-flow-tab-store"
+                            data-front-flow-panel="store"
+                            hidden
+                        >
+                            <div class="hb-front__p-flow__detail-head">
+                                <h3 class="hb-front__p-flow__detail-title">
+                                    店頭買取の流れ
+                                </h3>
+                                <p class="hb-front__p-flow__detail-lead">
+                                    お近くの方は店頭持ち込みも便利。少量から大量までご相談いただけます。
                                 </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    2
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    受付
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    受付カウンターで身分証をご提示ください。専門査定士が対応します。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    3
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    査定・金額提示
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    1点1点丁寧に査定。査定理由とあわせて、その場でご説明します。
-                                </p>
-                            </li>
-                            <li
-                                class="hb-front__p-flow__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </li>
-                            <li class="hb-front__p-flow__step">
-                                <div class="hb-front__p-flow__step-badge">
-                                    4
-                                </div>
-                                <h4 class="hb-front__p-flow__step-title">
-                                    現金受け取り
-                                </h4>
-                                <p class="hb-front__p-flow__step-text">
-                                    ご了承いただいたら、そのまま現金でお渡しします。
-                                </p>
-                            </li>
-                        </ol>
+                            </div>
+                            <div class="hb-front__p-flow__steps">
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                                            alt="持ち込み準備のイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        日程調整をする
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        内容や持込希望日時を専用フォームよりお知らせください。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                                            alt="店舗へ持ち込むイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        店舗へ持ち込む
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        少量から大量まで、専門スタッフが丁寧に査定をいたします。
+                                    </p>
+                                </article>
+                                <article class="hb-front__p-flow__step">
+                                    <figure class="hb-front__p-flow__step-image">
+                                        <img
+                                            src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                                            alt="お支払いと引渡しのイメージ"
+                                        />
+                                    </figure>
+                                    <h4 class="hb-front__p-flow__step-title">
+                                        お支払い＆引渡し
+                                    </h4>
+                                    <p class="hb-front__p-flow__step-text">
+                                        査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="hb-front__p-flow__action">
+                                <a
+                                    class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-front__p-flow__button"
+                                    href="kaitori-form.html?type=mochikomi"
+                                >
+                                    店頭買取を依頼する
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-                    <p class="hb-front__p-flow__note">
-                        ※レスポンシブ表示では、ステップは縦並びの矢印（↓）で表示されます。
-                    </p>
                 </div>
             </section>
 

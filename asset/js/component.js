@@ -1,4 +1,30 @@
 document.addEventListener("click", (event) => {
+  const flowTab = event.target.closest("[data-front-flow-tab]");
+
+  if (flowTab) {
+    const section = flowTab.closest(".hb-front__p-flow");
+
+    if (!section) {
+      return;
+    }
+
+    const target = flowTab.dataset.frontFlowTab;
+    const tabs = section.querySelectorAll("[data-front-flow-tab]");
+    const panels = section.querySelectorAll("[data-front-flow-panel]");
+
+    tabs.forEach((item) => {
+      const isActive = item === flowTab;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-selected", String(isActive));
+    });
+
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.frontFlowPanel !== target;
+    });
+
+    return;
+  }
+
   const tab = event.target.closest(".hb__p-method-tab[data-method-tab]");
 
   if (!tab) {
