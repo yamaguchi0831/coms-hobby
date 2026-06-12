@@ -212,21 +212,17 @@
 }
 .hb-front__p-hero__badge {
     position: absolute;
-    right: -15%;
+    right: -18%;
     top: 51%;
     z-index: 2;
     display: grid;
-    width: clamp(108px, 9.2vw, 136px);
+    width: 136px;
     aspect-ratio: 1;
     place-items: center;
     border-radius: var(--hb-radius-full);
     background: #ffdf25;
     color: var(--hb-color-primary-800);
-    font-size: clamp(
-        var(--hb-font-size-body--sm),
-        1.25vw,
-        var(--hb-font-size-h4)
-    );
+    font-size: 16px;
     font-weight: 900;
     line-height: 1.35;
     text-align: center;
@@ -390,7 +386,7 @@
     .hb-front__p-hero__copy {
         align-self: start;
         justify-self: center;
-        width: min(720px, 100%);
+        //width: min(720px, 100%);
         padding-right: 0;
         text-align: center;
     }
@@ -411,9 +407,9 @@
         font-size: min(74px, 13vw);
     }
     .hb-front__p-hero__badge {
-        right: 17%;
+        right: 0;
         top: revert;
-        bottom: -27%;
+        bottom: -100px;
         width: 96px;
         font-size: var(--hb-font-size-caption);
     }
@@ -422,7 +418,7 @@
         align-self: center;
     }
     .hb-front__p-hero__visual-img {
-        width: min(520px, 88%);
+        width: min(560px, 90%);
         margin-inline: auto;
     }
     .hb-front__p-hero__action {
