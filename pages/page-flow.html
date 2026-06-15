@@ -94,28 +94,91 @@
       }
 
       .hb-flow__p-flows {
-        background: var(--hb-color-primary-500);
-      }
-
-      .hb-flow__p-flow-card {
         background: var(--hb-color-white);
-        border-radius: var(--hb-radius-md);
-        padding: var(--hb-space-xl);
-        display: grid;
-        gap: var(--hb-space-xl);
       }
 
-      .hb-flow__p-flow-card + .hb-flow__p-flow-card {
-        margin-top: var(--hb-space-xl);
+      .hb-flow__p-flow {
+        text-align: center;
+      }
+
+      .hb-flow__p-flow > * {
+        text-align: left;
+      }
+
+      .hb-flow__p-flow > .hb__c-section-head {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .hb-flow__p-flow__tabs {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: var(--hb-space-xs);
+        justify-content: center;
+        width: min(100%, var(--hb-container));
+        margin: 0 auto;
+        padding-bottom: var(--hb-space-sm);
+      }
+
+      .hb-flow__p-flow__tabs::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: var(--hb-space-sm);
+        background: var(--hb-color-primary-500);
+        content: "";
+      }
+
+      .hb-flow__p-flow__tab {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+        min-height: calc(var(--hb-space-2xl) + var(--hb-space-xs));
+        padding: var(--hb-space-sm);
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-sm) var(--hb-radius-sm) 0 0;
+        background: var(--hb-color-white);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body);
+        font-weight: 700;
+        text-align: center;
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .hb-flow__p-flow__tab.is-active {
+        border-color: var(--hb-color-primary-500);
+        background: var(--hb-color-primary-500);
+        color: var(--hb-color-white);
+      }
+
+      .hb-flow__p-flow__panels {
+        max-width: var(--hb-container);
+        margin-inline: auto;
+      }
+
+      .hb-flow__p-flow__pane {
+        display: grid;
+        gap: var(--hb-space-lg);
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        padding: var(--hb-space-xl);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-flow__p-flow__pane[hidden] {
+        display: none;
       }
 
       .hb-flow__p-detail__head {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--hb-space-md);
-        align-items: end;
-        justify-content: space-between;
-        margin-bottom: var(--hb-space-xl);
+        display: grid;
+        gap: var(--hb-space-xs);
+        text-align: center;
       }
 
       .hb-flow__p-detail__title {
@@ -123,6 +186,13 @@
         color: var(--hb-color-text-deep);
         font-size: var(--hb-font-size-h2);
         font-weight: 900;
+      }
+
+      .hb-flow__p-detail__lead {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body--sm);
+        line-height: 1.8;
       }
 
       .hb-flow__p-steps {
@@ -189,12 +259,10 @@
       .hb-flow__p-detail__action {
         display: flex;
         justify-content: center;
-        margin-top: var(--hb-space-xl);
       }
 
       .hb-flow__p-detail__button {
-        min-width: min(100%, 320px);
-        border: 0;
+        min-width: min(100%, 300px);
       }
 
       .hb-flow__p-prices-ui {
@@ -348,6 +416,18 @@
           text-align: left;
         }
 
+        .hb-flow__p-flow__tabs {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .hb-flow__p-flow__tab {
+          font-size: var(--hb-font-size-body--sm);
+        }
+
+        .hb-flow__p-flow__pane {
+          padding: var(--hb-space-lg);
+        }
+
         .hb-flow__p-steps {
           grid-template-columns: 1fr;
           grid-template-rows: none;
@@ -392,6 +472,26 @@
           right: 50%;
           bottom: calc(var(--hb-space-lg) * -0.86);
           transform: translateX(50%) rotate(90deg);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .hb-flow__p-flow__tabs {
+          gap: var(--hb-space-2xs);
+        }
+
+        .hb-flow__p-flow__tab {
+          padding-inline: var(--hb-space-xs);
+          font-size: var(--hb-font-size-caption);
+          white-space: nowrap;
+        }
+
+        .hb-flow__p-flow__pane {
+          padding: var(--hb-space-md);
+        }
+
+        .hb-flow__p-detail__head {
+          text-align: left;
         }
       }
 
@@ -488,160 +588,241 @@
       </section>
 
       <section class="hb__l-section hb-flow__p-flows" id="flows">
-        <div class="hb__l-container">
-          <div class="hb-flow__p-flow-card" id="takuhai-flow">
-            <div class="hb-flow__p-detail__head">
-              <h2 class="hb-flow__p-detail__title">宅配買取の流れ</h2>
-            </div>
-            <div class="hb-flow__p-steps">
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
-                    alt="梱包する箱のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">発送する</h3>
-                <p class="hb-flow__p-step__text">
-                  売りたいホビーを箱にまとめて着払いで送るだけ。箱がない場合は買取キットを無料プレゼントします。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
-                    alt="査定のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">査定</h3>
-                <p class="hb-flow__p-step__text">
-                  専門スタッフがしっかりと査定を行い、査定額をご案内します。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="お支払いのイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">お支払い</h3>
-                <p class="hb-flow__p-step__text">
-                  査定額にご納得いただけましたら、指定口座へお振込みします。
-                </p>
-              </article>
-            </div>
-            <div class="hb-flow__p-detail__action">
-              <a
-                class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
-                href="kaitori-form.html?type=takuhai"
-              >
-                宅配買取を依頼する
-              </a>
-            </div>
+        <div class="hb__l-container hb-flow__p-flow">
+          <header class="hb__c-section-head hb__c-section-head--center">
+            <span class="hb__c-section-head__kicker">How it works</span>
+            <h2 class="hb__c-section-head__title">
+              買取の <span class="hb__c-hl">流れ</span>
+            </h2>
+            <p class="hb__c-section-head__lead">
+              量・距離・進め方に合わせて選べる3つの方法を、タブで確認できます。
+            </p>
+          </header>
+
+          <div
+            class="hb-flow__p-flow__tabs"
+            role="tablist"
+            aria-label="買取方法"
+          >
+            <button
+              class="hb-flow__p-flow__tab is-active"
+              id="flow-tab-takuhai"
+              role="tab"
+              aria-selected="true"
+              aria-controls="flow-panel-takuhai"
+              type="button"
+              data-flow-tab="takuhai"
+            >
+              宅配買取
+            </button>
+            <button
+              class="hb-flow__p-flow__tab"
+              id="flow-tab-shuccho"
+              role="tab"
+              aria-selected="false"
+              aria-controls="flow-panel-shuccho"
+              type="button"
+              data-flow-tab="shuccho"
+            >
+              出張買取
+            </button>
+            <button
+              class="hb-flow__p-flow__tab"
+              id="flow-tab-store"
+              role="tab"
+              aria-selected="false"
+              aria-controls="flow-panel-store"
+              type="button"
+              data-flow-tab="store"
+            >
+              店頭買取
+            </button>
           </div>
 
-          <div class="hb-flow__p-flow-card" id="shuccho-flow">
-            <div class="hb-flow__p-detail__head">
-              <h2 class="hb-flow__p-detail__title">出張買取の流れ</h2>
-            </div>
-            <div class="hb-flow__p-steps">
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
-                    alt="相談するイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">日程調整をする</h3>
-                <p class="hb-flow__p-step__text">
-                  内容や出張希望日時を専用フォームよりお知らせください。
+          <div class="hb-flow__p-flow__panels">
+            <div
+              class="hb-flow__p-flow__pane"
+              id="flow-panel-takuhai"
+              role="tabpanel"
+              aria-labelledby="flow-tab-takuhai"
+              data-flow-panel="takuhai"
+            >
+              <div class="hb-flow__p-detail__head">
+                <h3 class="hb-flow__p-detail__title">宅配買取の流れ</h3>
+                <p class="hb-flow__p-detail__lead">
+                  箱にまとめて送るだけ。全国どこからでも手数料無料でご利用いただけます。
                 </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
-                    alt="出張査定のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">出張査定</h3>
-                <p class="hb-flow__p-step__text">
-                  専門スタッフがご自宅へ伺い丁寧に査定をいたします。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="お支払いと引渡しのイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">お支払い＆引渡し</h3>
-                <p class="hb-flow__p-step__text">
-                  査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
-                </p>
-              </article>
+              </div>
+              <div class="hb-flow__p-steps">
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                      alt="梱包する箱のイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">発送する</h4>
+                  <p class="hb-flow__p-step__text">
+                    売りたいホビーを箱にまとめて着払いで送るだけ。箱がない場合は買取キットを無料プレゼントします。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                      alt="査定のイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">査定</h4>
+                  <p class="hb-flow__p-step__text">
+                    専門スタッフがしっかりと査定を行い、査定額をご案内します。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                      alt="お支払いのイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">お支払い</h4>
+                  <p class="hb-flow__p-step__text">
+                    査定額にご納得いただけましたら、指定口座へお振込みします。
+                  </p>
+                </article>
+              </div>
+              <div class="hb-flow__p-detail__action">
+                <a
+                  class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
+                  href="kaitori-form.html?type=takuhai"
+                >
+                  宅配買取を依頼する
+                </a>
+              </div>
             </div>
-            <div class="hb-flow__p-detail__action">
-              <a
-                class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
-                href="kaitori-form.html?type=shuccho"
-              >
-                出張買取を依頼する
-              </a>
-            </div>
-          </div>
 
-          <div class="hb-flow__p-flow-card" id="store-flow">
-            <div class="hb-flow__p-detail__head">
-              <h2 class="hb-flow__p-detail__title">店頭買取の流れ</h2>
+            <div
+              class="hb-flow__p-flow__pane"
+              id="flow-panel-shuccho"
+              role="tabpanel"
+              aria-labelledby="flow-tab-shuccho"
+              data-flow-panel="shuccho"
+              hidden
+            >
+              <div class="hb-flow__p-detail__head">
+                <h3 class="hb-flow__p-detail__title">出張買取の流れ</h3>
+                <p class="hb-flow__p-detail__lead">
+                  大量のコレクションも運ばずにOK。専門スタッフがご自宅へ伺います。
+                </p>
+              </div>
+              <div class="hb-flow__p-steps">
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                      alt="相談するイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">日程調整をする</h4>
+                  <p class="hb-flow__p-step__text">
+                    内容や出張希望日時を専用フォームよりお知らせください。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                      alt="出張査定のイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">出張査定</h4>
+                  <p class="hb-flow__p-step__text">
+                    専門スタッフがご自宅へ伺い丁寧に査定をいたします。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                      alt="お支払いと引渡しのイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">お支払い＆引渡し</h4>
+                  <p class="hb-flow__p-step__text">
+                    査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
+                  </p>
+                </article>
+              </div>
+              <div class="hb-flow__p-detail__action">
+                <a
+                  class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
+                  href="kaitori-form.html?type=shuccho"
+                >
+                  出張買取を依頼する
+                </a>
+              </div>
             </div>
-            <div class="hb-flow__p-steps">
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
-                    alt="持ち込み準備のイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">日程調整をする</h3>
-                <p class="hb-flow__p-step__text">
-                  内容や持込希望日時を専用フォームよりお知らせください。
+
+            <div
+              class="hb-flow__p-flow__pane"
+              id="flow-panel-store"
+              role="tabpanel"
+              aria-labelledby="flow-tab-store"
+              data-flow-panel="store"
+              hidden
+            >
+              <div class="hb-flow__p-detail__head">
+                <h3 class="hb-flow__p-detail__title">店頭買取の流れ</h3>
+                <p class="hb-flow__p-detail__lead">
+                  お近くの方は店頭持ち込みも便利。少量から大量までご相談いただけます。
                 </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
-                    alt="店舗へ持ち込むイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">店舗へ持ち込む</h3>
-                <p class="hb-flow__p-step__text">
-                  少量から大量まで、専門スタッフが丁寧に査定をいたします。
-                </p>
-              </article>
-              <article class="hb-flow__p-step">
-                <figure class="hb-flow__p-step__image">
-                  <img
-                    src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
-                    alt="お支払いと引渡しのイメージ"
-                  />
-                </figure>
-                <h3 class="hb-flow__p-step__title">お支払い＆引渡し</h3>
-                <p class="hb-flow__p-step__text">
-                  査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
-                </p>
-              </article>
-            </div>
-            <div class="hb-flow__p-detail__action">
-              <a
-                class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
-                href="kaitori-form.html?type=mochikomi"
-              >
-                店頭買取を依頼する
-              </a>
+              </div>
+              <div class="hb-flow__p-steps">
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+1"
+                      alt="持ち込み準備のイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">日程調整をする</h4>
+                  <p class="hb-flow__p-step__text">
+                    内容や持込希望日時を専用フォームよりお知らせください。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+2"
+                      alt="店舗へ持ち込むイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">店舗へ持ち込む</h4>
+                  <p class="hb-flow__p-step__text">
+                    少量から大量まで、専門スタッフが丁寧に査定をいたします。
+                  </p>
+                </article>
+                <article class="hb-flow__p-step">
+                  <figure class="hb-flow__p-step__image">
+                    <img
+                      src="https://placehold.co/480x360/eef3ee/5f6f66?text=Step+3"
+                      alt="お支払いと引渡しのイメージ"
+                    />
+                  </figure>
+                  <h4 class="hb-flow__p-step__title">お支払い＆引渡し</h4>
+                  <p class="hb-flow__p-step__text">
+                    査定額にご納得いただけましたらその場でお支払いし、商品をお引き取りいたします。
+                  </p>
+                </article>
+              </div>
+              <div class="hb-flow__p-detail__action">
+                <a
+                  class="hb__c-btn hb__c-btn--primary hb__c-btn--lg hb-flow__p-detail__button"
+                  href="kaitori-form.html?type=mochikomi"
+                >
+                  店頭買取を依頼する
+                </a>
+              </div>
             </div>
           </div>
         </div>

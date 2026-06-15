@@ -178,7 +178,7 @@
 ============================================================ */
 
 .hb__l-footer {
-  background: var(--hb-color-footer-bg);
+  background: var(--hb-color-primary-700);
   color: var(--hb-color-footer-text);
   padding-top: var(--hb-space-3xl);
 }
