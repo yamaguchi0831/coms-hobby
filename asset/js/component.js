@@ -1,28 +1,25 @@
 document.addEventListener("click", (event) => {
-  const flowTab = event.target.closest("[data-front-flow-tab], [data-flow-tab]");
+  const flowTab = event.target.closest("[data-flow-tab]");
 
   if (flowTab) {
-    const section = flowTab.closest(".hb-front__p-flow, .hb-flow__p-flow");
+    const section = flowTab.closest(".hb__p-flow");
 
     if (!section) {
       return;
     }
 
-    const target = flowTab.dataset.frontFlowTab || flowTab.dataset.flowTab;
-    const tabs = section.querySelectorAll("[data-front-flow-tab], [data-flow-tab]");
-    const panels = section.querySelectorAll(
-      "[data-front-flow-panel], [data-flow-panel]",
-    );
+    const target = flowTab.dataset.flowTab;
+    const tabs = section.querySelectorAll("[data-flow-tab]");
+    const panels = section.querySelectorAll("[data-flow-panel]");
 
     tabs.forEach((item) => {
       const isActive = item === flowTab;
-      item.classList.toggle("is-active", isActive);
+      item.classList.toggle("hb__is-active", isActive);
       item.setAttribute("aria-selected", String(isActive));
     });
 
     panels.forEach((panel) => {
-      const panelName = panel.dataset.frontFlowPanel || panel.dataset.flowPanel;
-      panel.hidden = panelName !== target;
+      panel.hidden = panel.dataset.flowPanel !== target;
     });
 
     return;
