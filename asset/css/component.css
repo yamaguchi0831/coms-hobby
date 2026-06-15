@@ -976,14 +976,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgb(35 89 59 / 68%) 0%,
-      rgb(20 63 39 / 42%) 28%,
-      rgb(0 66 19 / 0%) 54%
-    ),
-    var(--hb-color-primary-700);
+  background: var(--hb-color-primary-200);
 }
 
 .hb__p-footer-cta__inner {
