@@ -93,6 +93,34 @@
         color: var(--hb-color-primary-800);
       }
 
+      .hb-archive-purchase-record__p-case-more {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--hb-space-xl);
+      }
+
+      .hb-archive-purchase-record__p-case-more-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 176px;
+        min-height: 36px;
+        padding: var(--hb-space-2xs) var(--hb-space-xl);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-body);
+        font-weight: 900;
+        line-height: 1.4;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .hb-archive-purchase-record__p-case-more-link:hover {
+        background: var(--hb-color-surface-mint-soft);
+        color: var(--hb-color-primary-800);
+      }
+
       .hb-archive-purchase-record__p-cta {
         margin-bottom: var(--hb-space-3xl);
       }
@@ -192,6 +220,14 @@
           min-height: 36px;
           padding-inline: var(--hb-space-sm);
           white-space: normal;
+        }
+
+        .hb-archive-purchase-record__p-case-more {
+          margin-top: var(--hb-space-lg);
+        }
+
+        .hb-archive-purchase-record__p-case-more-link {
+          min-width: min(100%, 176px);
         }
 
         .hb-archive-purchase-record__p-cta {
@@ -394,6 +430,13 @@
                     <div
                         data-hb-include="../components/purchase-cases.html"
                     ></div>
+                    <div class="hb-archive-purchase-record__p-case-more">
+                        <a
+                            class="hb-archive-purchase-record__p-case-more-link"
+                            href="#"
+                            >もっと見る</a
+                        >
+                    </div>
                 </div>
             </section>
 
