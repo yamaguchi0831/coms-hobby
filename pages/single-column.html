@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>コラム詳細 | バイバイコムズ ホビー買取</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+    <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
+    <style>
+      .hb-single-column__p-page {
+        background: var(--hb-color-surface-soft);
+      }
+
+      .hb-single-column__p-breadcrumb-wrap {
+        padding: var(--hb-space-md) 0 0;
+      }
+
+      .hb-single-column__p-breadcrumb {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--hb-space-2xs);
+        margin: 0;
+        padding: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-caption);
+        line-height: 1.7;
+        list-style: none;
+      }
+
+      .hb-single-column__p-breadcrumb-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .hb-single-column__p-breadcrumb-link:hover {
+        color: var(--hb-color-primary-600);
+      }
+
+      .hb-single-column__p-breadcrumb-current {
+        color: var(--hb-color-text-deep);
+        font-weight: 700;
+      }
+
+      .hb-single-column__p-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+        gap: var(--hb-space-2xl);
+        align-items: start;
+      }
+
+      .hb-single-column__p-article {
+        overflow: hidden;
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-column__p-article-inner {
+        display: grid;
+        gap: var(--hb-space-xl);
+        padding: var(--hb-space-xl);
+      }
+
+      .hb-single-column__p-article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--hb-space-sm);
+        align-items: center;
+      }
+
+      .hb-single-column__p-category-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--hb-space-xl);
+        padding: var(--hb-space-2xs) var(--hb-space-lg);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-primary-600);
+        color: var(--hb-color-white);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .hb-single-column__p-updated {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-caption);
+        font-weight: 500;
+      }
+
+      .hb-single-column__p-hero {
+        overflow: hidden;
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-single-column__p-hero-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .hb-single-column__p-title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: clamp(var(--hb-font-size-h2), 3vw, var(--hb-font-size-h1));
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .hb-single-column__p-content {
+        display: grid;
+        gap: var(--hb-space-lg);
+      }
+
+      .hb-single-column__p-content p {
+        margin: 0;
+        color: var(--hb-color-text);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.95;
+      }
+
+      .hb-single-column__p-content h2 {
+        margin: var(--hb-space-lg) 0 0;
+        padding-left: var(--hb-space-md);
+        border-left: 4px solid var(--hb-color-primary-500);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h2);
+        font-weight: 900;
+        line-height: 1.5;
+      }
+
+      .hb-single-column__p-content-list {
+        display: grid;
+        gap: var(--hb-space-sm);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-column__p-content-list li {
+        position: relative;
+        padding-left: var(--hb-space-lg);
+        color: var(--hb-color-text);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.8;
+      }
+
+      .hb-single-column__p-content-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.8em;
+        left: 0;
+        width: var(--hb-space-xs);
+        height: var(--hb-space-xs);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-primary-500);
+      }
+
+      .hb-single-column__p-related {
+        display: grid;
+        gap: var(--hb-space-md);
+        padding-top: var(--hb-space-xl);
+        border-top: 1px solid var(--hb-color-border-muted);
+      }
+
+      .hb-single-column__p-related-title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h3);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hb-single-column__p-related-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--hb-space-md);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-column__p-related-link {
+        display: grid;
+        gap: var(--hb-space-sm);
+        height: 100%;
+        padding: var(--hb-space-sm);
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        color: var(--hb-color-text-deep);
+        text-decoration: none;
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-column__p-related-link:hover {
+        background: var(--hb-color-surface-green-light);
+        color: var(--hb-color-primary-700);
+      }
+
+      .hb-single-column__p-related-thumb {
+        overflow: hidden;
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-single-column__p-related-thumb img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .hb-single-column__p-related-card-title {
+        margin: 0;
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.65;
+      }
+
+      .hb-single-column__p-sidebar {
+        display: grid;
+        gap: var(--hb-space-lg);
+      }
+
+      .hb-single-column__p-widget {
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-column__p-widget-inner {
+        display: grid;
+        gap: var(--hb-space-md);
+        padding: var(--hb-space-lg);
+      }
+
+      .hb-single-column__p-widget-title {
+        display: grid;
+        gap: var(--hb-space-xs);
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h4);
+        font-weight: 900;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .hb-single-column__p-widget-title::after {
+        content: "";
+        width: var(--hb-space-3xl);
+        height: 2px;
+        margin: 0 auto;
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-primary-500);
+      }
+
+      .hb-single-column__p-post-list {
+        display: grid;
+        gap: var(--hb-space-md);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-column__p-post-link {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: var(--hb-space-sm);
+        align-items: center;
+        color: var(--hb-color-text-deep);
+        text-decoration: none;
+      }
+
+      .hb-single-column__p-post-link:hover {
+        color: var(--hb-color-primary-700);
+      }
+
+      .hb-single-column__p-post-thumb {
+        overflow: hidden;
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-single-column__p-post-thumb img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .hb-single-column__p-post-body {
+        display: grid;
+        gap: var(--hb-space-2xs);
+        min-width: 0;
+      }
+
+      .hb-single-column__p-post-title {
+        margin: 0;
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.6;
+      }
+
+      .hb-single-column__p-post-date {
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-caption);
+        line-height: 1.4;
+      }
+
+      .hb-single-column__p-link-list {
+        display: grid;
+        gap: var(--hb-space-xs);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-column__p-link-list a {
+        display: block;
+        padding: var(--hb-space-xs) var(--hb-space-sm);
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-surface-soft);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.55;
+        text-decoration: none;
+      }
+
+      .hb-single-column__p-link-list a:hover {
+        background: var(--hb-color-surface-green-light);
+        color: var(--hb-color-primary-700);
+      }
+
+      .hb-single-column__p-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--hb-space-xs);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-column__p-tag-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--hb-space-xl);
+        padding: var(--hb-space-2xs) var(--hb-space-sm);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-700);
+        font-size: var(--hb-font-size-caption);
+        font-weight: 700;
+        line-height: 1.4;
+        text-decoration: none;
+      }
+
+      .hb-single-column__p-tag-link:hover {
+        background: var(--hb-color-surface-mint-soft);
+        color: var(--hb-color-primary-800);
+      }
+
+      @media (max-width: 980px) {
+        .hb-single-column__p-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hb-single-column__p-article-inner {
+          padding: var(--hb-space-lg);
+        }
+
+        .hb-single-column__p-article-meta {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hb-single-column__p-post-link {
+          grid-template-columns: 80px minmax(0, 1fr);
+        }
+
+        .hb-single-column__p-related-list {
+          grid-template-columns: 1fr;
+        }
+
+        .hb-single-column__p-widget-inner {
+          padding: var(--hb-space-md);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hb-include="../components/header.html"></div>
+
+    <main id="top" class="hb-single-column__p-page">
+      <div class="hb-single-column__p-breadcrumb-wrap">
+        <nav class="hb__l-container" aria-label="パンくずリスト">
+          <ol class="hb-single-column__p-breadcrumb">
+            <li>
+              <a class="hb-single-column__p-breadcrumb-link" href="../index.html"
+                >TOP</a
+              >
+            </li>
+            <li aria-hidden="true">&gt;</li>
+            <li>
+              <a class="hb-single-column__p-breadcrumb-link" href="#"
+                >コラム</a
+              >
+            </li>
+            <li aria-hidden="true">&gt;</li>
+            <li
+              class="hb-single-column__p-breadcrumb-current"
+              aria-current="page"
+            >
+              ガンプラを高く売るための保管と整理のコツ
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <section class="hb__l-section" aria-label="コラム詳細">
+        <div class="hb__l-container hb-single-column__p-layout">
+          <article class="hb-single-column__p-article">
+            <div class="hb-single-column__p-article-inner">
+              <div class="hb-single-column__p-article-meta">
+                <span class="hb-single-column__p-category-label">
+                  ガンプラ買取コラム
+                </span>
+                <p class="hb-single-column__p-updated">更新日:2026.06.18</p>
+              </div>
+
+              <figure class="hb-single-column__p-hero">
+                <img
+                  class="hb-single-column__p-hero-image"
+                  src="https://placehold.co/920x520/eef3ee/33423a?text=Hobby+Column"
+                  alt="ホビーコラムのメイン画像"
+                  width="920"
+                  height="520"
+                />
+              </figure>
+
+              <h1 class="hb-single-column__p-title">
+                ガンプラを高く売るための保管と整理のコツ
+              </h1>
+
+              <div class="hb-single-column__p-content">
+                <p>
+                  大切に集めてきたガンプラやホビーコレクションは、保管状態や付属品の有無によって査定時の印象が大きく変わります。箱や説明書、ランナー、限定パーツなどが残っている場合は、できるだけまとめて確認できる状態にしておくのがおすすめです。
+                </p>
+                <p>
+                  とくに未開封品や限定品は、外箱の状態も評価対象になります。日焼けや湿気、箱つぶれを避けて保管されているものは、コレクター需要が高いジャンルほど評価につながりやすくなります。
+                </p>
+
+                <h2>査定前に確認したいポイント</h2>
+                <ul class="hb-single-column__p-content-list">
+                  <li>箱・説明書・デカール・付属パーツをまとめておく</li>
+                  <li>シリーズやグレードごとに仕分けしておく</li>
+                  <li>未開封品は開封せず、そのままの状態で相談する</li>
+                  <li>大量にある場合は全体量がわかる写真を用意する</li>
+                </ul>
+
+                <h2>大量コレクションはまとめて相談がおすすめ</h2>
+                <p>
+                  積みプラやフィギュア、超合金などが複数ジャンルに分かれている場合でも、まとめて査定することで市場価値を整理しやすくなります。引退やコレクション整理、生前整理などで量が多い場合も、まずは全体の内容がわかる写真からご相談ください。
+                </p>
+              </div>
+
+              <section
+                class="hb-single-column__p-related"
+                aria-labelledby="related-column-title"
+              >
+                <h2
+                  class="hb-single-column__p-related-title"
+                  id="related-column-title"
+                >
+                  関連記事
+                </h2>
+                <ul class="hb-single-column__p-related-list" role="list">
+                  <li>
+                    <a class="hb-single-column__p-related-link" href="#">
+                      <span class="hb-single-column__p-related-thumb">
+                        <img
+                          src="https://placehold.co/320x240/eef3ee/33423a?text=Related"
+                          alt=""
+                          width="320"
+                          height="240"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-related-card-title">
+                        積みプラをまとめて売る前に整理しておきたいこと
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-related-link" href="#">
+                      <span class="hb-single-column__p-related-thumb">
+                        <img
+                          src="https://placehold.co/320x240/eef3ee/33423a?text=Related"
+                          alt=""
+                          width="320"
+                          height="240"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-related-card-title">
+                        未開封ガンプラの査定で見られやすいポイント
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-related-link" href="#">
+                      <span class="hb-single-column__p-related-thumb">
+                        <img
+                          src="https://placehold.co/320x240/eef3ee/33423a?text=Related"
+                          alt=""
+                          width="320"
+                          height="240"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-related-card-title">
+                        大量買取をスムーズに進める写真の撮り方
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </article>
+
+          <aside class="hb-single-column__p-sidebar" aria-label="サイドバー">
+            <section class="hb-single-column__p-widget">
+              <div class="hb-single-column__p-widget-inner">
+                <h2 class="hb-single-column__p-widget-title">新着記事</h2>
+                <ul class="hb-single-column__p-post-list" role="list">
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=New"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          積みプラ整理で見落としやすい査定ポイント
+                        </span>
+                        <span class="hb-single-column__p-post-date"
+                          >2026年6月18日</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=New"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          未開封フィギュアを売る前に確認したいこと
+                        </span>
+                        <span class="hb-single-column__p-post-date"
+                          >2026年6月12日</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=New"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          レトロゲームの箱付き・説明書付きは評価される？
+                        </span>
+                        <span class="hb-single-column__p-post-date"
+                          >2026年6月5日</span
+                        >
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="hb-single-column__p-widget">
+              <div class="hb-single-column__p-widget-inner">
+                <h2 class="hb-single-column__p-widget-title">人気記事</h2>
+                <ul class="hb-single-column__p-post-list" role="list">
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=Popular"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          ガンプラ買取で高くなりやすいシリーズ
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=Popular"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          超合金・メタルビルドを売るタイミング
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hb-single-column__p-post-link" href="#">
+                      <span class="hb-single-column__p-post-thumb">
+                        <img
+                          src="https://placehold.co/176x132/eef3ee/33423a?text=Popular"
+                          alt=""
+                          width="176"
+                          height="132"
+                        />
+                      </span>
+                      <span class="hb-single-column__p-post-body">
+                        <span class="hb-single-column__p-post-title">
+                          大量買取をスムーズに進める梱包のコツ
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="hb-single-column__p-widget">
+              <div class="hb-single-column__p-widget-inner">
+                <h2 class="hb-single-column__p-widget-title">カテゴリ</h2>
+                <ul class="hb-single-column__p-link-list" role="list">
+                  <li><a href="#">機動戦士ガンダム(ガンプラ) 買取</a></li>
+                  <li><a href="#">超合金/メタルビルド 買取</a></li>
+                  <li><a href="#">LEGO 買取</a></li>
+                  <li><a href="#">プラモデル 買取</a></li>
+                  <li><a href="#">鉄道模型 買取</a></li>
+                  <li><a href="#">ソフビ 買取</a></li>
+                  <li><a href="#">レトロ玩具/昭和玩具 買取</a></li>
+                  <li><a href="#">特撮グッズ 買取</a></li>
+                  <li><a href="#">レトロゲーム 買取</a></li>
+                  <li><a href="#">ミニカー 買取</a></li>
+                  <li><a href="#">フィギュア 買取</a></li>
+                  <li><a href="#">無線機 買取</a></li>
+                  <li><a href="#">デアゴスティーニ 買取</a></li>
+                  <li><a href="#">アシェット 買取</a></li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="hb-single-column__p-widget">
+              <div class="hb-single-column__p-widget-inner">
+                <h2 class="hb-single-column__p-widget-title">タグ</h2>
+                <ul class="hb-single-column__p-tag-list" role="list">
+                  <li><a class="hb-single-column__p-tag-link" href="#">積みプラ</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">コレクション整理</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">引退</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">遺品整理/生前整理</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">限定品</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">未開封</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">ガンプラ</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">フィギュア</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">超合金</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">レトロゲーム</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">ジャンク</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">大量買取</a></li>
+                  <li><a class="hb-single-column__p-tag-link" href="#">宅配買取</a></li>
+                </ul>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div data-hb-include="../components/footer.html"></div>
+  </body>
+</html>
