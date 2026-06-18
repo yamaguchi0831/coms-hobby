@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>お知らせ一覧 | バイバイコムズ ホビー買取</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+    <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
+    <style>
+      .hb-archive-info__p-list {
+        max-width: var(--hb-layout-container-sm);
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--hb-color-border-muted);
+        background: var(--hb-color-white);
+      }
+
+      .hb-archive-info__p-item {
+        border-bottom: 1px solid var(--hb-color-border-muted);
+      }
+
+      .hb-archive-info__p-link {
+        display: grid;
+        grid-template-columns: 112px 132px minmax(0, 1fr);
+        gap: var(--hb-space-md);
+        align-items: center;
+        padding: var(--hb-space-md) 0;
+        color: var(--hb-color-text-deep);
+        text-decoration: none;
+      }
+
+      .hb-archive-info__p-link:hover {
+        color: var(--hb-color-primary-700);
+      }
+
+      .hb-archive-info__p-date {
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.5;
+        white-space: nowrap;
+      }
+
+      .hb-archive-info__p-category {
+        justify-self: start;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--hb-space-lg);
+        padding: var(--hb-space-2xs) var(--hb-space-sm);
+        border: 1px solid var(--hb-color-primary-300);
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-white);
+        color: var(--hb-color-primary-700);
+        font-size: var(--hb-font-size-caption);
+        font-weight: 700;
+        line-height: 1.35;
+        white-space: nowrap;
+      }
+
+      .hb-archive-info__p-title {
+        min-width: 0;
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
+      .hb-archive-info__p-pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--hb-space-xs);
+        margin: var(--hb-space-2xl) 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-archive-info__p-page-link,
+      .hb-archive-info__p-page-current {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        padding: var(--hb-space-xs);
+        border-radius: var(--hb-radius-sm);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1;
+        text-decoration: none;
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-archive-info__p-page-link {
+        border: 1px solid var(--hb-color-border-muted);
+        background: var(--hb-color-white);
+        color: var(--hb-color-text-deep);
+      }
+
+      .hb-archive-info__p-page-link:hover {
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-archive-info__p-page-current {
+        border: 0;
+        background: var(--hb-gradient-primary);
+        color: var(--hb-color-white);
+      }
+
+      .hb-archive-info__p-page-link--arrow {
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h4);
+      }
+
+      @media (max-width: 720px) {
+        .hb-archive-info__p-link {
+          grid-template-columns: 1fr;
+          gap: var(--hb-space-xs);
+          padding: var(--hb-space-md) 0;
+        }
+
+        .hb-archive-info__p-title {
+          font-size: var(--hb-font-size-body);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hb-include="../components/header.html"></div>
+
+    <main id="top">
+      <section class="hb__p-subpage-title" aria-label="お知らせ一覧">
+        <div class="hb__l-container hb__p-subpage-title__inner">
+          <h1 class="hb__p-subpage-title__heading">お知らせ一覧</h1>
+        </div>
+      </section>
+      <div class="hb__l-container">
+        <nav
+          class="hb__p-subpage-title__breadcrumb-area"
+          aria-label="パンくずリスト"
+        >
+          <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
+            <li class="hb__p-subpage-title__breadcrumb-item">
+              <a
+                class="hb__p-subpage-title__breadcrumb-link"
+                href="../index.html"
+                >TOP</a
+              >
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-separator"
+              aria-hidden="true"
+            >
+              &gt;
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-current"
+              aria-current="page"
+            >
+              お知らせ一覧
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <section class="hb__l-section" aria-label="お知らせ一覧">
+        <div class="hb__l-container">
+          <ul class="hb-archive-info__p-list" role="list">
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-06-18"
+                  >2026-06-18</time
+                >
+                <span class="hb-archive-info__p-category">お知らせ</span>
+                <span class="hb-archive-info__p-title">
+                  宅配買取の梱包キット受付をリニューアルしました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-06-10"
+                  >2026-06-10</time
+                >
+                <span class="hb-archive-info__p-category">買取情報</span>
+                <span class="hb-archive-info__p-title">
+                  ガンプラ・フィギュアの買取強化ジャンルを更新しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-06-03"
+                  >2026-06-03</time
+                >
+                <span class="hb-archive-info__p-category">キャンペーン</span>
+                <span class="hb-archive-info__p-title">
+                  まとめ売り査定キャンペーンを開始しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-05-28"
+                  >2026-05-28</time
+                >
+                <span class="hb-archive-info__p-category">お知らせ</span>
+                <span class="hb-archive-info__p-title">
+                  出張買取の対応エリアを一部拡大しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-05-21"
+                  >2026-05-21</time
+                >
+                <span class="hb-archive-info__p-category">買取情報</span>
+                <span class="hb-archive-info__p-title">
+                  レトロゲーム・鉄道模型の査定実績を追加しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-05-15"
+                  >2026-05-15</time
+                >
+                <span class="hb-archive-info__p-category">メンテナンス</span>
+                <span class="hb-archive-info__p-title">
+                  お問い合わせフォームのメンテナンス完了のお知らせ
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-05-08"
+                  >2026-05-08</time
+                >
+                <span class="hb-archive-info__p-category">お知らせ</span>
+                <span class="hb-archive-info__p-title">
+                  ゴールデンウィーク期間中の査定対応について
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-04-24"
+                  >2026-04-24</time
+                >
+                <span class="hb-archive-info__p-category">買取情報</span>
+                <span class="hb-archive-info__p-title">
+                  超合金・メタルビルドの買取参考価格を更新しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-04-17"
+                  >2026-04-17</time
+                >
+                <span class="hb-archive-info__p-category">お知らせ</span>
+                <span class="hb-archive-info__p-title">
+                  LINE写真査定の受付時間を更新しました
+                </span>
+              </a>
+            </li>
+            <li class="hb-archive-info__p-item">
+              <a class="hb-archive-info__p-link" href="single-info.html">
+                <time class="hb-archive-info__p-date" datetime="2026-04-10"
+                  >2026-04-10</time
+                >
+                <span class="hb-archive-info__p-category">キャンペーン</span>
+                <span class="hb-archive-info__p-title">
+                  春のコレクション整理応援キャンペーンのお知らせ
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <nav aria-label="お知らせページ送り">
+            <ol class="hb-archive-info__p-pagination">
+              <li>
+                <a
+                  class="hb-archive-info__p-page-link hb-archive-info__p-page-link--arrow"
+                  href="#"
+                  aria-label="前のページ"
+                  >‹</a
+                >
+              </li>
+              <li>
+                <span class="hb-archive-info__p-page-current" aria-current="page"
+                  >1</span
+                >
+              </li>
+              <li><a class="hb-archive-info__p-page-link" href="#">2</a></li>
+              <li><a class="hb-archive-info__p-page-link" href="#">3</a></li>
+              <li><a class="hb-archive-info__p-page-link" href="#">4</a></li>
+              <li><a class="hb-archive-info__p-page-link" href="#">5</a></li>
+              <li>
+                <a
+                  class="hb-archive-info__p-page-link hb-archive-info__p-page-link--arrow"
+                  href="#"
+                  aria-label="次のページ"
+                  >›</a
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <div data-hb-include="../components/footer.html"></div>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>お知らせ詳細 | バイバイコムズ ホビー買取</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+    <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
+    <style>
+      .hb-single-info__p-article {
+        max-width: var(--hb-layout-container-sm);
+        margin: 0 auto;
+      }
+
+      .hb-single-info__p-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--hb-space-xs);
+        align-items: center;
+        margin-bottom: var(--hb-space-md);
+      }
+
+      .hb-single-info__p-date {
+        margin-right: var(--hb-space-sm);
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-caption);
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .hb-single-info__p-category {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--hb-space-lg);
+        padding: var(--hb-space-2xs) var(--hb-space-sm);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-700);
+        font-size: var(--hb-font-size-caption);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .hb-single-info__p-title {
+        margin: 0 0 var(--hb-space-xl);
+        color: var(--hb-color-text-deep);
+        font-size: clamp(var(--hb-font-size-h2), 3.2vw, var(--hb-font-size-h1));
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .hb-single-info__p-hero {
+        overflow: hidden;
+        margin: 0 0 var(--hb-space-2xl);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-surface-green-light);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-info__p-hero img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .hb-single-info__p-body {
+        display: grid;
+        gap: var(--hb-space-lg);
+      }
+
+      .hb-single-info__p-body p {
+        margin: 0;
+        color: var(--hb-color-text);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.95;
+      }
+
+      .hb-single-info__p-body h2 {
+        margin: var(--hb-space-lg) 0 0;
+        padding-left: var(--hb-space-md);
+        border-left: 4px solid var(--hb-color-primary-500);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h2);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hb-single-info__p-back {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--hb-space-3xl);
+      }
+
+      .hb-single-info__p-back-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: var(--hb-space-xs) var(--hb-space-xl);
+        border: 1px solid var(--hb-color-primary-500);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-white);
+        color: var(--hb-color-primary-700);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1.4;
+        text-decoration: none;
+      }
+
+      .hb-single-info__p-back-link:hover {
+        background: var(--hb-color-surface-green-light);
+      }
+
+      @media (max-width: 640px) {
+        .hb-single-info__p-title {
+          margin-bottom: var(--hb-space-lg);
+        }
+
+        .hb-single-info__p-hero {
+          margin-bottom: var(--hb-space-xl);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hb-include="../components/header.html"></div>
+
+    <main id="top">
+      <section class="hb__p-subpage-title" aria-label="お知らせ詳細">
+        <div class="hb__l-container hb__p-subpage-title__inner">
+          <h1 class="hb__p-subpage-title__heading">お知らせ</h1>
+        </div>
+      </section>
+      <div class="hb__l-container">
+        <nav
+          class="hb__p-subpage-title__breadcrumb-area"
+          aria-label="パンくずリスト"
+        >
+          <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
+            <li class="hb__p-subpage-title__breadcrumb-item">
+              <a
+                class="hb__p-subpage-title__breadcrumb-link"
+                href="../index.html"
+                >TOP</a
+              >
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-separator"
+              aria-hidden="true"
+            >
+              &gt;
+            </li>
+            <li class="hb__p-subpage-title__breadcrumb-item">
+              <a
+                class="hb__p-subpage-title__breadcrumb-link"
+                href="archive-info.html"
+                >お知らせ一覧</a
+              >
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-separator"
+              aria-hidden="true"
+            >
+              &gt;
+            </li>
+            <li
+              class="hb__p-subpage-title__breadcrumb-current"
+              aria-current="page"
+            >
+              宅配買取の梱包キット受付をリニューアルしました
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <section class="hb__l-section" aria-label="お知らせ本文">
+        <article class="hb__l-container hb-single-info__p-article">
+          <div class="hb-single-info__p-meta">
+            <time class="hb-single-info__p-date" datetime="2026-06-18"
+              >2026.06.18</time
+            >
+            <span class="hb-single-info__p-category">お知らせ</span>
+            <span class="hb-single-info__p-category">買取情報</span>
+          </div>
+
+          <h1 class="hb-single-info__p-title">
+            宅配買取の梱包キット受付をリニューアルしました
+          </h1>
+
+          <figure class="hb-single-info__p-hero">
+            <img
+              src="https://placehold.co/960x540/eef3ee/33423a?text=Information"
+              alt="お知らせのメイン画像"
+              width="960"
+              height="540"
+            />
+          </figure>
+
+          <div class="hb-single-info__p-body">
+            <p>
+              いつもバイバイコムズ ホビー買取をご利用いただきありがとうございます。宅配買取をよりスムーズにご利用いただけるよう、梱包キット受付の導線をリニューアルしました。
+            </p>
+            <p>
+              お申し込み時に、売りたいお品物の量やサイズに合わせて必要な箱数を選びやすくしています。ガンプラ、フィギュア、鉄道模型、レトロゲームなど、まとめて送りたいコレクションにも対応しやすい内容です。
+            </p>
+
+            <h2>変更内容</h2>
+            <p>
+              申込フォーム内の項目を整理し、初めての方でも迷わず入力できるようにしました。査定料・送料・返送料はこれまで通り無料です。
+            </p>
+            <p>
+              今後も、安心してコレクション整理をご相談いただけるよう、サービス改善を続けてまいります。
+            </p>
+          </div>
+
+          <div class="hb-single-info__p-back">
+            <a class="hb-single-info__p-back-link" href="archive-info.html">
+              お知らせ一覧に戻る
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div data-hb-include="../components/footer.html"></div>
+  </body>
+</html>
