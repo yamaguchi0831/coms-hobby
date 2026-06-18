@@ -503,7 +503,13 @@
                 }
 
                 .hb-archive-column__p-column-link {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: minmax(0, 150px) minmax(0, 1fr);
+                    gap: var(--hb-space-sm);
+                }
+
+                .hb-archive-column__p-column-thumb {
+                    width: 100%;
+                    max-width: 150px;
                 }
 
                 .hb-archive-column__p-column-date {

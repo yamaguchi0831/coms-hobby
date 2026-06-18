@@ -1066,7 +1066,7 @@
 
 .hb__p-cases-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--hb-space-lg);
 }
 
@@ -1682,14 +1682,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgb(35 89 59 / 68%) 0%,
-      rgb(20 63 39 / 42%) 28%,
-      rgb(0 66 19 / 0%) 54%
-    ),
-    var(--hb-color-primary-700);
+  background-color: var(--hb-color-primary-200);
 }
 
 .hb__p-parts-cta__inner {
