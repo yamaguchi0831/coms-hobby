@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>買取実績詳細 | バイバイコムズ ホビー買取</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../asset/css/tokens.css" />
+    <link rel="stylesheet" href="../asset/css/reset.css" />
+    <link rel="stylesheet" href="../asset/css/base.css" />
+    <link rel="stylesheet" href="../asset/css/utility.css" />
+    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+    <script src="../asset/js/include-components.js" defer></script>
+    <script src="../asset/js/component.js" defer></script>
+    <style>
+      .hb-single-purchase-record__p-detail {
+        padding: var(--hb-space-xl) 0 var(--hb-space-3xl);
+        background: var(--hb-color-white);
+      }
+
+      .hb-single-purchase-record__p-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+        gap: var(--hb-space-xl);
+        align-items: stretch;
+        padding: var(--hb-space-md);
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-purchase-record__p-image-frame {
+        overflow: hidden;
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-surface-green-light);
+      }
+
+      .hb-single-purchase-record__p-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 2.45;
+        object-fit: cover;
+      }
+
+      .hb-single-purchase-record__p-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--hb-space-md);
+        min-width: 0;
+        padding: var(--hb-space-sm) var(--hb-space-sm) var(--hb-space-sm) 0;
+      }
+
+      .hb-single-purchase-record__p-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 28px;
+        padding: var(--hb-space-2xs) var(--hb-space-sm);
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-primary-600);
+        color: var(--hb-color-white);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1.2;
+      }
+
+      .hb-single-purchase-record__p-title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: clamp(var(--hb-font-size-h3), 2.4vw, var(--hb-font-size-h2));
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.45;
+      }
+
+      .hb-single-purchase-record__p-category {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        padding: var(--hb-space-2xs) var(--hb-space-md);
+        border-radius: var(--hb-radius-sm);
+        background: var(--hb-color-neutral-50);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .hb-single-purchase-record__p-price-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--hb-space-sm);
+      }
+
+      .hb-single-purchase-record__p-price-label {
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body);
+        font-weight: 900;
+      }
+
+      .hb-single-purchase-record__p-price {
+        color: var(--hb-color-error);
+        font-size: clamp(var(--hb-font-size-h1), 4.5vw, 44px);
+        font-weight: 900;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .hb-single-purchase-record__p-location {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body);
+        font-weight: 900;
+        line-height: 1.7;
+      }
+
+      .hb-single-purchase-record__p-cta {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: min(100%, 520px);
+        min-height: 56px;
+        padding: var(--hb-space-xs) var(--hb-space-2xl);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-gradient-primary);
+        color: var(--hb-color-white);
+        font-size: var(--hb-font-size-h4);
+        font-weight: 900;
+        line-height: 1.35;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-purchase-record__p-cta::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: var(--hb-space-lg);
+        width: 12px;
+        height: 12px;
+        border-top: 3px solid currentColor;
+        border-right: 3px solid currentColor;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .hb-single-purchase-record__p-note {
+        display: grid;
+        gap: var(--hb-space-md);
+        padding-top: var(--hb-space-xl);
+      }
+
+      .hb-single-purchase-record__p-note-title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h2);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hb-single-purchase-record__p-note-body {
+        display: grid;
+        gap: var(--hb-space-sm);
+      }
+
+      .hb-single-purchase-record__p-note-text {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+      }
+
+      .hb-single-purchase-record__c-section-head {
+        max-width: 820px;
+        margin-bottom: var(--hb-space-2xl);
+      }
+
+      .hb-single-purchase-record__c-section-head--center {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .hb-single-purchase-record__c-section-head__kicker {
+        display: inline-block;
+        margin-bottom: var(--hb-space-sm);
+        color: var(--hb-color-primary-600);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: var(--hb-font-size-caption);
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hb-single-purchase-record__c-section-head__title {
+        margin: 0;
+        color: var(--hb-color-text-deep);
+        font-size: clamp(26px, 3.4vw, var(--hb-font-size-h1));
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.4;
+      }
+
+      .hb-single-purchase-record__c-hl {
+        color: var(--hb-color-primary-600);
+      }
+
+      .hb-single-purchase-record__c-section-head__lead {
+        margin: var(--hb-space-md) 0 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-h4);
+        line-height: 1.9;
+      }
+
+      .hb-single-purchase-record__p-case-filter {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: var(--hb-space-sm);
+        margin: calc(var(--hb-space-2xl) * -0.45) auto var(--hb-space-2xl);
+        padding: 0;
+        list-style: none;
+      }
+
+      .hb-single-purchase-record__p-case-filter-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 34px;
+        padding: var(--hb-space-2xs) var(--hb-space-md);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-700);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 400;
+        line-height: 1.35;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: inset 0 -1px 0 var(--hb-color-primary-alpha-8);
+      }
+
+      .hb-single-purchase-record__p-case-filter-link:hover {
+        background: var(--hb-color-surface-mint-soft);
+        color: var(--hb-color-primary-800);
+      }
+
+      .hb-single-purchase-record__p-case-more {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--hb-space-xl);
+      }
+
+      .hb-single-purchase-record__p-case-more-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 176px;
+        min-height: 36px;
+        padding: var(--hb-space-2xs) var(--hb-space-xl);
+        border-radius: var(--hb-radius-full);
+        background: var(--hb-color-surface-pill);
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-body);
+        font-weight: 900;
+        line-height: 1.4;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .hb-single-purchase-record__p-case-more-link:hover {
+        background: var(--hb-color-surface-mint-soft);
+        color: var(--hb-color-primary-800);
+      }
+
+      .hb-single-purchase-record__p-cta-block {
+        margin-bottom: var(--hb-space-3xl);
+      }
+
+      .hb-single-purchase-record__p-faq-list {
+        display: grid;
+        gap: var(--hb-space-md);
+        max-width: var(--hb-container);
+        margin: 0 auto;
+      }
+
+      .hb-single-purchase-record__p-faq-item {
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-single-purchase-record__p-faq-question {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: var(--hb-space-md);
+        align-items: center;
+        width: 100%;
+        padding: var(--hb-space-lg);
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-h4);
+        font-weight: 700;
+        line-height: 1.55;
+        text-align: left;
+      }
+
+      .hb-single-purchase-record__p-faq-icon {
+        display: inline-grid;
+        width: var(--hb-space-xl);
+        height: var(--hb-space-xl);
+        place-items: center;
+        border-radius: var(--hb-radius-full);
+        color: var(--hb-color-white);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 700;
+      }
+
+      .hb-single-purchase-record__p-faq-icon--q {
+        background: var(--hb-color-primary-500);
+      }
+
+      .hb-single-purchase-record__p-faq-icon--a {
+        background: var(--hb-color-tertiary-500);
+      }
+
+      .hb-single-purchase-record__p-faq-toggle {
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-h3);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hb-single-purchase-record__p-faq-answer {
+        display: none;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--hb-space-md);
+        padding: 0 var(--hb-space-lg) var(--hb-space-lg);
+      }
+
+      .hb-single-purchase-record__p-faq-item.hb__is-open
+        .hb-single-purchase-record__p-faq-answer {
+        display: grid;
+      }
+
+      .hb-single-purchase-record__p-faq-text {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 900px) {
+        .hb-single-purchase-record__p-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hb-single-purchase-record__p-summary {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hb-single-purchase-record__p-detail {
+          padding-top: var(--hb-space-md);
+        }
+
+        .hb-single-purchase-record__p-card {
+          gap: var(--hb-space-lg);
+          padding: var(--hb-space-sm);
+        }
+
+        .hb-single-purchase-record__p-image {
+          aspect-ratio: 4 / 3;
+        }
+
+        .hb-single-purchase-record__p-cta {
+          width: 100%;
+        }
+
+        .hb-single-purchase-record__c-section-head {
+          margin-bottom: var(--hb-space-xl);
+        }
+
+        .hb-single-purchase-record__c-section-head__lead {
+          font-size: var(--hb-font-size-body);
+        }
+
+        .hb-single-purchase-record__p-case-filter {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: var(--hb-space-xs);
+          margin: calc(var(--hb-space-xl) * -0.35) auto var(--hb-space-xl);
+        }
+
+        .hb-single-purchase-record__p-case-filter-link {
+          min-height: 36px;
+          padding-inline: var(--hb-space-sm);
+          white-space: normal;
+        }
+
+        .hb-single-purchase-record__p-case-more {
+          margin-top: var(--hb-space-lg);
+        }
+
+        .hb-single-purchase-record__p-case-more-link {
+          min-width: min(100%, 176px);
+        }
+
+        .hb-single-purchase-record__p-cta-block {
+          margin-bottom: var(--hb-space-2xl);
+        }
+
+        .hb-single-purchase-record__p-faq-question {
+          gap: var(--hb-space-sm);
+          padding: var(--hb-space-md);
+        }
+
+        .hb-single-purchase-record__p-faq-answer {
+          gap: var(--hb-space-sm);
+          padding: 0 var(--hb-space-md) var(--hb-space-md);
+        }
+
+        .hb-single-purchase-record__p-faq-icon {
+          width: var(--hb-space-lg);
+          height: var(--hb-space-lg);
+        }
+
+        .hb-single-purchase-record__p-faq-text {
+          font-size: var(--hb-font-size-body--sm);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hb-include="../components/header.html"></div>
+
+    <main id="top">
+      <article class="hb-single-purchase-record__p-detail">
+        <div class="hb__l-container">
+          <div class="hb-single-purchase-record__p-card">
+            <figure class="hb-single-purchase-record__p-image-frame">
+              <img
+                class="hb-single-purchase-record__p-image"
+                src="https://placehold.co/760x465/eef3ee/33423a?text=Gunpla+RG+MG+120+kits"
+                alt="ガンプラRG・MG 約120点の買取商品画像"
+                width="760"
+                height="465"
+              />
+            </figure>
+
+            <div class="hb-single-purchase-record__p-summary">
+              <span class="hb-single-purchase-record__p-label">MG</span>
+              <h1 class="hb-single-purchase-record__p-title">
+                ガンプラRG・MG 約120点
+              </h1>
+              <span class="hb-single-purchase-record__p-category"
+                >機動戦士ガンダム</span
+              >
+              <div class="hb-single-purchase-record__p-price-row">
+                <span class="hb-single-purchase-record__p-price-label"
+                  >買取価格</span
+                >
+                <span class="hb-single-purchase-record__p-price"
+                  >¥ 380,000</span
+                >
+              </div>
+              <p class="hb-single-purchase-record__p-location">
+                神奈川県/宅配買取
+              </p>
+              <a
+                class="hb-single-purchase-record__p-cta"
+                href="kaitori-form.html"
+                >査定を申し込む</a
+              >
+            </div>
+          </div>
+
+          <section
+            class="hb-single-purchase-record__p-note"
+            aria-labelledby="staff-comment"
+          >
+            <h2
+              class="hb-single-purchase-record__p-note-title"
+              id="staff-comment"
+            >
+              買取スタッフからの一言
+            </h2>
+            <div class="hb-single-purchase-record__p-note-body">
+              <p class="hb-single-purchase-record__p-note-text">
+                神奈川県横浜市金沢区のお客様よりガンダムのプラモデルの未開封品や素組み完成品、計120点をお買取りさせていただきました。
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                コレクション専用のお部屋の入り口からは、さっそく天井まで立ち上がるガンプラタワーが迎えてくれます。
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                大量のお部屋は動線を除いてプラモデルとフィギュアでいっぱいにされていました。こちらを現場にて持参したダンボールに梱包させていただいた上で搬出作業に移らせていただきます！
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                破損の無いようにダンボールに詰めていきます。お客様がダンボールに詰めた状態で保管されている場合は、そのままお引取りすることも可能です。
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                お客様の御迷惑にならないよう、迅速に搬出させていただきます！マスクや消毒用アルコールなど、すべてご用意した上でお伺いいたしますので安心下さいませ。
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                HG、MGの通常キットから、ネオジオングをはじめPGやディープストライカーなどの大型キットまで、プレミアムバンダイ限定商品を含めて膨大な数のコレクションとなっています！
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                MG 百式壊やキュベレイダムドといったビルドファイターズの人気キットの姿も！
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                ビルドファイターズ以降の自由なガンプラによる可能性の広がりにはワクワクしてしまいますね！
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                また、ワンピースを中心にコレクションされているフィギュアも、メガハウスのP.O.Pシリーズを含め質量共に素晴らしい内容となっています！
+              </p>
+              <p class="hb-single-purchase-record__p-note-text">
+                ガンプラやプラモデルの買取はぜひ、売買コムズへ
+              </p>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <div class="hb__l-container hb-single-purchase-record__p-cta-block">
+        <div data-hb-include="../components/parts-cta.html"></div>
+      </div>
+
+      <section class="hb__l-section" id="cases">
+        <div class="hb__l-container">
+          <header
+            class="hb-single-purchase-record__c-section-head hb-single-purchase-record__c-section-head--center"
+          >
+            <span class="hb-single-purchase-record__c-section-head__kicker"
+              >Cases</span
+            >
+            <h2 class="hb-single-purchase-record__c-section-head__title">
+              最近の
+              <span class="hb-single-purchase-record__c-hl">買取実績</span>
+            </h2>
+            <p class="hb-single-purchase-record__c-section-head__lead">
+              どんなコレクションが、どんな金額になったのか。実例をご紹介します。
+            </p>
+          </header>
+          <ul class="hb-single-purchase-record__p-case-filter" role="list">
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >TOP</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >機動戦士ガンダム</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >超合金/メタルビルド</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >LEGO</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >プラモデル</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >鉄道模型</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >ソフビ</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >特撮グッズ</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >レトロゲーム</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >レトロ玩具/昭和玩具</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >ミニカー</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >フィギュア</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >無線機</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >ディズニー</a
+              >
+            </li>
+            <li>
+              <a class="hb-single-purchase-record__p-case-filter-link" href="#"
+                >アメトイ</a
+              >
+            </li>
+          </ul>
+          <div data-hb-include="../components/purchase-cases.html"></div>
+          <div class="hb-single-purchase-record__p-case-more">
+            <a class="hb-single-purchase-record__p-case-more-link" href="#"
+              >もっと見る</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="hb__l-container hb-single-purchase-record__p-cta-block">
+        <div data-hb-include="../components/parts-cta.html"></div>
+      </div>
+
+      <section class="hb__l-section hb__l-section--soft" id="genres">
+        <div class="hb__l-container">
+          <header
+            class="hb-single-purchase-record__c-section-head hb-single-purchase-record__c-section-head--center"
+          >
+            <span class="hb-single-purchase-record__c-section-head__kicker"
+              >Genres</span
+            >
+            <h2 class="hb-single-purchase-record__c-section-head__title">
+              幅広い
+              <span class="hb-single-purchase-record__c-hl">買取品目</span>
+            </h2>
+            <p class="hb-single-purchase-record__c-section-head__lead">
+              定番ジャンルからコレクター向けアイテムまで、まとめて査定できます。
+            </p>
+          </header>
+          <div data-hb-include="../components/genre-table.html"></div>
+        </div>
+      </section>
+
+      <section class="hb__l-section" id="methods">
+        <div class="hb__l-container">
+          <header
+            class="hb-single-purchase-record__c-section-head hb-single-purchase-record__c-section-head--center"
+          >
+            <span class="hb-single-purchase-record__c-section-head__kicker"
+              >Methods</span
+            >
+            <h2 class="hb-single-purchase-record__c-section-head__title">
+              あなたに合わせて選べる、<br />
+              <span class="hb-single-purchase-record__c-hl"
+                >3つの買取方法</span
+              >
+            </h2>
+            <p class="hb-single-purchase-record__c-section-head__lead">
+              量やお住まいの地域、ご希望の進め方に合わせて選べます。
+            </p>
+          </header>
+          <div data-hb-include="../components/purchase-methods.html"></div>
+        </div>
+      </section>
+
+      <div class="hb__l-container hb-single-purchase-record__p-cta-block">
+        <div data-hb-include="../components/parts-cta.html"></div>
+      </div>
+
+      <section class="hb__l-section hb__l-section--soft" id="reviews">
+        <div class="hb__l-container">
+          <header
+            class="hb-single-purchase-record__c-section-head hb-single-purchase-record__c-section-head--center"
+          >
+            <span class="hb-single-purchase-record__c-section-head__kicker"
+              >Reviews</span
+            >
+            <h2 class="hb-single-purchase-record__c-section-head__title">
+              お客様の
+              <span class="hb-single-purchase-record__c-hl">声</span>
+            </h2>
+            <p class="hb-single-purchase-record__c-section-head__lead">
+              実際にご利用いただいたお客様からのレビューです。
+            </p>
+          </header>
+          <div data-hb-include="../components/customer-reviews.html"></div>
+        </div>
+      </section>
+
+      <section class="hb__l-section" id="faq">
+        <div class="hb__l-container">
+          <header
+            class="hb-single-purchase-record__c-section-head hb-single-purchase-record__c-section-head--center"
+          >
+            <span class="hb-single-purchase-record__c-section-head__kicker"
+              >FAQ</span
+            >
+            <h2 class="hb-single-purchase-record__c-section-head__title">
+              よくある
+              <span class="hb-single-purchase-record__c-hl">質問</span>
+            </h2>
+          </header>
+
+          <div class="hb-single-purchase-record__p-faq-list">
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>送料・査定料・返送料は本当に無料ですか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  はい、すべて無料です。査定金額にご納得いただけず返送される場合も、返送料は当社負担です。
+                  「とりあえず査定だけ」というご相談も大歓迎ですので、お気軽にお申込みください。
+                </p>
+              </div>
+            </article>
+
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>箱なし・付属品なしでも買取してもらえますか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  買取可能です。ただし、箱・説明書・付属品が揃っているほうが査定金額は高くなる傾向にあります。
+                  状態に不安がある場合も、ひとまず査定にお出しください。1点ずつ丁寧に査定いたします。
+                </p>
+              </div>
+            </article>
+
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>何点から買取してもらえますか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  1点からお預かりいたします。逆に、段ボール30箱以上の大量買取にも対応可能ですので、
+                  量を気にせずまとめてお送りください。
+                </p>
+              </div>
+            </article>
+
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>入金までどのくらいかかりますか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  商品到着から最短当日に査定、ご承諾いただいたあと最短1営業日でお振込みします。
+                  点数が多い場合は2〜3営業日いただくことがあります。
+                </p>
+              </div>
+            </article>
+
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>査定金額に納得できない場合はどうなりますか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  キャンセル可能です。当社負担で全品を元の状態でご返送いたします。
+                  キャンセル料・返送料はかかりません。
+                </p>
+              </div>
+            </article>
+
+            <article class="hb-single-purchase-record__p-faq-item">
+              <button
+                class="hb-single-purchase-record__p-faq-question"
+                type="button"
+                aria-expanded="false"
+                data-hb-faq-question
+              >
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--q"
+                  >Q</span
+                >
+                <span>個人情報はどのように管理されていますか？</span>
+                <span class="hb-single-purchase-record__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-single-purchase-record__p-faq-answer">
+                <span
+                  class="hb-single-purchase-record__p-faq-icon hb-single-purchase-record__p-faq-icon--a"
+                  >A</span
+                >
+                <p class="hb-single-purchase-record__p-faq-text">
+                  SSL通信による暗号化、および古物営業法に基づく管理を徹底しています。
+                  お客様情報を第三者に開示・販売することは一切ありません。
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div data-hb-include="../components/footer-cta.html"></div>
+    </main>
+
+    <div data-hb-include="../components/footer.html"></div>
+  </body>
+</html>
