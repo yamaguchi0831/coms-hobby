@@ -1,4 +1,25 @@
 document.addEventListener("click", (event) => {
+  const faqButton = event.target.closest("[data-hb-faq-question]");
+
+  if (faqButton) {
+    const item = faqButton.closest("article");
+
+    if (!item) {
+      return;
+    }
+
+    const isOpen = item.classList.toggle("hb__is-open");
+    faqButton.setAttribute("aria-expanded", String(isOpen));
+
+    const toggle = faqButton.lastElementChild;
+
+    if (toggle) {
+      toggle.textContent = isOpen ? "－" : "＋";
+    }
+
+    return;
+  }
+
   const flowTab = event.target.closest("[data-flow-tab]");
 
   if (flowTab) {
