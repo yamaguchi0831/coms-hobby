@@ -140,6 +140,11 @@ strong {
         padding-block: clamp(40px, 12vw, 64px);
     }
 }
+
+.hb__l-section--pt-sm {
+    padding-top: 40px;
+}
+
 /*下層ページタイトル*/
 .hb__p-subpage-title {
     background: var(--hb-color-primary-600);
