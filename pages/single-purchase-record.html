@@ -181,6 +181,92 @@
         line-height: 1.9;
       }
 
+      .hb-single-purchase-record__p-blog-card {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: var(--hb-space-lg);
+        max-width: 600px;
+        margin: var(--hb-space-xl) auto 0;
+        padding: var(--hb-space-md);
+        border: 1px solid #dceac8;
+        border-radius: var(--hb-radius-md);
+        background: #f6faee;
+        box-shadow: var(--hb-shadow-sm);
+        color: #1f6b3a;
+        text-decoration: none;
+      }
+
+      .hb-single-purchase-record__p-blog-card:hover {
+        opacity: 1;
+        box-shadow: var(--hb-shadow-md);
+      }
+
+      .hb-single-purchase-record__p-blog-card-image {
+        overflow: hidden;
+        margin: 0;
+        border-radius: var(--hb-radius-sm);
+      }
+
+      .hb-single-purchase-record__p-blog-card-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .hb-single-purchase-record__p-blog-card-body {
+        display: grid;
+        align-content: center;
+        gap: var(--hb-space-xs);
+        min-width: 0;
+      }
+
+      .hb-single-purchase-record__p-blog-card-title {
+        margin: 0;
+        color: #1f6b3a;
+        font-size: var(--hb-font-size-h4);
+        font-weight: 900;
+        line-height: 1.55;
+      }
+
+      .hb-single-purchase-record__p-blog-card-text {
+        margin: 0;
+        color: #1f6b3a;
+        font-size: var(--hb-font-size-body--sm);
+        line-height: 1.75;
+      }
+
+      .hb-single-purchase-record__p-blog-card-divider {
+        display: block;
+        height: 1px;
+        margin-top: var(--hb-space-xs);
+        background-image: repeating-linear-gradient(
+          90deg,
+          #dceac8 0,
+          #dceac8 4px,
+          transparent 4px,
+          transparent 8px
+        );
+      }
+
+      .hb-single-purchase-record__p-blog-card-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+        min-width: 220px;
+        min-height: 42px;
+        padding: var(--hb-space-xs) var(--hb-space-xl);
+        border: 1px solid #dceac8;
+        border-radius: var(--hb-radius-sm);
+        background: transparent;
+        color: #1f6b3a;
+        font-size: var(--hb-font-size-body);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
       .hb-single-purchase-record__c-section-head {
         max-width: 820px;
         margin-bottom: var(--hb-space-2xl);
@@ -390,6 +476,15 @@
           width: 100%;
         }
 
+        .hb-single-purchase-record__p-blog-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hb-single-purchase-record__p-blog-card-button {
+          justify-self: stretch;
+          min-width: 0;
+        }
+
         .hb-single-purchase-record__c-section-head {
           margin-bottom: var(--hb-space-xl);
         }
@@ -517,7 +612,8 @@
                 HG、MGの通常キットから、ネオジオングをはじめPGやディープストライカーなどの大型キットまで、プレミアムバンダイ限定商品を含めて膨大な数のコレクションとなっています！
               </p>
               <p class="hb-single-purchase-record__p-note-text">
-                MG 百式壊やキュベレイダムドといったビルドファイターズの人気キットの姿も！
+                MG
+                百式壊やキュベレイダムドといったビルドファイターズの人気キットの姿も！
               </p>
               <p class="hb-single-purchase-record__p-note-text">
                 ビルドファイターズ以降の自由なガンプラによる可能性の広がりにはワクワクしてしまいますね！
@@ -530,6 +626,34 @@
               </p>
             </div>
           </section>
+          <a
+            class="hb-single-purchase-record__p-blog-card"
+            href="taxonomy-genre.html"
+          >
+            <figure class="hb-single-purchase-record__p-blog-card-image">
+              <img
+                src="../images/genre/mv-ganpura.webp"
+                alt="ガンプラ買取のイメージ"
+                width="1000"
+                height="750"
+              />
+            </figure>
+            <span class="hb-single-purchase-record__p-blog-card-body">
+              <span class="hb-single-purchase-record__p-blog-card-title">
+                XXXXをまとめて高価買取
+              </span>
+              <span class="hb-single-purchase-record__p-blog-card-text">
+                ココにテキストが入りますココにテキストが入ります
+              </span>
+              <span
+                class="hb-single-purchase-record__p-blog-card-divider"
+                aria-hidden="true"
+              ></span>
+              <span class="hb-single-purchase-record__p-blog-card-button">
+                [genre]の買取ページを見る
+              </span>
+            </span>
+          </a>
         </div>
       </article>
 
@@ -673,9 +797,7 @@
             >
             <h2 class="hb-single-purchase-record__c-section-head__title">
               あなたに合わせて選べる、<br />
-              <span class="hb-single-purchase-record__c-hl"
-                >3つの買取方法</span
-              >
+              <span class="hb-single-purchase-record__c-hl">3つの買取方法</span>
             </h2>
             <p class="hb-single-purchase-record__c-section-head__lead">
               量やお住まいの地域、ご希望の進め方に合わせて選べます。
