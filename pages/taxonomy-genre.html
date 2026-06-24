@@ -41,78 +41,286 @@
         line-height: 1.9;
       }
 
-      .hb-item-genre__p-main-visual {
-        background: var(--hb-gradient-primary);
-        color: var(--hb-color-white);
+      .hb-item-genre__p-hero {
+        position: relative;
+        overflow: hidden;
+        background: var(--hb-color-hero-bg);
       }
 
-      .hb-item-genre__p-main-visual__inner {
+      .hb-item-genre__p-hero__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: url("../images/mv_bg.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .hb-item-genre__p-hero__bg::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgb(255 255 255 / 74%) 0%,
+          transparent 66%
+        );
+        content: "";
+      }
+
+      .hb-item-genre__p-hero__inner {
+        position: relative;
+        z-index: 1;
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-        gap: var(--hb-space-2xl);
+        grid-template-areas:
+          "copy visual"
+          "action visual"
+          "action visual"
+          "benefits benefits";
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         align-items: center;
-        min-height: 460px;
+        min-height: 720px;
+        padding-block: var(--hb-space-xl) var(--hb-space-lg);
       }
 
-      .hb-item-genre__p-main-visual__body {
-        display: grid;
-        gap: var(--hb-space-lg);
-        min-width: 0;
+      .hb-item-genre__p-hero__copy {
+        position: relative;
+        grid-area: copy;
+        align-self: end;
+        width: min(610px, 100%);
+        margin-bottom: var(--hb-space-lg);
+        padding-top: var(--hb-space-lg);
+        padding-right: var(--hb-space-md);
       }
 
-      .hb-item-genre__p-main-visual__badge {
-        width: fit-content;
-        padding: var(--hb-space-xs) var(--hb-space-md);
-        border-radius: var(--hb-radius-full);
-        background: var(--hb-color-white-alpha-10);
+      .hb-item-genre__p-hero__ribbon {
+        display: inline-grid;
+        gap: 2px;
+        padding: 10px 28px 12px;
+        background: var(--hb-color-primary-800);
         color: var(--hb-color-white);
-        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.25;
+        text-align: center;
+        box-shadow: var(--hb-shadow-md);
+        transform: skewX(-8deg) rotate(-3deg);
+      }
+
+      .hb-item-genre__p-hero__ribbon > * {
+        transform: skewX(8deg);
+      }
+
+      .hb-item-genre__p-hero__ribbon span {
+        display: block;
+        font-size: clamp(13px, 1.4vw, var(--hb-font-size-h4));
+      }
+
+      .hb-item-genre__p-hero__ribbon strong {
+        display: block;
+        color: #fff200;
+        font-size: clamp(var(--hb-font-size-h4), 2vw, var(--hb-font-size-h2));
+      }
+
+      .hb-item-genre__p-hero__subcopy {
+        margin: var(--hb-space-lg) 0 0;
+        color: var(--hb-color-primary-800);
+        font-size: 30px;
         font-weight: 900;
         line-height: 1.5;
+        text-align: left;
+        margin-left: 10px;
       }
 
-      .hb-item-genre__p-main-visual__title {
-        margin: 0;
-        color: var(--hb-color-white);
+      .hb-item-genre__p-hero__title {
+        display: grid;
+        gap: 0;
+        color: var(--hb-color-primary-800);
+        font-size: clamp(var(--hb-font-size-h1), 4.2vw, 62px);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.08;
+      }
+
+      .hb-item-genre__p-hero__title > span {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .hb-item-genre__p-hero__title > span:nth-child(1) {
+        font-size: min(80px, 7.2vw);
+      }
+
+      .hb-item-genre__p-hero__title > span:nth-child(2) {
+        font-size: min(74px, 6.7vw);
+      }
+
+      .hb-item-genre__p-hero__title-accent {
+        color: #f45a00;
+        font-style: normal;
+      }
+
+      .hb-item-genre__p-hero__badge {
+        position: absolute;
+        top: 51%;
+        right: -10%;
+        z-index: 2;
+        display: grid;
+        width: 136px;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: var(--hb-radius-full);
+        background: #ffdf25;
+        color: var(--hb-color-primary-800);
+        font-size: var(--hb-font-size-body);
+        font-weight: 900;
+        line-height: 1.35;
+        text-align: center;
+        box-shadow: var(--hb-shadow-sm);
+        pointer-events: none;
+      }
+
+      .hb-item-genre__p-hero__lead {
+        display: grid;
+        gap: var(--hb-space-xs);
+        margin: var(--hb-space-lg) 0 0;
+        padding-left: var(--hb-space-md);
+        border-left: 3px solid var(--hb-color-primary-600);
+        color: var(--hb-color-primary-800);
         font-size: clamp(
-          var(--hb-font-size-h1),
-          5vw,
-          var(--hb-font-size-display)
+          var(--hb-font-size-body),
+          1.6vw,
+          var(--hb-font-size-h3)
         );
         font-weight: 900;
-        line-height: 1.3;
+        line-height: 1.55;
+        text-align: left;
+        overflow-wrap: anywhere;
+        transform: none;
+        transform-origin: center;
       }
 
-      .hb-item-genre__p-main-visual__text {
-        max-width: var(--hb-layout-container-sm);
-        margin: 0;
-        color: var(--hb-color-white-alpha-94);
-        font-size: var(--hb-font-size-h4);
-        font-weight: 700;
-        line-height: 1.9;
-      }
-
-      .hb-item-genre__p-main-visual__actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--hb-space-md);
-        align-items: center;
-      }
-
-      .hb-item-genre__p-main-visual__image {
-        margin: 0;
-        overflow: hidden;
-        border: 1px solid var(--hb-color-white-alpha-10);
-        border-radius: var(--hb-radius-md);
-        background: var(--hb-color-white-alpha-10);
-        box-shadow: var(--hb-shadow-lg);
-      }
-
-      .hb-item-genre__p-main-visual__image img {
+      .hb-item-genre__p-hero__lead span {
         display: block;
+      }
+
+      .hb-item-genre__p-hero__visual {
+        position: relative;
+        grid-area: visual;
+        align-self: center;
+        justify-self: start;
         width: 100%;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
+      }
+
+      .hb-item-genre__p-hero__visual-img {
+        display: block;
+        width: min(700px, 112%);
+        height: auto;
+        margin-left: 0;
+        object-fit: contain;
+      }
+
+      .hb-item-genre__p-hero__action {
+        position: relative;
+        grid-area: action;
+        align-self: start;
+        width: min(560px, 100%);
+        min-height: 206px;
+        padding-right: var(--hb-space-md);
+      }
+
+      .hb-item-genre__p-hero__ctas {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: var(--hb-space-sm);
+        width: min(330px, 74%);
+        margin-left: 0;
+      }
+
+      .hb-item-genre__p-hero__cta {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: var(--hb-space-sm);
+        align-items: center;
+        min-height: 76px;
+        padding: var(--hb-space-sm) 26px;
+        border-radius: var(--hb-radius-lg);
+        color: var(--hb-color-white);
+        font-size: 21px;
+        font-weight: 900;
+        line-height: 1.2;
+        box-shadow: var(--hb-shadow-md);
+      }
+
+      .hb-item-genre__p-hero__cta:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+      }
+
+      .hb-item-genre__p-hero__cta--primary {
+        background: linear-gradient(180deg, #ff7a16 0%, #f45a00 100%);
+      }
+
+      .hb-item-genre__p-hero__cta--line {
+        background: linear-gradient(180deg, #20c943 0%, #0c9f28 100%);
+      }
+
+      .hb-item-genre__p-hero__cta img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .hb-item-genre__p-hero__cta-arrow {
+        font-size: 1.35em;
+        line-height: 1;
+      }
+
+      .hb-item-genre__p-hero__benefits {
+        grid-area: benefits;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        margin: 20px 0 0;
+        padding: var(--hb-space-sm) var(--hb-space-md);
+        border: 1px solid var(--hb-color-primary-200);
+        border-radius: var(--hb-radius-lg);
+        background: rgb(255 255 255 / 88%);
+        box-shadow: var(--hb-shadow-sm);
+        list-style: none;
+      }
+
+      .hb-item-genre__p-hero__benefit {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--hb-space-sm);
+        align-items: center;
+        padding: 0 var(--hb-space-md);
+      }
+
+      .hb-item-genre__p-hero__benefit + .hb-item-genre__p-hero__benefit {
+        border-left: 1px dashed var(--hb-color-primary-200);
+      }
+
+      .hb-item-genre__p-hero__benefit img {
+        width: 54px;
+        height: 54px;
+        object-fit: contain;
+      }
+
+      .hb-item-genre__p-hero__benefit span {
+        display: grid;
+        gap: 2px;
+        color: var(--hb-color-text-deep);
+        font-size: var(--hb-font-size-body--sm);
+        line-height: 1.45;
+      }
+
+      .hb-item-genre__p-hero__benefit strong {
+        color: var(--hb-color-primary-800);
+        font-size: var(--hb-font-size-h4);
+        line-height: 1.35;
       }
 
       .hb-item-genre__p-recommend {
@@ -617,7 +825,7 @@
       }
 
       @media (max-width: 980px) {
-        .hb-item-genre__p-main-visual__inner,
+        .hb-item-genre__p-hero__inner,
         .hb-item-genre__p-solution-grid,
         .hb-item-genre__p-split,
         .hb-item-genre__p-split--reverse {
@@ -636,8 +844,82 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .hb-item-genre__p-main-visual__image {
-          order: -1;
+        .hb-item-genre__p-hero__inner {
+          grid-template-areas:
+            "copy"
+            "visual"
+            "action"
+            "benefits";
+          min-height: auto;
+          padding-block: var(--hb-space-lg) var(--hb-space-xl);
+          row-gap: var(--hb-space-lg);
+        }
+
+        .hb-item-genre__p-hero__copy {
+          align-self: start;
+          justify-self: center;
+          padding-right: 0;
+          text-align: center;
+        }
+
+        .hb-item-genre__p-hero__title {
+          max-width: 720px;
+          margin-inline: auto;
+        }
+
+        .hb-item-genre__p-hero__title > span:nth-child(1) {
+          font-size: min(80px, 13vw);
+        }
+
+        .hb-item-genre__p-hero__title > span:nth-child(2) {
+          font-size: min(74px, 13vw);
+        }
+
+        .hb-item-genre__p-hero__badge {
+          top: auto;
+          right: 0;
+          bottom: -100px;
+          width: 96px;
+          font-size: var(--hb-font-size-caption);
+        }
+
+        .hb-item-genre__p-hero__visual {
+          align-self: center;
+          justify-self: center;
+        }
+
+        .hb-item-genre__p-hero__visual-img {
+          width: min(560px, 90%);
+          margin-inline: auto;
+        }
+
+        .hb-item-genre__p-hero__action {
+          justify-self: start;
+          width: min(280px, 100%);
+          min-height: auto;
+          margin-top: calc(var(--hb-space-md) * -1);
+          padding-right: 0;
+        }
+
+        .hb-item-genre__p-hero__ctas {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .hb-item-genre__p-hero__cta {
+          min-height: 54px;
+          padding: 9px var(--hb-space-md);
+          border-radius: var(--hb-radius-md);
+          font-size: 17px;
+        }
+
+        .hb-item-genre__p-hero__cta img {
+          width: 28px;
+          height: 28px;
+        }
+
+        .hb-item-genre__p-hero__benefits {
+          display: none;
         }
 
         .hb-item-genre__p-condition .hb-item-genre__p-split {
@@ -682,8 +964,30 @@
           text-align: center;
         }
 
-        .hb-item-genre__p-main-visual__inner {
-          min-height: auto;
+        .hb-item-genre__p-hero__ribbon {
+          padding: var(--hb-space-xs) 14px 10px;
+        }
+
+        .hb-item-genre__p-hero__title {
+          max-width: 100%;
+        }
+
+        .hb-item-genre__p-hero__subcopy {
+          text-align: center;
+        }
+
+        .hb-item-genre__p-hero__lead {
+          border-left: 0;
+          font-size: var(--hb-font-size-body--sm);
+          line-height: 1.6;
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .hb-item-genre__p-hero__badge {
+          top: auto;
+          right: 0;
+          bottom: -35%;
         }
 
         .hb-item-genre__p-recommend-item,
@@ -743,40 +1047,129 @@
           padding: 0 var(--hb-space-md) var(--hb-space-md);
         }
       }
-
     </style>
   </head>
   <body>
     <div data-hb-include="../components/header.html"></div>
 
     <main id="top">
-      <section class="hb__l-section hb-item-genre__p-main-visual">
-        <div class="hb__l-container hb-item-genre__p-main-visual__inner">
-          <div class="hb-item-genre__p-main-visual__body">
-            <span class="hb-item-genre__p-main-visual__badge"
-              >手数料無料・全国対応</span
-            >
-            <h1 class="hb-item-genre__p-main-visual__title">
-              XXXの買取ならお任せ下さい（仮）
+      <section class="hb-item-genre__p-hero" data-screen-label="02 Hero">
+        <div class="hb-item-genre__p-hero__bg" aria-hidden="true"></div>
+        <div class="hb__l-container hb-item-genre__p-hero__inner">
+          <div class="hb-item-genre__p-hero__copy">
+            <div class="hb-item-genre__p-hero__ribbon">
+              <strong>XXXXX買取</strong>
+            </div>
+            <p class="hb-item-genre__p-hero__subcopy">XXXも、XXXも</p>
+            <h1 class="hb-item-genre__p-hero__title">
+              <span>
+                <em class="hb-item-genre__p-hero__title-accent">まとめて</em
+                >高く
+              </span>
+              <span>買取ります！</span>
             </h1>
-            <p class="hb-item-genre__p-main-visual__text">
-              まとめて箱に詰めて送るだけ。専門バイヤーが状態や希少性を丁寧に見極め、納得感のある査定をご案内します。
+            <div class="hb-item-genre__p-hero__badge">
+              TEXT<br />TEXTTEXT<br />TEXT
+            </div>
+            <p class="hb-item-genre__p-hero__lead">
+              <span>ココにテキストが入ります</span>
+              <span>ココにテキストが入ります</span>
             </p>
-            <div class="hb-item-genre__p-main-visual__actions">
-              <a class="hb__c-btn hb__c-btn--ghost" href="kaitori-form.html"
-                >無料査定を申し込む</a
+          </div>
+
+          <div class="hb-item-genre__p-hero__visual">
+            <img
+              class="hb-item-genre__p-hero__visual-img"
+              src="../images/mv01.webp"
+              alt="ホビー商品の集合イメージ"
+              width="980"
+              height="720"
+            />
+          </div>
+
+          <div class="hb-item-genre__p-hero__action">
+            <div class="hb-item-genre__p-hero__ctas">
+              <a
+                href="kaitori-form.html"
+                class="hb-item-genre__p-hero__cta hb-item-genre__p-hero__cta--primary"
               >
-              <a class="hb__c-btn hb__c-btn--primary" href="#recommend"
-                >詳しく見る</a
+                <img
+                  src="../images/icon/icon-cta_satei.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span>無料査定を申し込む</span>
+                <span
+                  class="hb-item-genre__p-hero__cta-arrow"
+                  aria-hidden="true"
+                  >›</span
+                >
+              </a>
+              <a
+                href="kaitori-form.html"
+                class="hb-item-genre__p-hero__cta hb-item-genre__p-hero__cta--line"
               >
+                <img
+                  src="../images/icon/icon-cta_line.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span>LINEで写真査定する</span>
+                <span
+                  class="hb-item-genre__p-hero__cta-arrow"
+                  aria-hidden="true"
+                  >›</span
+                >
+              </a>
             </div>
           </div>
-          <figure class="hb-item-genre__p-main-visual__image">
-            <img
-              src="https://placehold.co/800x600/eef3ee/5f6f66?text=Main+Visual"
-              alt="買取対象のホビー品をまとめたイメージ"
-            />
-          </figure>
+
+          <ul class="hb-item-genre__p-hero__benefits" role="list">
+            <li class="hb-item-genre__p-hero__benefit">
+              <img
+                src="../images/icon/icon_souryou.svg"
+                alt=""
+                width="54"
+                height="54"
+              />
+              <span><strong>送料無料・手数料無料</strong>すべて当社負担！</span>
+            </li>
+            <li class="hb-item-genre__p-hero__benefit">
+              <img
+                src="../images/icon/icon-sokujitusatei.svg"
+                alt=""
+                width="54"
+                height="54"
+              />
+              <span
+                ><strong>即日査定・スピード対応</strong
+                >最短当日入金も可能！</span
+              >
+            </li>
+            <li class="hb-item-genre__p-hero__benefit">
+              <img
+                src="../images/icon/icon-takuhai_kit.svg"
+                alt=""
+                width="54"
+                height="54"
+              />
+              <span><strong>箱に詰めて送るだけ</strong>宅配キット無料！</span>
+            </li>
+            <li class="hb-item-genre__p-hero__benefit">
+              <img
+                src="../images/icon/icon-senmonsutahu.svg"
+                alt=""
+                width="54"
+                height="54"
+              />
+              <span
+                ><strong>専門スタッフが丁寧に査定</strong
+                >価値をしっかり評価！</span
+              >
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -828,31 +1221,19 @@
             </div>
             <ul class="hb-item-genre__p-recommend-list">
               <li class="hb-item-genre__p-recommend-item">
-                <img
-                  src="../images/type01.webp"
-                  alt=""
-                />
+                <img src="../images/type01.webp" alt="" />
                 <span>手軽にすばやく売りたい</span>
               </li>
               <li class="hb-item-genre__p-recommend-item">
-                <img
-                  src="../images/type02.webp"
-                  alt=""
-                />
+                <img src="../images/type02.webp" alt="" />
                 <span>フリマで出品が面倒、トラブルが不安</span>
               </li>
               <li class="hb-item-genre__p-recommend-item">
-                <img
-                  src="../images/type03.webp"
-                  alt=""
-                />
+                <img src="../images/type03.webp" alt="" />
                 <span>コレクションをまとめて整理したい</span>
               </li>
               <li class="hb-item-genre__p-recommend-item">
-                <img
-                  src="../images/type04.webp"
-                  alt=""
-                />
+                <img src="../images/type04.webp" alt="" />
                 <span>鑑定のプロにしっかり査定してもらいたい</span>
               </li>
             </ul>
@@ -869,10 +1250,7 @@
             <article class="hb-item-genre__p-solution-card">
               <span class="hb-item-genre__p-solution-number">01</span>
               <figure class="hb-item-genre__p-solution-image">
-                <img
-                  src="../images/ans01.webp"
-                  alt="買取キットのイメージ"
-                />
+                <img src="../images/ans01.webp" alt="買取キットのイメージ" />
               </figure>
               <h3 class="hb-item-genre__p-card-title">
                 買取キットを無料でプレゼント！
@@ -884,10 +1262,7 @@
             <article class="hb-item-genre__p-solution-card">
               <span class="hb-item-genre__p-solution-number">02</span>
               <figure class="hb-item-genre__p-solution-image">
-                <img
-                  src="../images/ans02.webp"
-                  alt="集荷手配のイメージ"
-                />
+                <img src="../images/ans02.webp" alt="集荷手配のイメージ" />
               </figure>
               <h3 class="hb-item-genre__p-card-title">
                 集荷の手配も代行します！
@@ -899,10 +1274,7 @@
             <article class="hb-item-genre__p-solution-card">
               <span class="hb-item-genre__p-solution-number">03</span>
               <figure class="hb-item-genre__p-solution-image">
-                <img
-                  src="../images/ans03.webp"
-                  alt="事前査定のイメージ"
-                />
+                <img src="../images/ans03.webp" alt="事前査定のイメージ" />
               </figure>
               <h3 class="hb-item-genre__p-card-title">事前査定もOK！</h3>
               <p class="hb-item-genre__p-card-text">
@@ -912,10 +1284,7 @@
             <article class="hb-item-genre__p-solution-card">
               <span class="hb-item-genre__p-solution-number">04</span>
               <figure class="hb-item-genre__p-solution-image">
-                <img
-                  src="../images/ans04.webp"
-                  alt="大量買取のイメージ"
-                />
+                <img src="../images/ans04.webp" alt="大量買取のイメージ" />
               </figure>
               <h3 class="hb-item-genre__p-card-title">大量大歓迎！</h3>
               <p class="hb-item-genre__p-card-text">
@@ -1174,10 +1543,7 @@
             <ol class="hb-item-genre__p-tip-list">
               <li class="hb-item-genre__p-tip-item">
                 <figure class="hb-item-genre__p-tip-image">
-                  <img
-                    src="../images/1.shinpin.webp"
-                    alt=""
-                  />
+                  <img src="../images/1.shinpin.webp" alt="" />
                 </figure>
                 <div class="hb-item-genre__p-tip-body">
                   <span class="hb-item-genre__p-tip-number">1</span>
@@ -1189,10 +1555,7 @@
               </li>
               <li class="hb-item-genre__p-tip-item">
                 <figure class="hb-item-genre__p-tip-image">
-                  <img
-                    src="../images/2.hako.webp"
-                    alt=""
-                  />
+                  <img src="../images/2.hako.webp" alt="" />
                 </figure>
                 <div class="hb-item-genre__p-tip-body">
                   <span class="hb-item-genre__p-tip-number">2</span>
@@ -1206,10 +1569,7 @@
               </li>
               <li class="hb-item-genre__p-tip-item">
                 <figure class="hb-item-genre__p-tip-image">
-                  <img
-                    src="../images/3.hayame.webp"
-                    alt=""
-                  />
+                  <img src="../images/3.hayame.webp" alt="" />
                 </figure>
                 <div class="hb-item-genre__p-tip-body">
                   <span class="hb-item-genre__p-tip-number">3</span>
@@ -1223,10 +1583,7 @@
               </li>
               <li class="hb-item-genre__p-tip-item">
                 <figure class="hb-item-genre__p-tip-image">
-                  <img
-                    src="../images/4.omatome.webp"
-                    alt=""
-                  />
+                  <img src="../images/4.omatome.webp" alt="" />
                 </figure>
                 <div class="hb-item-genre__p-tip-body">
                   <span class="hb-item-genre__p-tip-number">4</span>

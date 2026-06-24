@@ -69,7 +69,7 @@
   justify-content: center;
   font-weight: 900;
   font-size: 18px;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: -0.04em;
 }
 .hb__c-brand__text {
@@ -216,7 +216,7 @@
   color: var(--hb-color-secondary-200);
   margin-bottom: var(--hb-space-md);
   text-transform: uppercase;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
 }
 .hb__p-footer__list {
@@ -290,7 +290,7 @@
 }
 .hb__c-section-head__kicker {
   display: inline-block;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: var(--hb-font-size-caption);
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -1897,7 +1897,7 @@
 
 .hb__p-price-group-name {
   min-width: 0;
-  color: var(--hb-color-text);
+  color: var(--hb-color-text-deep);
   font-weight: 500;
   line-height: 1.6;
 }
