@@ -108,6 +108,8 @@
   align-items: center;
   gap: var(--hb-space-xl);
   height: 72px;
+  width: 100%;
+  max-width: 1440px;
 }
 .hb__p-header__nav {
   display: flex;
