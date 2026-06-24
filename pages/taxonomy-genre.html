@@ -76,7 +76,7 @@
           "copy visual"
           "action visual"
           "action visual"
-          "benefits benefits";
+          "action visual";
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         align-items: center;
         min-height: 720px;
@@ -275,52 +275,6 @@
       .hb-item-genre__p-hero__cta-arrow {
         font-size: 1.35em;
         line-height: 1;
-      }
-
-      .hb-item-genre__p-hero__benefits {
-        grid-area: benefits;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0;
-        margin: 20px 0 0;
-        padding: var(--hb-space-sm) var(--hb-space-md);
-        border: 1px solid var(--hb-color-primary-200);
-        border-radius: var(--hb-radius-lg);
-        background: rgb(255 255 255 / 88%);
-        box-shadow: var(--hb-shadow-sm);
-        list-style: none;
-      }
-
-      .hb-item-genre__p-hero__benefit {
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr);
-        gap: var(--hb-space-sm);
-        align-items: center;
-        padding: 0 var(--hb-space-md);
-      }
-
-      .hb-item-genre__p-hero__benefit + .hb-item-genre__p-hero__benefit {
-        border-left: 1px dashed var(--hb-color-primary-200);
-      }
-
-      .hb-item-genre__p-hero__benefit img {
-        width: 54px;
-        height: 54px;
-        object-fit: contain;
-      }
-
-      .hb-item-genre__p-hero__benefit span {
-        display: grid;
-        gap: 2px;
-        color: var(--hb-color-text-deep);
-        font-size: var(--hb-font-size-body--sm);
-        line-height: 1.45;
-      }
-
-      .hb-item-genre__p-hero__benefit strong {
-        color: var(--hb-color-primary-800);
-        font-size: var(--hb-font-size-h4);
-        line-height: 1.35;
       }
 
       .hb-item-genre__p-recommend {
@@ -848,8 +802,7 @@
           grid-template-areas:
             "copy"
             "visual"
-            "action"
-            "benefits";
+            "action";
           min-height: auto;
           padding-block: var(--hb-space-lg) var(--hb-space-xl);
           row-gap: var(--hb-space-lg);
@@ -926,10 +879,6 @@
         .hb-item-genre__p-hero__cta img {
           width: 28px;
           height: 28px;
-        }
-
-        .hb-item-genre__p-hero__benefits {
-          display: none;
         }
 
         .hb-item-genre__p-condition .hb-item-genre__p-split {
@@ -1128,51 +1077,6 @@
               </a>
             </div>
           </div>
-
-          <ul class="hb-item-genre__p-hero__benefits" role="list">
-            <li class="hb-item-genre__p-hero__benefit">
-              <img
-                src="../images/icon/icon_souryou.svg"
-                alt=""
-                width="54"
-                height="54"
-              />
-              <span><strong>送料無料・手数料無料</strong>すべて当社負担！</span>
-            </li>
-            <li class="hb-item-genre__p-hero__benefit">
-              <img
-                src="../images/icon/icon-sokujitusatei.svg"
-                alt=""
-                width="54"
-                height="54"
-              />
-              <span
-                ><strong>即日査定・スピード対応</strong
-                >最短当日入金も可能！</span
-              >
-            </li>
-            <li class="hb-item-genre__p-hero__benefit">
-              <img
-                src="../images/icon/icon-takuhai_kit.svg"
-                alt=""
-                width="54"
-                height="54"
-              />
-              <span><strong>箱に詰めて送るだけ</strong>宅配キット無料！</span>
-            </li>
-            <li class="hb-item-genre__p-hero__benefit">
-              <img
-                src="../images/icon/icon-senmonsutahu.svg"
-                alt=""
-                width="54"
-                height="54"
-              />
-              <span
-                ><strong>専門スタッフが丁寧に査定</strong
-                >価値をしっかり評価！</span
-              >
-            </li>
-          </ul>
         </div>
       </section>
 
