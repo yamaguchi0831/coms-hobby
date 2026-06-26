@@ -1,660 +1,718 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>買取実績 | バイバイコムズ ホビー買取</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../asset/css/tokens.css" />
-    <link rel="stylesheet" href="../asset/css/reset.css" />
-    <link rel="stylesheet" href="../asset/css/base.css" />
-    <link rel="stylesheet" href="../asset/css/utility.css" />
-    <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
-    <script src="../asset/js/include-components.js" defer></script>
-    <script src="../asset/js/component.js" defer></script>
-    <style>
-      .hb-page-genre-list__c-section-head {
-        max-width: 820px;
-        margin-bottom: var(--hb-space-2xl);
-      }
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>買取品目一覧 | バイバイコムズ ホビー買取</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../asset/css/tokens.css" />
+        <link rel="stylesheet" href="../asset/css/reset.css" />
+        <link rel="stylesheet" href="../asset/css/base.css" />
+        <link rel="stylesheet" href="../asset/css/utility.css" />
+        <link rel="stylesheet" href="../asset/css/component.css?v=20260528" />
+        <script src="../asset/js/include-components.js" defer></script>
+        <script src="../asset/js/component.js" defer></script>
+        <style>
+            .hb-page-genre-list__c-section-head {
+                max-width: 820px;
+                margin-bottom: var(--hb-space-2xl);
+            }
 
-      .hb-page-genre-list__c-section-head--center {
-        margin-inline: auto;
-        text-align: center;
-      }
+            .hb-page-genre-list__c-section-head--center {
+                margin-inline: auto;
+                text-align: center;
+            }
 
-      .hb-page-genre-list__c-section-head__kicker {
-        display: inline-block;
-        margin-bottom: var(--hb-space-sm);
-        color: var(--hb-color-primary-600);
-        font-family: "Noto Sans JP", sans-serif;
-        font-size: var(--hb-font-size-caption);
-        font-weight: 500;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
+            .hb-page-genre-list__c-section-head__kicker {
+                display: inline-block;
+                margin-bottom: var(--hb-space-sm);
+                color: var(--hb-color-primary-600);
+                font-family: "Noto Sans JP", sans-serif;
+                font-size: var(--hb-font-size-caption);
+                font-weight: 500;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+            }
 
-      .hb-page-genre-list__c-section-head__title {
-        margin: 0;
-        color: var(--hb-color-text-deep);
-        font-size: clamp(26px, 3.4vw, var(--hb-font-size-h1));
-        font-weight: 900;
-        letter-spacing: 0;
-        line-height: 1.4;
-      }
+            .hb-page-genre-list__c-section-head__title {
+                margin: 0;
+                color: var(--hb-color-text-deep);
+                font-size: clamp(26px, 3.4vw, var(--hb-font-size-h1));
+                font-weight: 900;
+                letter-spacing: 0;
+                line-height: 1.4;
+            }
 
-      .hb-page-genre-list__c-hl {
-        color: var(--hb-color-primary-600);
-      }
+            .hb-page-genre-list__c-hl {
+                color: var(--hb-color-primary-600);
+            }
 
-      .hb-page-genre-list__c-section-head__lead {
-        margin: var(--hb-space-md) 0 0;
-        color: var(--hb-color-text-muted);
-        font-size: var(--hb-font-size-h4);
-        line-height: 1.9;
-      }
+            .hb-page-genre-list__c-section-head__lead {
+                margin: var(--hb-space-md) 0 0;
+                color: var(--hb-color-text-muted);
+                font-size: var(--hb-font-size-h4);
+                line-height: 1.9;
+            }
 
-      .hb-page-genre-list__p-case-filter {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: var(--hb-space-sm);
-        margin: calc(var(--hb-space-2xl) * -0.45) auto var(--hb-space-2xl);
-        padding: 0;
-        list-style: none;
-      }
+            .hb-page-genre-list__p-case-filter {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: var(--hb-space-sm);
+                margin: calc(var(--hb-space-2xl) * -0.45) auto
+                    var(--hb-space-2xl);
+                padding: 0;
+                list-style: none;
+            }
 
-      .hb-page-genre-list__p-case-filter-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 34px;
-        padding: 20px;
-        border-radius: var(--hb-radius-full);
-        background: var(--hb-color-surface-pill);
-        color: var(--hb-color-primary-700);
-        font-size: var(--hb-font-size-body--sm);
-        font-weight: 400;
-        line-height: 1.35;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
-        box-shadow: inset 0 -1px 0 var(--hb-color-primary-alpha-8);
-      }
+            .hb-page-genre-list__p-case-filter-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                min-height: 34px;
+                padding: 20px;
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-surface-pill);
+                color: var(--hb-color-primary-700);
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 400;
+                line-height: 1.35;
+                text-align: center;
+                text-decoration: none;
+                white-space: nowrap;
+                box-shadow: inset 0 -1px 0 var(--hb-color-primary-alpha-8);
+            }
 
-      .hb-page-genre-list__p-case-filter-link:hover {
-        background: var(--hb-color-surface-mint-soft);
-        color: var(--hb-color-primary-800);
-      }
+            .hb-page-genre-list__p-case-filter-link:hover {
+                background: var(--hb-color-surface-mint-soft);
+                color: var(--hb-color-primary-800);
+            }
 
-      .hb-page-genre-list__p-case-filter-link.hb__is-active,
-      .hb-page-genre-list__p-case-filter-link[aria-current="page"] {
-        background: var(--hb-color-primary-600);
-        color: var(--hb-color-white);
-      }
+            .hb-page-genre-list__p-case-filter-link.hb__is-active,
+            .hb-page-genre-list__p-case-filter-link[aria-current="page"] {
+                background: var(--hb-color-primary-600);
+                color: var(--hb-color-white);
+            }
 
-      .hb-page-genre-list__p-case-more {
-        display: flex;
-        justify-content: center;
-        margin-top: var(--hb-space-xl);
-      }
+            .hb-page-genre-list__p-case-more {
+                display: flex;
+                justify-content: center;
+                margin-top: var(--hb-space-xl);
+            }
 
-      .hb-page-genre-list__p-case-more-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 176px;
-        min-height: 36px;
-        padding: var(--hb-space-2xs) var(--hb-space-xl);
-        border-radius: var(--hb-radius-full);
-        background: var(--hb-color-surface-pill);
-        color: var(--hb-color-primary-600);
-        font-size: var(--hb-font-size-body);
-        font-weight: 900;
-        line-height: 1.4;
-        text-align: center;
-        text-decoration: none;
-      }
+            .hb-page-genre-list__p-case-more-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 176px;
+                min-height: 36px;
+                padding: var(--hb-space-2xs) var(--hb-space-xl);
+                border-radius: var(--hb-radius-full);
+                background: var(--hb-color-surface-pill);
+                color: var(--hb-color-primary-600);
+                font-size: var(--hb-font-size-body);
+                font-weight: 900;
+                line-height: 1.4;
+                text-align: center;
+                text-decoration: none;
+            }
 
-      .hb-page-genre-list__p-case-more-link:hover {
-        background: var(--hb-color-surface-mint-soft);
-        color: var(--hb-color-primary-800);
-      }
+            .hb-page-genre-list__p-case-more-link:hover {
+                background: var(--hb-color-surface-mint-soft);
+                color: var(--hb-color-primary-800);
+            }
 
-      .hb-page-genre-list__p-cta {
-        margin-bottom: var(--hb-space-3xl);
-      }
+            .hb-page-genre-list__p-cta {
+                margin-bottom: var(--hb-space-3xl);
+            }
 
-      .hb-page-genre-list__p-faq-list {
-        display: grid;
-        gap: var(--hb-space-md);
-        max-width: var(--hb-container);
-        margin: 0 auto;
-      }
+            .hb-page-genre-list__p-faq-list {
+                display: grid;
+                gap: var(--hb-space-md);
+                max-width: var(--hb-container);
+                margin: 0 auto;
+            }
 
-      .hb-page-genre-list__p-faq-item {
-        border: 1px solid var(--hb-color-border-muted);
-        border-radius: var(--hb-radius-md);
-        background: var(--hb-color-white);
-        box-shadow: var(--hb-shadow-sm);
-      }
+            .hb-page-genre-list__p-faq-item {
+                border: 1px solid var(--hb-color-border-muted);
+                border-radius: var(--hb-radius-md);
+                background: var(--hb-color-white);
+                box-shadow: var(--hb-shadow-sm);
+            }
 
-      .hb-page-genre-list__p-faq-question {
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr) auto;
-        gap: var(--hb-space-md);
-        align-items: center;
-        width: 100%;
-        padding: var(--hb-space-lg);
-        color: var(--hb-color-text-deep);
-        font-size: var(--hb-font-size-h4);
-        font-weight: 700;
-        line-height: 1.55;
-        text-align: left;
-      }
+            .hb-page-genre-list__p-faq-question {
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                gap: var(--hb-space-md);
+                align-items: center;
+                width: 100%;
+                padding: var(--hb-space-lg);
+                color: var(--hb-color-text-deep);
+                font-size: var(--hb-font-size-h4);
+                font-weight: 700;
+                line-height: 1.55;
+                text-align: left;
+            }
 
-      .hb-page-genre-list__p-faq-icon {
-        display: inline-grid;
-        width: var(--hb-space-xl);
-        height: var(--hb-space-xl);
-        place-items: center;
-        border-radius: var(--hb-radius-full);
-        color: var(--hb-color-white);
-        font-family: "Noto Sans JP", sans-serif;
-        font-size: var(--hb-font-size-body--sm);
-        font-weight: 700;
-      }
+            .hb-page-genre-list__p-faq-icon {
+                display: inline-grid;
+                width: var(--hb-space-xl);
+                height: var(--hb-space-xl);
+                place-items: center;
+                border-radius: var(--hb-radius-full);
+                color: var(--hb-color-white);
+                font-family: "Noto Sans JP", sans-serif;
+                font-size: var(--hb-font-size-body--sm);
+                font-weight: 700;
+            }
 
-      .hb-page-genre-list__p-faq-icon--q {
-        background: var(--hb-color-primary-500);
-      }
+            .hb-page-genre-list__p-faq-icon--q {
+                background: var(--hb-color-primary-500);
+            }
 
-      .hb-page-genre-list__p-faq-icon--a {
-        background: var(--hb-color-tertiary-500);
-      }
+            .hb-page-genre-list__p-faq-icon--a {
+                background: var(--hb-color-tertiary-500);
+            }
 
-      .hb-page-genre-list__p-faq-toggle {
-        color: var(--hb-color-primary-600);
-        font-size: var(--hb-font-size-h3);
-        font-weight: 900;
-        line-height: 1;
-      }
+            .hb-page-genre-list__p-faq-toggle {
+                color: var(--hb-color-primary-600);
+                font-size: var(--hb-font-size-h3);
+                font-weight: 900;
+                line-height: 1;
+            }
 
-      .hb-page-genre-list__p-faq-answer {
-        display: none;
-        grid-template-columns: auto minmax(0, 1fr);
-        gap: var(--hb-space-md);
-        padding: 0 var(--hb-space-lg) var(--hb-space-lg);
-      }
+            .hb-page-genre-list__p-faq-answer {
+                display: none;
+                grid-template-columns: auto minmax(0, 1fr);
+                gap: var(--hb-space-md);
+                padding: 0 var(--hb-space-lg) var(--hb-space-lg);
+            }
 
-      .hb-page-genre-list__p-faq-item.hb__is-open
-        .hb-page-genre-list__p-faq-answer {
-        display: grid;
-      }
+            .hb-page-genre-list__p-faq-item.hb__is-open
+                .hb-page-genre-list__p-faq-answer {
+                display: grid;
+            }
 
-      .hb-page-genre-list__p-faq-text {
-        margin: 0;
-        color: var(--hb-color-text-muted);
-        font-size: var(--hb-font-size-body);
-        line-height: 1.9;
-        overflow-wrap: anywhere;
-      }
+            .hb-page-genre-list__p-faq-text {
+                margin: 0;
+                color: var(--hb-color-text-muted);
+                font-size: var(--hb-font-size-body);
+                line-height: 1.9;
+                overflow-wrap: anywhere;
+            }
 
-      @media (max-width: 767px) {
-        .hb-page-genre-list__c-section-head {
-          margin-bottom: var(--hb-space-xl);
-        }
+            @media (max-width: 767px) {
+                .hb-page-genre-list__c-section-head {
+                    margin-bottom: var(--hb-space-xl);
+                }
 
-        .hb-page-genre-list__c-section-head__lead {
-          font-size: var(--hb-font-size-body);
-        }
+                .hb-page-genre-list__c-section-head__lead {
+                    font-size: var(--hb-font-size-body);
+                }
 
-        .hb-page-genre-list__p-case-filter {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: var(--hb-space-xs);
-          margin: calc(var(--hb-space-xl) * -0.35) auto var(--hb-space-xl);
-        }
+                .hb-page-genre-list__p-case-filter {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: var(--hb-space-xs);
+                    margin: calc(var(--hb-space-xl) * -0.35) auto
+                        var(--hb-space-xl);
+                }
 
-        .hb-page-genre-list__p-case-filter-link {
-          min-height: 36px;
-          padding-inline: var(--hb-space-sm);
-          white-space: normal;
-          padding: 5px;
-        }
+                .hb-page-genre-list__p-case-filter-link {
+                    min-height: 36px;
+                    padding-inline: var(--hb-space-sm);
+                    white-space: normal;
+                    padding: 5px;
+                }
 
-        .hb-page-genre-list__p-case-more {
-          margin-top: var(--hb-space-lg);
-        }
+                .hb-page-genre-list__p-case-more {
+                    margin-top: var(--hb-space-lg);
+                }
 
-        .hb-page-genre-list__p-case-more-link {
-          min-width: min(100%, 176px);
-        }
+                .hb-page-genre-list__p-case-more-link {
+                    min-width: min(100%, 176px);
+                }
 
-        .hb-page-genre-list__p-cta {
-          margin-bottom: var(--hb-space-2xl);
-        }
+                .hb-page-genre-list__p-cta {
+                    margin-bottom: var(--hb-space-2xl);
+                }
 
-        .hb-page-genre-list__p-faq-question {
-          gap: var(--hb-space-sm);
-          padding: var(--hb-space-md);
-        }
+                .hb-page-genre-list__p-faq-question {
+                    gap: var(--hb-space-sm);
+                    padding: var(--hb-space-md);
+                }
 
-        .hb-page-genre-list__p-faq-answer {
-          gap: var(--hb-space-sm);
-          padding: 0 var(--hb-space-md) var(--hb-space-md);
-        }
+                .hb-page-genre-list__p-faq-answer {
+                    gap: var(--hb-space-sm);
+                    padding: 0 var(--hb-space-md) var(--hb-space-md);
+                }
 
-        .hb-page-genre-list__p-faq-icon {
-          width: var(--hb-space-lg);
-          height: var(--hb-space-lg);
-        }
+                .hb-page-genre-list__p-faq-icon {
+                    width: var(--hb-space-lg);
+                    height: var(--hb-space-lg);
+                }
 
-        .hb-page-genre-list__p-faq-text {
-          font-size: var(--hb-font-size-body--sm);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div data-hb-include="../components/header.html"></div>
+                .hb-page-genre-list__p-faq-text {
+                    font-size: var(--hb-font-size-body--sm);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div data-hb-include="../components/header.html"></div>
 
-    <main id="top">
-      <section class="hb__p-subpage-title" aria-label="買取実績">
-        <div class="hb__l-container hb__p-subpage-title__inner">
-          <h1 class="hb__p-subpage-title__heading">買取実績</h1>
-        </div>
-      </section>
+        <main id="top">
+            <section class="hb__p-subpage-title" aria-label="買取実績">
+                <div class="hb__l-container hb__p-subpage-title__inner">
+                    <h1 class="hb__p-subpage-title__heading">買取実績</h1>
+                </div>
+            </section>
 
-      <div class="hb__l-container">
-        <nav
-          class="hb__p-subpage-title__breadcrumb-area"
-          aria-label="パンくずリスト"
-        >
-          <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
-            <li class="hb__p-subpage-title__breadcrumb-item">
-              <a
-                class="hb__p-subpage-title__breadcrumb-link"
-                href="../index.html"
-                >TOP</a
-              >
-            </li>
-            <li
-              class="hb__p-subpage-title__breadcrumb-separator"
-              aria-hidden="true"
-            >
-              &gt;
-            </li>
-            <li
-              class="hb__p-subpage-title__breadcrumb-current"
-              aria-current="page"
-            >
-              買取実績
-            </li>
-          </ol>
-        </nav>
-      </div>
-
-      <section class="hb__l-section hb__l-section--soft" id="genres">
-        <div class="hb__l-container">
-          <header
-            class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
-          >
-            <span class="hb-page-genre-list__c-section-head__kicker"
-              >Genres</span
-            >
-            <h2 class="hb-page-genre-list__c-section-head__title">
-              幅広い
-              <span class="hb-page-genre-list__c-hl">買取品目</span>
-            </h2>
-            <p class="hb-page-genre-list__c-section-head__lead">
-              定番ジャンルからコレクター向けアイテムまで、まとめて査定できます。
-            </p>
-          </header>
-          <div data-hb-include="../components/genre-table.html"></div>
-        </div>
-      </section>
-
-      <div class="hb__l-container hb-page-genre-list__p-cta">
-        <div data-hb-include="../components/parts-cta.html"></div>
-      </div>
-
-      <section class="hb__l-section" id="cases">
-        <div class="hb__l-container">
-          <header
-            class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
-          >
-            <span class="hb-page-genre-list__c-section-head__kicker"
-              >Cases</span
-            >
-            <h2 class="hb-page-genre-list__c-section-head__title">
-              最近の
-              <span class="hb-page-genre-list__c-hl">買取実績</span>
-            </h2>
-            <p class="hb-page-genre-list__c-section-head__lead">
-              フィギュア・プラモデル・カードなど、実際にお売りいただいたホビーの一例です。
-            </p>
-          </header>
-          <ul class="hb-page-genre-list__p-case-filter" role="list">
-            <li>
-              <a
-                class="hb-page-genre-list__p-case-filter-link hb__is-active"
-                href="#"
-                aria-current="page"
-                >TOP</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >機動戦士ガンダム</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >超合金/メタルビルド</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >LEGO</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >プラモデル</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >鉄道模型</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >ソフビ</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >特撮グッズ</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >レトロゲーム</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >レトロ玩具/昭和玩具</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >ミニカー</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >フィギュア</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >無線機</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >ディズニー</a
-              >
-            </li>
-            <li>
-              <a class="hb-page-genre-list__p-case-filter-link" href="#"
-                >アメトイ</a
-              >
-            </li>
-          </ul>
-          <div data-hb-include="../components/purchase-cases.html"></div>
-          <div class="hb-page-genre-list__p-case-more">
-            <a class="hb-page-genre-list__p-case-more-link" href="#"
-              >もっと見る</a
-            >
-          </div>
-        </div>
-      </section>
-
-
-
-      <section class="hb__l-section" id="methods">
-        <div class="hb__l-container">
-          <header
-            class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
-          >
-            <span class="hb-page-genre-list__c-section-head__kicker"
-              >Methods</span
-            >
-            <h2 class="hb-page-genre-list__c-section-head__title">
-              あなたに合わせて選べる、<br />
-              <span class="hb-page-genre-list__c-hl"
-                >3つの買取方法</span
-              >
-            </h2>
-            <p class="hb-page-genre-list__c-section-head__lead">
-              量やお住まいの地域、ご希望の進め方に合わせて選べます。
-            </p>
-          </header>
-          <div data-hb-include="../components/purchase-methods.html"></div>
-        </div>
-      </section>
-
-      <div class="hb__l-container hb-page-genre-list__p-cta">
-        <div data-hb-include="../components/parts-cta.html"></div>
-      </div>
-
-      <section class="hb__l-section hb__l-section--soft" id="reviews">
-        <div class="hb__l-container">
-          <header
-            class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
-          >
-            <span class="hb-page-genre-list__c-section-head__kicker"
-              >Reviews</span
-            >
-            <h2 class="hb-page-genre-list__c-section-head__title">
-              お客様の
-              <span class="hb-page-genre-list__c-hl">声</span>
-            </h2>
-            <p class="hb-page-genre-list__c-section-head__lead">
-              実際にご利用いただいたお客様からのレビューです。
-            </p>
-          </header>
-          <div data-hb-include="../components/customer-reviews.html"></div>
-        </div>
-      </section>
-
-      <section class="hb__l-section" id="faq">
-        <div class="hb__l-container">
-          <header
-            class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
-          >
-            <span class="hb-page-genre-list__c-section-head__kicker"
-              >FAQ</span
-            >
-            <h2 class="hb-page-genre-list__c-section-head__title">
-              よくある
-              <span class="hb-page-genre-list__c-hl">質問</span>
-            </h2>
-          </header>
-
-          <div class="hb-page-genre-list__p-faq-list">
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
+            <div class="hb__l-container">
+                <nav
+                    class="hb__p-subpage-title__breadcrumb-area"
+                    aria-label="パンくずリスト"
                 >
-                <span>送料・査定料・返送料は本当に無料ですか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  はい、すべて無料です。査定金額にご納得いただけず返送される場合も、返送料は当社負担です。
-                  「とりあえず査定だけ」というご相談も大歓迎ですので、お気軽にお申込みください。
-                </p>
-              </div>
-            </article>
+                    <ol class="hb__l-container hb__p-subpage-title__breadcrumb">
+                        <li class="hb__p-subpage-title__breadcrumb-item">
+                            <a
+                                class="hb__p-subpage-title__breadcrumb-link"
+                                href="../index.html"
+                                >TOP</a
+                            >
+                        </li>
+                        <li
+                            class="hb__p-subpage-title__breadcrumb-separator"
+                            aria-hidden="true"
+                        >
+                            &gt;
+                        </li>
+                        <li
+                            class="hb__p-subpage-title__breadcrumb-current"
+                            aria-current="page"
+                        >
+                            買取実績
+                        </li>
+                    </ol>
+                </nav>
+            </div>
 
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
-                >
-                <span>箱なし・付属品なしでも買取してもらえますか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  買取可能です。ただし、箱・説明書・付属品が揃っているほうが査定金額は高くなる傾向にあります。
-                  状態に不安がある場合も、ひとまず査定にお出しください。1点ずつ丁寧に査定いたします。
-                </p>
-              </div>
-            </article>
+            <section class="hb__l-section hb__l-section--soft" id="genres">
+                <div class="hb__l-container">
+                    <header
+                        class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
+                    >
+                        <span class="hb-page-genre-list__c-section-head__kicker"
+                            >Genres</span
+                        >
+                        <h2 class="hb-page-genre-list__c-section-head__title">
+                            幅広い
+                            <span class="hb-page-genre-list__c-hl"
+                                >買取品目</span
+                            >
+                        </h2>
+                        <p class="hb-page-genre-list__c-section-head__lead">
+                            定番ジャンルからコレクター向けアイテムまで、まとめて査定できます。
+                        </p>
+                    </header>
+                    <div data-hb-include="../components/genre-table.html"></div>
+                </div>
+            </section>
 
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
-                >
-                <span>何点から買取してもらえますか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  1点からお預かりいたします。逆に、段ボール30箱以上の大量買取にも対応可能ですので、
-                  量を気にせずまとめてお送りください。
-                </p>
-              </div>
-            </article>
+            <div class="hb__l-container hb-page-genre-list__p-cta">
+                <div data-hb-include="../components/parts-cta.html"></div>
+            </div>
 
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
-                >
-                <span>入金までどのくらいかかりますか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  商品到着から最短当日に査定、ご承諾いただいたあと最短1営業日でお振込みします。
-                  点数が多い場合は2〜3営業日いただくことがあります。
-                </p>
-              </div>
-            </article>
+            <section class="hb__l-section" id="cases">
+                <div class="hb__l-container">
+                    <header
+                        class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
+                    >
+                        <span class="hb-page-genre-list__c-section-head__kicker"
+                            >Cases</span
+                        >
+                        <h2 class="hb-page-genre-list__c-section-head__title">
+                            最近の
+                            <span class="hb-page-genre-list__c-hl"
+                                >買取実績</span
+                            >
+                        </h2>
+                        <p class="hb-page-genre-list__c-section-head__lead">
+                            フィギュア・プラモデル・カードなど、実際にお売りいただいたホビーの一例です。
+                        </p>
+                    </header>
+                    <ul class="hb-page-genre-list__p-case-filter" role="list">
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link hb__is-active"
+                                href="#"
+                                aria-current="page"
+                                >TOP</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >機動戦士ガンダム</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >超合金/メタルビルド</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >LEGO</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >プラモデル</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >鉄道模型</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >ソフビ</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >特撮グッズ</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >レトロゲーム</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >レトロ玩具/昭和玩具</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >ミニカー</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >フィギュア</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >無線機</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >ディズニー</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="hb-page-genre-list__p-case-filter-link"
+                                href="#"
+                                >アメトイ</a
+                            >
+                        </li>
+                    </ul>
+                    <div
+                        data-hb-include="../components/purchase-cases.html"
+                    ></div>
+                    <div class="hb-page-genre-list__p-case-more">
+                        <a class="hb-page-genre-list__p-case-more-link" href="#"
+                            >もっと見る</a
+                        >
+                    </div>
+                </div>
+            </section>
 
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
-                >
-                <span>査定金額に納得できない場合はどうなりますか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  キャンセル可能です。当社負担で全品を元の状態でご返送いたします。
-                  キャンセル料・返送料はかかりません。
-                </p>
-              </div>
-            </article>
+            <section class="hb__l-section" id="methods">
+                <div class="hb__l-container">
+                    <header
+                        class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
+                    >
+                        <span class="hb-page-genre-list__c-section-head__kicker"
+                            >Methods</span
+                        >
+                        <h2 class="hb-page-genre-list__c-section-head__title">
+                            あなたに合わせて選べる、<br />
+                            <span class="hb-page-genre-list__c-hl"
+                                >3つの買取方法</span
+                            >
+                        </h2>
+                        <p class="hb-page-genre-list__c-section-head__lead">
+                            量やお住まいの地域、ご希望の進め方に合わせて選べます。
+                        </p>
+                    </header>
+                    <div
+                        data-hb-include="../components/purchase-methods.html"
+                    ></div>
+                </div>
+            </section>
 
-            <article class="hb-page-genre-list__p-faq-item">
-              <button
-                class="hb-page-genre-list__p-faq-question"
-                type="button"
-                aria-expanded="false"
-                data-hb-faq-question
-              >
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
-                  >Q</span
-                >
-                <span>個人情報はどのように管理されていますか？</span>
-                <span class="hb-page-genre-list__p-faq-toggle">＋</span>
-              </button>
-              <div class="hb-page-genre-list__p-faq-answer">
-                <span
-                  class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
-                  >A</span
-                >
-                <p class="hb-page-genre-list__p-faq-text">
-                  SSL通信による暗号化、および古物営業法に基づく管理を徹底しています。
-                  お客様情報を第三者に開示・販売することは一切ありません。
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+            <div class="hb__l-container hb-page-genre-list__p-cta">
+                <div data-hb-include="../components/parts-cta.html"></div>
+            </div>
 
-      <div class="hb__l-container hb-page-genre-list__p-cta">
-        <div data-hb-include="../components/parts-cta.html"></div>
-      </div>
-    </main>
+            <section class="hb__l-section hb__l-section--soft" id="reviews">
+                <div class="hb__l-container">
+                    <header
+                        class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
+                    >
+                        <span class="hb-page-genre-list__c-section-head__kicker"
+                            >Reviews</span
+                        >
+                        <h2 class="hb-page-genre-list__c-section-head__title">
+                            お客様の
+                            <span class="hb-page-genre-list__c-hl">声</span>
+                        </h2>
+                        <p class="hb-page-genre-list__c-section-head__lead">
+                            実際にご利用いただいたお客様からのレビューです。
+                        </p>
+                    </header>
+                    <div
+                        data-hb-include="../components/customer-reviews.html"
+                    ></div>
+                </div>
+            </section>
 
-    <div data-hb-include="../components/footer.html"></div>
-  </body>
+            <section class="hb__l-section" id="faq">
+                <div class="hb__l-container">
+                    <header
+                        class="hb-page-genre-list__c-section-head hb-page-genre-list__c-section-head--center"
+                    >
+                        <span class="hb-page-genre-list__c-section-head__kicker"
+                            >FAQ</span
+                        >
+                        <h2 class="hb-page-genre-list__c-section-head__title">
+                            よくある
+                            <span class="hb-page-genre-list__c-hl">質問</span>
+                        </h2>
+                    </header>
+
+                    <div class="hb-page-genre-list__p-faq-list">
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >送料・査定料・返送料は本当に無料ですか？</span
+                                >
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    はい、すべて無料です。査定金額にご納得いただけず返送される場合も、返送料は当社負担です。
+                                    「とりあえず査定だけ」というご相談も大歓迎ですので、お気軽にお申込みください。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >箱なし・付属品なしでも買取してもらえますか？</span
+                                >
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    買取可能です。ただし、箱・説明書・付属品が揃っているほうが査定金額は高くなる傾向にあります。
+                                    状態に不安がある場合も、ひとまず査定にお出しください。1点ずつ丁寧に査定いたします。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span>何点から買取してもらえますか？</span>
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    1点からお預かりいたします。逆に、段ボール30箱以上の大量買取にも対応可能ですので、
+                                    量を気にせずまとめてお送りください。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span>入金までどのくらいかかりますか？</span>
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    商品到着から最短当日に査定、ご承諾いただいたあと最短1営業日でお振込みします。
+                                    点数が多い場合は2〜3営業日いただくことがあります。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >査定金額に納得できない場合はどうなりますか？</span
+                                >
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    キャンセル可能です。当社負担で全品を元の状態でご返送いたします。
+                                    キャンセル料・返送料はかかりません。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="hb-page-genre-list__p-faq-item">
+                            <button
+                                class="hb-page-genre-list__p-faq-question"
+                                type="button"
+                                aria-expanded="false"
+                                data-hb-faq-question
+                            >
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--q"
+                                    >Q</span
+                                >
+                                <span
+                                    >個人情報はどのように管理されていますか？</span
+                                >
+                                <span class="hb-page-genre-list__p-faq-toggle"
+                                    >＋</span
+                                >
+                            </button>
+                            <div class="hb-page-genre-list__p-faq-answer">
+                                <span
+                                    class="hb-page-genre-list__p-faq-icon hb-page-genre-list__p-faq-icon--a"
+                                    >A</span
+                                >
+                                <p class="hb-page-genre-list__p-faq-text">
+                                    SSL通信による暗号化、および古物営業法に基づく管理を徹底しています。
+                                    お客様情報を第三者に開示・販売することは一切ありません。
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <div class="hb__l-container hb-page-genre-list__p-cta">
+                <div data-hb-include="../components/parts-cta.html"></div>
+            </div>
+        </main>
+
+        <div data-hb-include="../components/footer.html"></div>
+    </body>
 </html>
