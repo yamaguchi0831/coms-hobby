@@ -1668,6 +1668,7 @@
 .hb__p-parts-cta {
   position: relative;
   margin-top: var(--hb-space-md);
+  margin-bottom: var(--hb-space-md);
   padding: 0;
   border-radius: var(--hb-radius-sm);
   color: var(--hb-color-text-deep);
