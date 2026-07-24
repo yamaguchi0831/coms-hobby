@@ -263,6 +263,119 @@
           text-align: left;
         }
       }
+
+      .hb-faq__p-faq-list {
+        display: grid;
+        gap: var(--hb-space-md);
+        width: min(
+          calc(100% - (var(--hb-layout-gutter) * 2)),
+          var(--hb-layout-container-sm)
+        );
+        margin: 0 auto;
+      }
+
+      .hb-faq__p-faq-item {
+        border: 1px solid var(--hb-color-border-muted);
+        border-radius: var(--hb-radius-md);
+        background: var(--hb-color-white);
+        box-shadow: var(--hb-shadow-sm);
+      }
+
+      .hb-faq__p-faq-question {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: var(--hb-space-md);
+        align-items: center;
+        width: 100%;
+        padding: var(--hb-space-lg);
+        border: 0;
+        background: transparent;
+        color: var(--hb-color-text-deep);
+        font: inherit;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .hb-faq__p-faq-icon {
+        display: inline-grid;
+        width: var(--hb-space-xl);
+        height: var(--hb-space-xl);
+        place-items: center;
+        border-radius: var(--hb-radius-full);
+        color: var(--hb-color-white);
+        font-size: var(--hb-font-size-body--sm);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hb-faq__p-faq-icon--q {
+        background: var(--hb-color-primary-500);
+      }
+
+      .hb-faq__p-faq-icon--a {
+        background: var(--hb-color-tertiary-500);
+      }
+
+      .hb-faq__p-faq-toggle {
+        color: var(--hb-color-primary-600);
+        font-size: var(--hb-font-size-h3);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hb-faq__p-faq-answer {
+        display: none;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--hb-space-md);
+        padding: 0 var(--hb-space-lg) var(--hb-space-lg);
+        color: var(--hb-color-text-muted);
+        line-height: 1.9;
+      }
+
+      .hb-faq__p-faq-answer-body {
+        display: grid;
+        gap: var(--hb-space-sm);
+        min-width: 0;
+      }
+
+      .hb-faq__p-faq-text {
+        margin: 0;
+        color: var(--hb-color-text-muted);
+        font-size: var(--hb-font-size-body);
+        line-height: 1.9;
+        overflow-wrap: anywhere;
+      }
+
+      .hb-faq__p-faq-answer > .hb__p-parts-cta {
+        grid-column: 1 / -1;
+      }
+
+      .hb-faq__p-faq-item.hb-faq__is-open .hb-faq__p-faq-answer {
+        display: grid;
+      }
+
+      @media (max-width: 767px) {
+        .hb-faq__p-faq-question {
+          padding: var(--hb-space-md);
+          gap: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-faq-answer {
+          padding: 0 var(--hb-space-md) var(--hb-space-md);
+          gap: var(--hb-space-sm);
+        }
+
+        .hb-faq__p-faq-icon {
+          width: var(--hb-space-lg);
+          height: var(--hb-space-lg);
+        }
+
+        .hb-faq__p-faq-text {
+          font-size: var(--hb-font-size-body--sm);
+        }
+      }
     </style>
   </head>
   <body>
@@ -585,8 +698,187 @@
           </div>
         </div>
       </section>
+
+      <!-- ============================== お客様の声 ============================== -->
+      <section class="hb__l-section" id="reviews">
+        <div class="hb__l-container">
+          <header class="hb__c-section-head hb__c-section-head--center">
+            <span class="hb__c-section-head__kicker">Reviews</span>
+            <h2 class="hb__c-section-head__title">
+              お客様の <span class="hb__c-hl">声</span>
+            </h2>
+            <p class="hb__c-section-head__lead">
+              実際にご利用いただいたお客様からのレビューです。
+            </p>
+          </header>
+
+          <div data-hb-include="../components/customer-reviews.html"></div>
+        </div>
+      </section>
+
+      <!-- ============================== よくある質問 ============================== -->
+      <section class="hb__l-section hb__l-section--soft" id="faq">
+        <div class="hb__l-container--sm">
+          <header class="hb__c-section-head hb__c-section-head--center">
+            <span class="hb__c-section-head__kicker">FAQ</span>
+            <h2 class="hb__c-section-head__title">
+              よくある <span class="hb__c-hl">質問</span>
+            </h2>
+          </header>
+
+          <div class="hb-faq__p-faq-list">
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>送料・査定料・返送料は本当に無料ですか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    はい、すべて無料です。査定金額にご納得いただけず返送される場合も、返送料は当社負担です。
+                    「とりあえず査定だけ」というご相談も大歓迎ですので、お気軽にお申込みください。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>箱なし・付属品なしでも買取してもらえますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    買取可能です。ただし、箱・説明書・付属品が揃っているほうが査定金額は高くなる傾向にあります。
+                    状態に不安がある場合も、ひとまず査定にお出しください。1点ずつ丁寧に査定いたします。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>何点から買取してもらえますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    1点からお預かりいたします。逆に、段ボール30箱以上の大量買取にも対応可能ですので、
+                    量を気にせずまとめてお送りください。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>入金までどのくらいかかりますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    商品到着から最短当日に査定、ご承諾いただいたあと最短1営業日でお振込みします。
+                    点数が多い場合は2〜3営業日いただくことがあります。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>査定金額に納得できない場合はどうなりますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    キャンセル可能です。当社負担で全品を元の状態でご返送いたします。
+                    キャンセル料・返送料はかかりません。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+
+            <article class="hb-faq__p-faq-item">
+              <button
+                class="hb-faq__p-faq-question"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--q">Q</span>
+                <span>個人情報はどのように管理されていますか？</span>
+                <span class="hb-faq__p-faq-toggle">＋</span>
+              </button>
+              <div class="hb-faq__p-faq-answer">
+                <span class="hb-faq__p-faq-icon hb-faq__p-faq-icon--a">A</span>
+                <div class="hb-faq__p-faq-answer-body">
+                  <p class="hb-faq__p-faq-text">
+                    SSL通信による暗号化、および古物営業法に基づく管理を徹底しています。
+                    お客様情報を第三者に開示・販売することは一切ありません。
+                  </p>
+                </div>
+                <div data-hb-include="../components/parts-cta.html"></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <div data-hb-include="../components/footer-cta.html"></div>
     <div data-hb-include="../components/footer.html"></div>
+
+    <script>
+      document
+        .querySelectorAll(".hb-faq__p-faq-question")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            const item = button.closest(".hb-faq__p-faq-item");
+            const isOpen = item.classList.toggle("hb-faq__is-open");
+            button.setAttribute("aria-expanded", String(isOpen));
+            button.querySelector(".hb-faq__p-faq-toggle").textContent = isOpen
+              ? "－"
+              : "＋";
+          });
+        });
+    </script>
   </body>
 </html>
