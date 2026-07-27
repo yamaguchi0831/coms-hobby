@@ -1709,10 +1709,11 @@
   min-width: 0;
   min-height: 96px;
   padding: var(--hb-space-sm);
-  border: 1px solid rgb(0 0 0 / 6%);
+  border: 1px solid #c9dccf;
   border-radius: var(--hb-radius-sm);
   color: #061f0d;
   text-decoration: none;
+  background-color: #f7fbf8;
 }
 
 .hb__p-parts-cta__ch:hover {
